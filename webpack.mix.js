@@ -39,7 +39,7 @@ mix.js('resources/js/app.js', 'public/js')
     .copyDirectory('resources/assets/images', 'public/images'); // Copy all images from resources to public folder
 
 
-// Change below options according to your requirement
+// Change below options according to your requirem
 if (mix.inProduction()) {
     mix.version();
     mix.webpackConfig({
