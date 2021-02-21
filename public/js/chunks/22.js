@@ -2073,9 +2073,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
 //
 //
 //
@@ -2142,8 +2139,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
+// import firebase from 'firebase/app'
+// import 'firebase/auth'
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -2155,19 +2152,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     logout: function logout() {
-      var _this = this;
-
       // if user is logged in via auth0
       if (this.$auth.profile) this.$auth.logOut(); // if user is logged in via firebase
-
-      var firebaseCurrentUser = firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.auth().currentUser;
-
-      if (firebaseCurrentUser) {
-        firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.auth().signOut().then(function () {
-          _this.$router.push('/pages/login')["catch"](function () {});
-        });
-      } // If JWT login
-
+      // const firebaseCurrentUser = firebase.auth().currentUser
+      // if (firebaseCurrentUser) {
+      //     firebase.auth().signOut().then(() => {
+      //         this.$router.push('/pages/login').catch(() => {})
+      //     })
+      // }
+      // If JWT login
 
       if (localStorage.getItem("accessToken")) {
         localStorage.removeItem("accessToken");
