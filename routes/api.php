@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,5 +24,12 @@ Route::group(['prefix' => 'auth'], function () {
     Route::group(['middleware' => 'auth:api'], function() {
       Route::get('logout', 'AuthController@logout');
       Route::get('user', 'AuthController@user');
+
     });
+  });
+
+
+Route::group(['middleware' => 'auth:api'], function() {
+  Route::resource('customers', CustomerController::class);
+  Route::resource('transactions', TransactionController::class);
 });

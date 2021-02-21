@@ -1,18 +1,20 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[92],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-form-wizard */ "./node_modules/vue-form-wizard/dist/vue-form-wizard.js");
-/* harmony import */ var vue_form_wizard__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_form_wizard_dist_vue_form_wizard_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-form-wizard/dist/vue-form-wizard.min.css */ "./node_modules/vue-form-wizard/dist/vue-form-wizard.min.css");
-/* harmony import */ var vue_form_wizard_dist_vue_form_wizard_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_form_wizard_dist_vue_form_wizard_min_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/store/user-management/moduleUserManagement.js */ "./resources/js/src/store/user-management/moduleUserManagement.js");
+/* harmony import */ var vuejs_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuejs-datepicker */ "./node_modules/vuejs-datepicker/dist/vuejs-datepicker.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -72,474 +74,84 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+// import UserCreateTabAccount     from "./UserCreateTabAccount.vue"
+// import UserCreateTabInformation from "./UserCreateTabInformation.vue"
+// import UserCreateTabSocial      from "./UserCreateTabSocial.vue"
+// Store Module
 
 
 
-var ItemListView = function ItemListView() {
-  return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./components/ItemListView.vue */ "./resources/js/src/views/apps/eCommerce/components/ItemListView.vue"));
-};
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Datepicker: vuejs_datepicker__WEBPACK_IMPORTED_MODULE_1__["default"],
+    vSelect: vue_select__WEBPACK_IMPORTED_MODULE_3___default.a // UserCreateTabAccount,
+    // UserCreateTabInformation,
+    // UserCreateTabSocial,
+
+  },
   data: function data() {
     return {
-      // TAB 2
-      fullName: "",
-      mobileNum: "",
-      pincode: "",
-      houseNum: "",
-      area: "",
-      landmark: "",
-      city: "",
-      state: "",
-      addressType: 1,
-      addressTypeOptions: [{
-        text: 'Home',
-        value: 1
-      }, {
-        text: 'Office',
-        value: 2
-      }],
-      // TAB 3
-      paymentMethod: "debit-card",
-      cvv: ''
+      user_data: {
+        name: null,
+        phone: null,
+        join_date: null,
+        currency: null,
+        amount_paid: null,
+        group: null,
+        status: null
+      },
+      test: 123,
+      statusOptions: ["Active", "Blocked", "Deactivated"],
+      groupOptions: ["Admin", "Customer", "Staff"]
     };
   },
-  computed: {
-    cartItems: function cartItems() {
-      return this.$store.state.eCommerce.cartItems.slice().reverse();
-    },
-    isInWishList: function isInWishList() {
+  watch: {},
+  methods: {
+    // createCustomer() {
+    //   // alert("clicked")
+    //   this.$store.dispatch("userManagement/createCustomer", this.user_data)
+    //     .then(res => { this.user_data = res.data })
+    //     .catch(err => {
+    //       if(err.response.status === 404) {
+    //         // this.user_not_found = true
+    //         return
+    //       }
+    //       alert.error(err) })
+    // }
+    createCustomer: function createCustomer(_ref) {
       var _this = this;
 
-      return function (itemId) {
-        return _this.$store.getters['eCommerce/isInWishList'](itemId);
-      };
-    }
-  },
-  methods: {
-    // TAB 1
-    removeItemFromCart: function removeItemFromCart(item) {
-      this.$store.dispatch('eCommerce/toggleItemInCart', item);
-    },
-    wishListButtonClicked: function wishListButtonClicked(item) {
-      // Toggle in Wish List
-      if (this.isInWishList(item.objectID)) this.$router.push('/apps/eCommerce/wish-list')["catch"](function () {});else {
-        this.toggleItemInWishList(item);
-        this.removeItemFromCart(item);
-      }
-    },
-    toggleItemInWishList: function toggleItemInWishList(item) {
-      this.$store.dispatch('eCommerce/toggleItemInWishList', item);
-    },
-    updateItemQuantity: function updateItemQuantity(event, index) {
-      var itemIndex = Math.abs(index + 1 - this.cartItems.length);
-      this.$store.dispatch("eCommerce/updateItemQuantity", {
-        quantity: event,
-        index: itemIndex
-      });
-    },
-    // TAB 2
-    submitNewAddressForm: function submitNewAddressForm() {
-      var _this2 = this;
+      var commit = _ref.commit;
+      var customer = this.user_data; // alert(customer.name)
 
-      return new Promise(function () {
-        _this2.$validator.validateAll('add-new-address').then(function (result) {
-          if (result) {
-            // if form have no errors
-            _this2.$refs.checkoutWizard.nextTab();
-          } else {
-            _this2.$vs.notify({
-              title: 'Error',
-              text: 'Please enter valid details',
-              color: 'warning',
-              iconPack: 'feather',
-              icon: 'icon-alert-circle'
-            });
-          }
-        });
-      });
-    },
-    // TAB 3
-    makePayment: function makePayment() {
-      var _this3 = this;
+      return new Promise(function (resolve, reject) {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/api/customers/", customer).then(function (response) {
+          // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+          resolve(response);
 
-      return new Promise(function () {
-        _this3.$validator.validateAll('cvv-form').then(function (result) {
-          if (result) {
-            // if form have no errors
-            _this3.$vs.notify({
-              title: 'Success',
-              text: 'Payment received successfully',
-              color: 'success',
-              iconPack: 'feather',
-              icon: 'icon-check'
-            });
-          } else {
-            _this3.$vs.notify({
-              title: 'Error',
-              text: 'Please enter valid details',
-              color: 'warning',
-              iconPack: 'feather',
-              icon: 'icon-alert-circle'
-            });
-          }
+          _this.$router.push('/apps/user/user-list')["catch"](function () {});
+        })["catch"](function (error) {
+          reject(error);
         });
       });
     }
   },
-  components: {
-    ItemListView: ItemListView,
-    FormWizard: vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__["FormWizard"],
-    TabContent: vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__["TabContent"]
+  created: function created() {// Register Module UserManagement Module
+    // if(!moduleUserManagement.isRegistered) {
+    //   this.$store.registerModule('userManagement', moduleUserManagement)
+    //   moduleUserManagement.isRegistered = true
+    // }
+    // this.fetch_user_data(this.$route.params.userId)
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "#ecommerce-checkout-demo .item-view-primary-action-btn[data-v-5ea2d3a4] {\n  color: #2c2c2c !important;\n}[dir] #ecommerce-checkout-demo .item-view-primary-action-btn[data-v-5ea2d3a4] {\n  background-color: #f6f6f6;\n}\n#ecommerce-checkout-demo .item-name[data-v-5ea2d3a4] {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n  -webkit-line-clamp: 2;\n}\n[dir] #ecommerce-checkout-demo .vue-form-wizard[data-v-5ea2d3a4] {\n  padding-bottom: 0;\n}\n[dir] #ecommerce-checkout-demo .vue-form-wizard[data-v-5ea2d3a4]  .wizard-header {\n  padding: 0;\n}\n[dir] #ecommerce-checkout-demo .vue-form-wizard[data-v-5ea2d3a4]  .wizard-tab-content {\n  padding-bottom: 0;\n}\n[dir=ltr] #ecommerce-checkout-demo .vue-form-wizard[data-v-5ea2d3a4]  .wizard-tab-content {\n  padding-right: 0;\n  padding-left: 0;\n}\n[dir=rtl] #ecommerce-checkout-demo .vue-form-wizard[data-v-5ea2d3a4]  .wizard-tab-content {\n  padding-left: 0;\n  padding-right: 0;\n}\n[dir] #ecommerce-checkout-demo .vue-form-wizard[data-v-5ea2d3a4]  .wizard-tab-content .wizard-tab-container {\n  margin-bottom: 0 !important;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=template&id=5ea2d3a4&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=template&id=5ea2d3a4&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=template&id=34edd469&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=template&id=34edd469& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -553,1237 +165,248 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { id: "ecommerce-checkout-demo" } },
+    { attrs: { id: "page-user-create" } },
     [
-      _c(
-        "form-wizard",
-        {
-          ref: "checkoutWizard",
-          attrs: {
-            color: "rgba(var(--vs-primary), 1)",
-            title: null,
-            subtitle: null,
-            "hide-buttons": true
-          }
-        },
-        [
+      _c("vx-card", [
+        _c("div", { staticClass: "vx-row" }, [
           _c(
-            "tab-content",
-            {
-              staticClass: "mb-5",
-              attrs: { title: "Cart", icon: "feather icon-shopping-cart" }
-            },
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
             [
-              _vm.cartItems.length
-                ? _c("div", { staticClass: "vx-row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "vx-col lg:w-2/3 w-full relative" },
-                      _vm._l(_vm.cartItems, function(item, index) {
-                        return _c(
-                          "div",
-                          {
-                            key: item.objectID,
-                            staticClass: "items-list-view"
-                          },
-                          [
-                            _c(
-                              "item-list-view",
-                              { staticClass: "mb-base", attrs: { item: item } },
-                              [
-                                _c(
-                                  "template",
-                                  { slot: "item-meta" },
-                                  [
-                                    _c(
-                                      "h6",
-                                      {
-                                        staticClass:
-                                          "item-name font-semibold mb-1 cursor-pointer hover:text-primary",
-                                        on: {
-                                          click: function($event) {
-                                            _vm.$router
-                                              .push({
-                                                name:
-                                                  "ecommerce-item-detail-view",
-                                                params: {
-                                                  item_id: item.objectID
-                                                }
-                                              })
-                                              .catch(function() {})
-                                          }
-                                        }
-                                      },
-                                      [_vm._v(_vm._s(item.name))]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "text-sm mb-2" }, [
-                                      _vm._v("By "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "font-semibold cursor-pointer"
-                                        },
-                                        [_vm._v(_vm._s(item.brand))]
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      { staticClass: "text-success text-sm" },
-                                      [_vm._v("In Stock")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      { staticClass: "mt-4 font-bold text-sm" },
-                                      [_vm._v("Quantity")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("vs-input-number", {
-                                      staticClass: "inline-flex",
-                                      attrs: {
-                                        min: "1",
-                                        max: "10",
-                                        value: item.quantity
-                                      },
-                                      on: {
-                                        input: function($event) {
-                                          return _vm.updateItemQuantity(
-                                            $event,
-                                            index
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "font-medium text-grey mt-4"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "Delivery by, " +
-                                            _vm._s(item.delivery_date)
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass: "text-success font-medium"
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(item.discount_in_percentage) +
-                                            "% off " +
-                                            _vm._s(item.offers_count) +
-                                            " offers Available"
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("template", { slot: "action-buttons" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "item-view-primary-action-btn p-3 rounded-lg flex flex-grow items-center justify-center cursor-pointer mb-3",
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.removeItemFromCart(item)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("feather-icon", {
-                                        attrs: {
-                                          icon: "XIcon",
-                                          svgClasses: "h-4 w-4"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "text-sm font-semibold ml-2"
-                                        },
-                                        [_vm._v("REMOVE")]
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "item-view-secondary-action-btn bg-primary p-3 rounded-lg flex flex-grow items-center justify-center text-white cursor-pointer",
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.wishListButtonClicked(item)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("feather-icon", {
-                                        attrs: {
-                                          icon: "HeartIcon",
-                                          svgClasses: [
-                                            {
-                                              "text-white fill-current": _vm.isInWishList(
-                                                item.objectID
-                                              )
-                                            },
-                                            "h-4 w-4"
-                                          ]
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _vm.isInWishList(item.objectID)
-                                        ? _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "text-sm font-semibold ml-2"
-                                            },
-                                            [_vm._v("WISHLIST")]
-                                          )
-                                        : _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "text-sm font-semibold ml-2"
-                                            },
-                                            [_vm._v("WISHLIST")]
-                                          )
-                                    ],
-                                    1
-                                  )
-                                ])
-                              ],
-                              2
-                            )
-                          ],
-                          1
-                        )
-                      }),
-                      0
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "vx-col lg:w-1/3 w-full" },
-                      [
-                        _c(
-                          "vx-card",
-                          [
-                            _c("p", { staticClass: "text-grey mb-3" }, [
-                              _vm._v("Options")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "flex justify-between" }, [
-                              _c("span", { staticClass: "font-semibold" }, [
-                                _vm._v("Coupons")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "font-medium text-primary cursor-pointer"
-                                },
-                                [_vm._v("Apply")]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("vs-divider"),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "font-semibold mb-3" }, [
-                              _vm._v("Price Details")
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "flex justify-between mb-2" },
-                              [
-                                _c("span", { staticClass: "text-grey" }, [
-                                  _vm._v("Total MRP")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", [_vm._v("$598")])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "flex justify-between mb-2" },
-                              [
-                                _c("span", { staticClass: "text-grey" }, [
-                                  _vm._v("Bag Discount")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "text-success" }, [
-                                  _vm._v("-25$")
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "flex justify-between mb-2" },
-                              [
-                                _c("span", { staticClass: "text-grey" }, [
-                                  _vm._v("Estimated Tax")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", [_vm._v("$1.3")])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "flex justify-between mb-2" },
-                              [
-                                _c("span", { staticClass: "text-grey" }, [
-                                  _vm._v("EMI Eligibility")
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-primary",
-                                    attrs: { href: "#" }
-                                  },
-                                  [_vm._v("Details")]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "flex justify-between mb-2" },
-                              [
-                                _c("span", { staticClass: "text-grey" }, [
-                                  _vm._v("Delivery Charges")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "text-success" }, [
-                                  _vm._v("Free")
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("vs-divider"),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex justify-between font-semibold mb-3"
-                              },
-                              [
-                                _c("span", [_vm._v("Total")]),
-                                _vm._v(" "),
-                                _c("span", [_vm._v("$574.3")])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "vs-button",
-                              {
-                                staticClass: "w-full",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.$refs.checkoutWizard.nextTab()
-                                  }
-                                }
-                              },
-                              [_vm._v("PLACE ORDER")]
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ])
-                : _c(
-                    "vx-card",
-                    {
-                      attrs: { title: "You don't have any items in your cart." }
-                    },
-                    [
-                      _c(
-                        "vs-button",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.$router
-                                .push("/apps/eCommerce/shop")
-                                .catch(function() {})
-                            }
-                          }
-                        },
-                        [_vm._v("Browse Shop")]
-                      )
-                    ],
-                    1
-                  )
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Name" },
+                model: {
+                  value: _vm.user_data.name,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "name", $$v)
+                  },
+                  expression: "user_data.name"
+                }
+              })
             ],
             1
           ),
           _vm._v(" "),
           _c(
-            "tab-content",
-            {
-              staticClass: "mb-5",
-              attrs: { title: "Address", icon: "feather icon-home" }
-            },
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
             [
-              _c("div", { staticClass: "vx-row" }, [
-                _c(
-                  "div",
-                  { staticClass: "vx-col lg:w-2/3 w-full" },
-                  [
-                    _c(
-                      "vx-card",
-                      {
-                        staticClass: "mb-base",
-                        attrs: {
-                          title: "Add New Address",
-                          subtitle:
-                            'Be sure to check "Deliver to this address" when you have finished'
-                        }
-                      },
-                      [
-                        _c(
-                          "form",
-                          { attrs: { "data-vv-scope": "add-new-address" } },
-                          [
-                            _c("div", { staticClass: "vx-row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "vx-col sm:w-1/2 w-full" },
-                                [
-                                  _c("vs-input", {
-                                    directives: [
-                                      {
-                                        name: "validate",
-                                        rawName: "v-validate",
-                                        value: "required|alpha_spaces",
-                                        expression: "'required|alpha_spaces'"
-                                      }
-                                    ],
-                                    staticClass: "w-full mt-5",
-                                    attrs: {
-                                      "data-vv-as": "field",
-                                      name: "fullName",
-                                      label: "Full Name:"
-                                    },
-                                    model: {
-                                      value: _vm.fullName,
-                                      callback: function($$v) {
-                                        _vm.fullName = $$v
-                                      },
-                                      expression: "fullName"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "show",
-                                          rawName: "v-show",
-                                          value: _vm.errors.has(
-                                            "add-new-address.fullName"
-                                          ),
-                                          expression:
-                                            "errors.has('add-new-address.fullName')"
-                                        }
-                                      ],
-                                      staticClass: "text-danger"
-                                    },
-                                    [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm.errors.first(
-                                            "add-new-address.fullName"
-                                          )
-                                        )
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "vx-col sm:w-1/2 w-full" },
-                                [
-                                  _c("vs-input", {
-                                    directives: [
-                                      {
-                                        name: "validate",
-                                        rawName: "v-validate",
-                                        value: "required|digits:10",
-                                        expression: "'required|digits:10'"
-                                      }
-                                    ],
-                                    staticClass: "w-full mt-5",
-                                    attrs: {
-                                      name: "mobileNum",
-                                      label: "Mobile Number:"
-                                    },
-                                    model: {
-                                      value: _vm.mobileNum,
-                                      callback: function($$v) {
-                                        _vm.mobileNum = $$v
-                                      },
-                                      expression: "mobileNum"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "show",
-                                          rawName: "v-show",
-                                          value: _vm.errors.has(
-                                            "add-new-address.mobileNum"
-                                          ),
-                                          expression:
-                                            "errors.has('add-new-address.mobileNum')"
-                                        }
-                                      ],
-                                      staticClass: "text-danger"
-                                    },
-                                    [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm.errors.first(
-                                            "add-new-address.mobileNum"
-                                          )
-                                        )
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "vx-row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "vx-col sm:w-1/2 w-full" },
-                                [
-                                  _c("vs-input", {
-                                    directives: [
-                                      {
-                                        name: "validate",
-                                        rawName: "v-validate",
-                                        value: "required",
-                                        expression: "'required'"
-                                      }
-                                    ],
-                                    staticClass: "w-full mt-5",
-                                    attrs: {
-                                      name: "houseNum",
-                                      label: "Flat, House No:"
-                                    },
-                                    model: {
-                                      value: _vm.houseNum,
-                                      callback: function($$v) {
-                                        _vm.houseNum = $$v
-                                      },
-                                      expression: "houseNum"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "show",
-                                          rawName: "v-show",
-                                          value: _vm.errors.has(
-                                            "add-new-address.houseNum"
-                                          ),
-                                          expression:
-                                            "errors.has('add-new-address.houseNum')"
-                                        }
-                                      ],
-                                      staticClass: "text-danger"
-                                    },
-                                    [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm.errors.first(
-                                            "add-new-address.houseNum"
-                                          )
-                                        )
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "vx-col sm:w-1/2 w-full" },
-                                [
-                                  _c("vs-input", {
-                                    staticClass: "w-full mt-5",
-                                    attrs: {
-                                      name: "landmark",
-                                      label:
-                                        "Landmark e.g. near apollo hospital:"
-                                    },
-                                    model: {
-                                      value: _vm.landmark,
-                                      callback: function($$v) {
-                                        _vm.landmark = $$v
-                                      },
-                                      expression: "landmark"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "vx-row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "vx-col sm:w-1/2 w-full" },
-                                [
-                                  _c("vs-input", {
-                                    directives: [
-                                      {
-                                        name: "validate",
-                                        rawName: "v-validate",
-                                        value: "required",
-                                        expression: "'required'"
-                                      }
-                                    ],
-                                    staticClass: "w-full mt-5",
-                                    attrs: {
-                                      name: "city",
-                                      label: "Town/City:"
-                                    },
-                                    model: {
-                                      value: _vm.city,
-                                      callback: function($$v) {
-                                        _vm.city = $$v
-                                      },
-                                      expression: "city"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "show",
-                                          rawName: "v-show",
-                                          value: _vm.errors.has(
-                                            "add-new-address.city"
-                                          ),
-                                          expression:
-                                            "errors.has('add-new-address.city')"
-                                        }
-                                      ],
-                                      staticClass: "text-danger"
-                                    },
-                                    [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm.errors.first(
-                                            "add-new-address.city"
-                                          )
-                                        )
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "vx-col sm:w-1/2 w-full" },
-                                [
-                                  _c("vs-input", {
-                                    directives: [
-                                      {
-                                        name: "validate",
-                                        rawName: "v-validate",
-                                        value: "required|min:3|max:6|numeric",
-                                        expression:
-                                          "'required|min:3|max:6|numeric'"
-                                      }
-                                    ],
-                                    staticClass: "w-full mt-5",
-                                    attrs: {
-                                      name: "pincode",
-                                      label: "Pincode:"
-                                    },
-                                    model: {
-                                      value: _vm.pincode,
-                                      callback: function($$v) {
-                                        _vm.pincode = $$v
-                                      },
-                                      expression: "pincode"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "show",
-                                          rawName: "v-show",
-                                          value: _vm.errors.has(
-                                            "add-new-address.pincode"
-                                          ),
-                                          expression:
-                                            "errors.has('add-new-address.pincode')"
-                                        }
-                                      ],
-                                      staticClass: "text-danger"
-                                    },
-                                    [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm.errors.first(
-                                            "add-new-address.pincode"
-                                          )
-                                        )
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "vx-row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "vx-col sm:w-1/2 w-full" },
-                                [
-                                  _c("vs-input", {
-                                    directives: [
-                                      {
-                                        name: "validate",
-                                        rawName: "v-validate",
-                                        value: "required",
-                                        expression: "'required'"
-                                      }
-                                    ],
-                                    staticClass: "w-full mt-5",
-                                    attrs: { name: "state", label: "State:" },
-                                    model: {
-                                      value: _vm.state,
-                                      callback: function($$v) {
-                                        _vm.state = $$v
-                                      },
-                                      expression: "state"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "show",
-                                          rawName: "v-show",
-                                          value: _vm.errors.has(
-                                            "add-new-address.state"
-                                          ),
-                                          expression:
-                                            "errors.has('add-new-address.state')"
-                                        }
-                                      ],
-                                      staticClass: "text-danger"
-                                    },
-                                    [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm.errors.first(
-                                            "add-new-address.state"
-                                          )
-                                        )
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "vx-col sm:w-1/2 w-full" },
-                                [
-                                  _c(
-                                    "vs-select",
-                                    {
-                                      staticClass: "w-full mt-5",
-                                      attrs: { label: "Address Type:" },
-                                      model: {
-                                        value: _vm.addressType,
-                                        callback: function($$v) {
-                                          _vm.addressType = $$v
-                                        },
-                                        expression: "addressType"
-                                      }
-                                    },
-                                    _vm._l(_vm.addressTypeOptions, function(
-                                      item,
-                                      index
-                                    ) {
-                                      return _c("vs-select-item", {
-                                        key: index,
-                                        attrs: {
-                                          value: item.value,
-                                          text: item.text
-                                        }
-                                      })
-                                    }),
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "vs-button",
-                              {
-                                staticClass: "mt-6 ml-auto flex",
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.submitNewAddressForm($event)
-                                  }
-                                }
-                              },
-                              [_vm._v("SAVE AND DELIVER HERE")]
-                            )
-                          ],
-                          1
-                        )
-                      ]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "vx-col lg:w-1/3 w-full" },
-                  [
-                    _c(
-                      "vx-card",
-                      { attrs: { title: "John Doe" } },
-                      [
-                        _c("div", [
-                          _c("p", [_vm._v("9447 Glen Eagles Drive")]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Lewis Center, OH 43035")]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "my-4" }, [
-                            _vm._v("UTC-5: Eastern Standard Time (EST)")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("202-555-0140")])
-                        ]),
-                        _vm._v(" "),
-                        _c("vs-divider"),
-                        _vm._v(" "),
-                        _c(
-                          "vs-button",
-                          {
-                            staticClass: "w-full",
-                            on: {
-                              click: function($event) {
-                                return _vm.$refs.checkoutWizard.nextTab()
-                              }
-                            }
-                          },
-                          [_vm._v("DELIVER TO THIS ADDRESS")]
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ])
-            ]
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Phone" },
+                model: {
+                  value: _vm.user_data.phone,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "phone", $$v)
+                  },
+                  expression: "user_data.phone"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vx-row" }, [
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+            [
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Amount Paid" },
+                model: {
+                  value: _vm.user_data.amount_paid,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "amount_paid", $$v)
+                  },
+                  expression: "user_data.amount_paid"
+                }
+              })
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
-            "tab-content",
-            {
-              staticClass: "mb-5",
-              attrs: { title: "Payment", icon: "feather icon-credit-card" }
-            },
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
             [
-              _c("div", { staticClass: "vx-row" }, [
-                _c(
-                  "div",
-                  { staticClass: "vx-col lg:w-2/3 w-full" },
-                  [
-                    _c(
-                      "vx-card",
-                      {
-                        staticClass: "mb-base",
-                        attrs: {
-                          title: "Payment Options",
-                          subtitle: "Be sure to click on correct payment option"
-                        }
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "mt-3" },
-                          [
-                            _c(
-                              "ul",
-                              [
-                                _c("li", [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "flex flex-wrap justify-between items-center"
-                                    },
-                                    [
-                                      _c(
-                                        "vs-radio",
-                                        {
-                                          attrs: { "vs-value": "debit-card" },
-                                          model: {
-                                            value: _vm.paymentMethod,
-                                            callback: function($$v) {
-                                              _vm.paymentMethod = $$v
-                                            },
-                                            expression: "paymentMethod"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "flex items-center"
-                                            },
-                                            [
-                                              _c("img", {
-                                                staticClass: "inline-flex",
-                                                attrs: {
-                                                  src: __webpack_require__(/*! @assets/images/pages/eCommerce/bank.png */ "./resources/assets/images/pages/eCommerce/bank.png"),
-                                                  alt: "bank-logo",
-                                                  height: "40",
-                                                  width: "50"
-                                                }
-                                              }),
-                                              _vm._v(" "),
-                                              _c("span", [
-                                                _vm._v(
-                                                  "US Unlocked Debit Card 12XX XXXX XXXX 0000"
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("span", [_vm._v("John Doe")]),
-                                      _vm._v(" "),
-                                      _c("span", [_vm._v("11/2020")])
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "form",
-                                    { attrs: { "data-vv-scope": "cvv-form" } },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "flex items-center flex-wrap"
-                                        },
-                                        [
-                                          _c("span", { staticClass: "mt-4" }, [
-                                            _vm._v("Enter CVV: ")
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("vs-input", {
-                                            directives: [
-                                              {
-                                                name: "validate",
-                                                rawName: "v-validate",
-                                                value: "required|digits:3",
-                                                expression:
-                                                  "'required|digits:3'"
-                                              }
-                                            ],
-                                            staticClass: "mr-3 ml-2 mt-4",
-                                            attrs: { name: "cvv" },
-                                            model: {
-                                              value: _vm.cvv,
-                                              callback: function($$v) {
-                                                _vm.cvv = $$v
-                                              },
-                                              expression: "cvv"
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "vs-button",
-                                            {
-                                              staticClass: "mt-4",
-                                              attrs: { disabled: false },
-                                              on: {
-                                                click: function($event) {
-                                                  $event.preventDefault()
-                                                  return _vm.makePayment($event)
-                                                }
-                                              }
-                                            },
-                                            [_vm._v("CONTINUE")]
-                                          )
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          directives: [
-                                            {
-                                              name: "show",
-                                              rawName: "v-show",
-                                              value: _vm.errors.has(
-                                                "cvv-form.cvv"
-                                              ),
-                                              expression:
-                                                "errors.has('cvv-form.cvv')"
-                                            }
-                                          ],
-                                          staticClass: "text-danger ml-24"
-                                        },
-                                        [
-                                          _vm._v(
-                                            _vm._s(
-                                              _vm.errors.first("cvv-form.cvv")
-                                            )
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("vs-divider", { staticClass: "my-6" }),
-                                _vm._v(" "),
-                                _c(
-                                  "li",
-                                  [
-                                    _c(
-                                      "vs-radio",
-                                      {
-                                        attrs: {
-                                          "vs-value": "credit-debit-atmCard"
-                                        },
-                                        model: {
-                                          value: _vm.paymentMethod,
-                                          callback: function($$v) {
-                                            _vm.paymentMethod = $$v
-                                          },
-                                          expression: "paymentMethod"
-                                        }
-                                      },
-                                      [_vm._v("Credit / Debit / ATM Card")]
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "li",
-                                  { staticClass: "mt-2" },
-                                  [
-                                    _c(
-                                      "vs-radio",
-                                      {
-                                        attrs: { "vs-value": "netBanking" },
-                                        model: {
-                                          value: _vm.paymentMethod,
-                                          callback: function($$v) {
-                                            _vm.paymentMethod = $$v
-                                          },
-                                          expression: "paymentMethod"
-                                        }
-                                      },
-                                      [_vm._v("Net Banking")]
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "li",
-                                  { staticClass: "mt-2" },
-                                  [
-                                    _c(
-                                      "vs-radio",
-                                      {
-                                        attrs: { "vs-value": "emi" },
-                                        model: {
-                                          value: _vm.paymentMethod,
-                                          callback: function($$v) {
-                                            _vm.paymentMethod = $$v
-                                          },
-                                          expression: "paymentMethod"
-                                        }
-                                      },
-                                      [_vm._v("EMI (Easy Installment)")]
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "li",
-                                  { staticClass: "mt-2" },
-                                  [
-                                    _c(
-                                      "vs-radio",
-                                      {
-                                        attrs: { "vs-value": "cashOnDelivery" },
-                                        model: {
-                                          value: _vm.paymentMethod,
-                                          callback: function($$v) {
-                                            _vm.paymentMethod = $$v
-                                          },
-                                          expression: "paymentMethod"
-                                        }
-                                      },
-                                      [_vm._v("Cash On Delivery")]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c("vs-divider"),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "inline-flex items-center cursor-pointer"
-                              },
-                              [
-                                _c("feather-icon", {
-                                  staticClass: "mr-2",
-                                  attrs: {
-                                    icon: "PlusSquareIcon",
-                                    svgClasses: "h-6 w-6"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", [_vm._v("Add Gift Card")])
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "vx-col lg:w-1/3 w-full" },
-                  [
-                    _c(
-                      "vx-card",
-                      { attrs: { title: "Price Details" } },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "flex justify-between mb-2" },
-                          [
-                            _c("span", [_vm._v("Price 3 Items")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "font-semibold" }, [
-                              _vm._v("$699.30")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "flex justify-between mb-2" },
-                          [
-                            _c("span", [_vm._v("Delivery Charges")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "text-success" }, [
-                              _vm._v("Free")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("vs-divider"),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "flex justify-between" }, [
-                          _c("span", [_vm._v("Amount Payable")]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "font-semibold" }, [
-                            _vm._v("$699.30")
-                          ])
-                        ])
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ])
-            ]
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Currency" },
+                model: {
+                  value: _vm.user_data.currency,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "currency", $$v)
+                  },
+                  expression: "user_data.currency"
+                }
+              })
+            ],
+            1
           )
-        ],
-        1
-      )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vx-row" }, [
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+            [
+              _c("label", { staticClass: "vs-input--label" }, [
+                _vm._v("Status")
+              ]),
+              _vm._v(" "),
+              _c("v-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required",
+                    expression: "'required'"
+                  }
+                ],
+                attrs: {
+                  clearable: false,
+                  options: _vm.statusOptions,
+                  name: "status",
+                  dir: _vm.$vs.rtl ? "rtl" : "ltr"
+                },
+                model: {
+                  value: _vm.user_data.status,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "status", $$v)
+                  },
+                  expression: "user_data.status"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("status"),
+                      expression: "errors.has('status')"
+                    }
+                  ],
+                  staticClass: "text-danger text-sm"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("status")))]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+            [
+              _c("label", { staticClass: "vs-input--label" }, [
+                _vm._v("Group")
+              ]),
+              _vm._v(" "),
+              _c("v-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required",
+                    expression: "'required'"
+                  }
+                ],
+                attrs: {
+                  clearable: false,
+                  options: _vm.groupOptions,
+                  name: "group",
+                  dir: _vm.$vs.rtl ? "rtl" : "ltr"
+                },
+                model: {
+                  value: _vm.user_data.group,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "group", $$v)
+                  },
+                  expression: "user_data.group"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("group"),
+                      expression: "errors.has('group')"
+                    }
+                  ],
+                  staticClass: "text-danger text-sm"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("group")))]
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vx-row" }, [
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-6" },
+            [
+              _c("label", { staticClass: "vs-input--label" }),
+              _vm._v(" "),
+              _c("datepicker", {
+                attrs: {
+                  "label-placeholder": "join date",
+                  format: "yyyy-MM-dd",
+                  placeholder: "Join Date"
+                },
+                model: {
+                  value: _vm.user_data.join_date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "join_date", $$v)
+                  },
+                  expression: "user_data.join_date"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vx-row" }, [
+          _c(
+            "div",
+            { staticClass: "vx-col w-full" },
+            [
+              _c(
+                "vs-button",
+                { staticClass: "mr-3 mb-2", on: { click: _vm.createCustomer } },
+                [_vm._v("Submit")]
+              ),
+              _vm._v(" "),
+              _c(
+                "vs-button",
+                {
+                  staticClass: "mb-2",
+                  attrs: { color: "warning", type: "border" },
+                  on: {
+                    click: function($event) {
+                      _vm.user_data = {}
+                    }
+                  }
+                },
+                [_vm._v("Reset")]
+              )
+            ],
+            1
+          )
+        ])
+      ])
     ],
     1
   )
@@ -1795,31 +418,224 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/assets/images/pages/eCommerce/bank.png":
-/*!**********************************************************!*\
-  !*** ./resources/assets/images/pages/eCommerce/bank.png ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./resources/js/src/store/user-management/moduleUserManagement.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagement.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "/images/bank.png?5f6aa47cad6e07be32f187d78f4f1d1c";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleUserManagementState_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleUserManagementState.js */ "./resources/js/src/store/user-management/moduleUserManagementState.js");
+/* harmony import */ var _moduleUserManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleUserManagementMutations.js */ "./resources/js/src/store/user-management/moduleUserManagementMutations.js");
+/* harmony import */ var _moduleUserManagementActions_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleUserManagementActions.js */ "./resources/js/src/store/user-management/moduleUserManagementActions.js");
+/* harmony import */ var _moduleUserManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleUserManagementGetters.js */ "./resources/js/src/store/user-management/moduleUserManagementGetters.js");
+/*=========================================================================================
+  File Name: moduleUserManagement.js
+  Description: Calendar Module
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  isRegistered: false,
+  namespaced: true,
+  state: _moduleUserManagementState_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleUserManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleUserManagementActions_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleUserManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
 
 /***/ }),
 
-/***/ "./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue":
+/***/ "./resources/js/src/store/user-management/moduleUserManagementActions.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementActions.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/axios */ "./resources/js/src/axios.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+/*=========================================================================================
+  File Name: moduleCalendarActions.js
+  Description: Calendar Module Actions
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // addItem({ commit }, item) {
+  //   return new Promise((resolve, reject) => {
+  //     axios.post("/api/data-list/products/", {item: item})
+  //       .then((response) => {
+  //         commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+  //         resolve(response)
+  //       })
+  //       .catch((error) => { reject(error) })
+  //   })
+  // },
+  createCustomer: function createCustomer(_ref, customer) {
+    var commit = _ref.commit;
+    alert("clicked");
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("/api/customers/", {
+        customer: customer
+      }).then(function (response) {
+        alert(response); // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  fetchUsers: function fetchUsers(_ref2) {
+    var commit = _ref2.commit;
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/customers").then(function (response) {
+        commit('SET_USERS', response.data);
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  fetchUser: function fetchUser(_ref3, userId) {
+    _objectDestructuringEmpty(_ref3);
+
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/customers/".concat(userId)).then(function (response) {
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  removeRecord: function removeRecord(_ref4, userId) {
+    var commit = _ref4.commit;
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("/api/user-management/users/".concat(userId)).then(function (response) {
+        commit('REMOVE_RECORD', userId);
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  fetchTransactions: function fetchTransactions(_ref5) {
+    var commit = _ref5.commit;
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/transactions").then(function (response) {
+        commit('SET_TRANSACTIONS', response.data);
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-management/moduleUserManagementGetters.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementGetters.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/*=========================================================================================
+  File Name: moduleCalendarGetters.js
+  Description: Calendar Module Getters
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-management/moduleUserManagementMutations.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementMutations.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/*=========================================================================================
+  File Name: moduleCalendarMutations.js
+  Description: Calendar Module Mutations
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+/* harmony default export */ __webpack_exports__["default"] = ({
+  SET_USERS: function SET_USERS(state, users) {
+    state.users = users;
+  },
+  REMOVE_RECORD: function REMOVE_RECORD(state, itemId) {
+    var userIndex = state.users.findIndex(function (u) {
+      return u.id == itemId;
+    });
+    state.users.splice(userIndex, 1);
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-management/moduleUserManagementState.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementState.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/*=========================================================================================
+  File Name: moduleCalendarState.js
+  Description: Calendar Module State
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+/* harmony default export */ __webpack_exports__["default"] = ({
+  users: []
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/views/apps/user/user-create/UserCreate.vue":
 /*!*********************************************************************!*\
-  !*** ./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue ***!
+  !*** ./resources/js/src/views/apps/user/user-create/UserCreate.vue ***!
   \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ECommerceCheckout_vue_vue_type_template_id_5ea2d3a4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ECommerceCheckout.vue?vue&type=template&id=5ea2d3a4&scoped=true& */ "./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=template&id=5ea2d3a4&scoped=true&");
-/* harmony import */ var _ECommerceCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ECommerceCheckout.vue?vue&type=script&lang=js& */ "./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ECommerceCheckout_vue_vue_type_style_index_0_id_5ea2d3a4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true& */ "./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* harmony import */ var _UserCreate_vue_vue_type_template_id_34edd469___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserCreate.vue?vue&type=template&id=34edd469& */ "./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=template&id=34edd469&");
+/* harmony import */ var _UserCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserCreate.vue?vue&type=script&lang=js& */ "./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -1827,67 +643,51 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _ECommerceCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ECommerceCheckout_vue_vue_type_template_id_5ea2d3a4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ECommerceCheckout_vue_vue_type_template_id_5ea2d3a4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserCreate_vue_vue_type_template_id_34edd469___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserCreate_vue_vue_type_template_id_34edd469___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "5ea2d3a4",
+  null,
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue"
+component.options.__file = "resources/js/src/views/apps/user/user-create/UserCreate.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************!*\
-  !*** ./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ECommerceCheckout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true&":
-/*!*******************************************************************************************************************************!*\
-  !*** ./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true& ***!
-  \*******************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_style_index_0_id_5ea2d3a4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=style&index=0&id=5ea2d3a4&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_style_index_0_id_5ea2d3a4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_style_index_0_id_5ea2d3a4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_style_index_0_id_5ea2d3a4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_style_index_0_id_5ea2d3a4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=template&id=5ea2d3a4&scoped=true&":
-/*!****************************************************************************************************************!*\
-  !*** ./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=template&id=5ea2d3a4&scoped=true& ***!
-  \****************************************************************************************************************/
+/***/ "./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=template&id=34edd469&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=template&id=34edd469& ***!
+  \****************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_template_id_5ea2d3a4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ECommerceCheckout.vue?vue&type=template&id=5ea2d3a4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/eCommerce/ECommerceCheckout.vue?vue&type=template&id=5ea2d3a4&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_template_id_5ea2d3a4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserCreate_vue_vue_type_template_id_34edd469___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserCreate.vue?vue&type=template&id=34edd469& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-create/UserCreate.vue?vue&type=template&id=34edd469&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserCreate_vue_vue_type_template_id_34edd469___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ECommerceCheckout_vue_vue_type_template_id_5ea2d3a4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserCreate_vue_vue_type_template_id_34edd469___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

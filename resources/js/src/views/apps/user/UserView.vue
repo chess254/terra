@@ -36,15 +36,15 @@
             <table>
               <tr>
                 <td class="font-semibold">Username</td>
-                <td>{{ user_data.username }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Name</td>
                 <td>{{ user_data.name }}</td>
               </tr>
+              <!-- <tr>
+                <td class="font-semibold">Name</td>
+                <td>{{ user_data.name }}</td>
+              </tr> -->
               <tr>
-                <td class="font-semibold">Email</td>
-                <td>{{ user_data.email }}</td>
+                <td class="font-semibold">phone</td>
+                <td>{{ user_data.phone }}</td>
               </tr>
             </table>
           </div>
@@ -57,20 +57,20 @@
                 <td class="font-semibold">Status</td>
                 <td>{{ user_data.status }}</td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td class="font-semibold">Role</td>
                 <td>{{ user_data.role }}</td>
               </tr>
               <tr>
                 <td class="font-semibold">Company</td>
                 <td>{{ user_data.company }}</td>
-              </tr>
+              </tr> -->
             </table>
           </div>
           <!-- /Information - Col 2 -->
           <div class="vx-col w-full flex" id="account-manage-buttons">
             <vs-button icon-pack="feather" icon="icon-edit" class="mr-4" :to="{name: 'app-user-edit', params: { userId: $route.params.userId }}">Edit</vs-button>
-            <vs-button type="border" color="danger" icon-pack="feather" icon="icon-trash" @click="confirmDeleteRecord">Delete</vs-button>
+            <vs-button type="border" color="danger" icon-pack="feather" icon="icon-trash" @click="confirmDeleteRecord(user_data.id)">Delete</vs-button>
           </div>
 
         </div>
@@ -83,27 +83,31 @@
             <table>
               <tr>
                 <td class="font-semibold">Birth Date</td>
-                <td>{{ user_data.dob }}</td>
+                <td>{{ user_data.name }}</td>
               </tr>
               <tr>
                 <td class="font-semibold">Mobile</td>
-                <td>{{ user_data.mobile }}</td>
+                <td>{{ user_data.phone }}</td>
               </tr>
               <tr>
-                <td class="font-semibold">Website</td>
-                <td>{{ user_data.website }}</td>
+                <td class="font-semibold">Currency</td>
+                <td>{{ user_data.currency }}</td>
               </tr>
               <tr>
-                <td class="font-semibold">Languages</td>
-                <td>{{ user_data.languages_known.join(", ") }}</td>
+                <td class="font-semibold">Join Date</td>
+                <td>{{ user_data.join_date }}</td>
+              </tr> 
+              <tr>
+                <td class="font-semibold">Amount Paid</td>
+                <td>{{ user_data.amount_paid }}</td>
               </tr>
               <tr>
-                <td class="font-semibold">Gender</td>
-                <td>{{ user_data.gender }}</td>
+                <td class="font-semibold">Group</td>
+                <td>{{ user_data.group }}</td>
               </tr>
               <tr>
-                <td class="font-semibold">Contact</td>
-                <td>{{ user_data.contact_options.join(", ") }}</td>
+                <td class="font-semibold">Status</td>
+                <td>{{ user_data.status }}</td>
               </tr>
             </table>
           </vx-card>
@@ -114,9 +118,9 @@
             <table>
               <tr>
                 <td class="font-semibold">Twitter</td>
-                <td>{{ user_data.social_links.twitter }}</td>
+                <td>@{{ user_data.name }}</td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td class="font-semibold">Facebook</td>
                 <td>{{ user_data.social_links.facebook }}</td>
               </tr>
@@ -135,14 +139,14 @@
               <tr>
                 <td class="font-semibold">Slack</td>
                 <td>{{ user_data.social_links.slack }}</td>
-              </tr>
+              </tr> -->
             </table>
           </vx-card>
         </div>
       </div>
 
       <!-- Permissions -->
-      <vx-card>
+      <!-- <vx-card>
 
         <div class="vx-row">
           <div class="vx-col w-full">
@@ -157,11 +161,6 @@
         <div class="block overflow-x-auto">
           <table class="w-full permissions-table">
             <tr>
-              <!--
-                You can also use `Object.keys(Object.values(data_local.permissions)[0])` this logic if you consider,
-                our data structure. You just have to loop over above variable to get table headers.
-                Below we made it simple. So, everyone can understand.
-               -->
               <th class="font-semibold text-base text-left px-3 py-2" v-for="heading in ['Module', 'Read', 'Write', 'Create', 'Delete']" :key="heading">{{ heading }}</th>
             </tr>
 
@@ -174,13 +173,14 @@
           </table>
         </div>
 
-      </vx-card>
+      </vx-card> -->
     </div>
   </div>
 </template>
 
 <script>
 import moduleUserManagement from '@/store/user-management/moduleUserManagement.js'
+import axios from 'axios'
 
 export default {
   data() {
@@ -199,21 +199,29 @@ export default {
     }
   },
   methods: {
-    confirmDeleteRecord() {
-      this.$vs.dialog({
-        type: 'confirm',
-        color: 'danger',
-        title: `Confirm Delete`,
-        text: `You are about to delete "${this.user_data.username}"`,
-        accept: this.deleteRecord,
-        acceptText: "Delete"
-      })
+    confirmDeleteRecord(id) {
+      // this.$vs.dialog({
+      //   type: 'confirm',
+      //   color: 'danger',
+      //   title: `Confirm Delete`,
+      //   text: `You are about to delete "${this.user_data.name}"`,
+      //   accept: this.deleteRecord(id),
+      //   acceptText: "Delete"
+      // })
+      this.deleteRecord(id)
     },
-    deleteRecord() {
+    deleteRecord(id) {
       /* Below two lines are just for demo purpose */
-      this.$router.push({name:'app-user-list'});
-      this.showDeleteSuccess()
-
+      // this.$router.push({name:'app-user-list'});
+      
+      axios.delete("/api/customers/"+id)
+          .then((response) => {
+            // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+            this.showDeleteSuccess()
+            // resolve(response)
+            this.$router.push({name:'app-user-list'}).catch(() => {})
+          })
+          .catch((error) => { (error) })
       /* UnComment below lines for enabling true flow if deleting user */
       // this.$store.dispatch("userManagement/removeRecord", this.user_data.id)
       //   .then(()   => { this.$router.push({name:'app-user-list'}); this.showDeleteSuccess() })

@@ -1,37 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[87],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/UserView.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/UserView.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/store/user-management/moduleUserManagement.js */ "./resources/js/src/store/user-management/moduleUserManagement.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _store_transaction_management_moduleTransactionManagement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/store/transaction-management/moduleTransactionManagement.js */ "./resources/js/src/store/transaction-management/moduleTransactionManagement.js");
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/axios */ "./resources/js/src/axios.js");
 //
 //
 //
@@ -192,10 +171,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      user_data: null,
+      transaction_data: null,
       user_not_found: false
     };
   },
@@ -203,7 +183,7 @@ __webpack_require__.r(__webpack_exports__);
     userAddress: function userAddress() {
       var str = "";
 
-      for (var field in this.user_data.location) {
+      for (var field in this.transaction_data.location) {
         str += field + " ";
       }
 
@@ -211,24 +191,35 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    confirmDeleteRecord: function confirmDeleteRecord() {
-      this.$vs.dialog({
-        type: 'confirm',
-        color: 'danger',
-        title: "Confirm Delete",
-        text: "You are about to delete \"".concat(this.user_data.username, "\""),
-        accept: this.deleteRecord,
-        acceptText: "Delete"
-      });
+    confirmDeleteRecord: function confirmDeleteRecord(id) {
+      // this.$vs.dialog({
+      //   type: 'confirm',
+      //   color: 'danger',
+      //   title: `Confirm Delete`,
+      //   text: `You are about to delete "${this.transaction_data.name}"`,
+      //   accept: this.deleteRecord(id),
+      //   acceptText: "Delete"
+      // })
+      this.deleteRecord(id);
     },
-    deleteRecord: function deleteRecord() {
+    deleteRecord: function deleteRecord(id) {
+      var _this = this;
+
       /* Below two lines are just for demo purpose */
-      this.$router.push({
-        name: 'app-user-list'
+      // this.$router.push({name:'app-user-list'});
+      _axios__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"]("/api/transactions/" + id).then(function (response) {
+        // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+        _this.showDeleteSuccess(); // resolve(response)
+
+
+        _this.$router.push({
+          name: 'app-transaction-list'
+        })["catch"](function () {});
+      })["catch"](function (error) {
+        error;
       });
-      this.showDeleteSuccess();
       /* UnComment below lines for enabling true flow if deleting user */
-      // this.$store.dispatch("userManagement/removeRecord", this.user_data.id)
+      // this.$store.dispatch("userManagement/removeRecord", this.transaction_data.id)
       //   .then(()   => { this.$router.push({name:'app-user-list'}); this.showDeleteSuccess() })
       //   .catch(err => { console.error(err)       })
     },
@@ -241,20 +232,20 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    var _this = this;
+    var _this2 = this;
 
     // Register Module UserManagement Module
-    if (!_store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_0__["default"].isRegistered) {
-      this.$store.registerModule('userManagement', _store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
-      _store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_0__["default"].isRegistered = true;
+    if (!_store_transaction_management_moduleTransactionManagement_js__WEBPACK_IMPORTED_MODULE_0__["default"].isRegistered) {
+      this.$store.registerModule('transactionManagement', _store_transaction_management_moduleTransactionManagement_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+      _store_transaction_management_moduleTransactionManagement_js__WEBPACK_IMPORTED_MODULE_0__["default"].isRegistered = true;
     }
 
-    var userId = this.$route.params.userId;
-    this.$store.dispatch("userManagement/fetchUser", userId).then(function (res) {
-      _this.user_data = res.data;
+    var transactionId = this.$route.params.transactionId;
+    this.$store.dispatch("transactionManagement/fetchTransaction", transactionId).then(function (res) {
+      _this2.transaction_data = res.data;
     })["catch"](function (err) {
       if (err.response.status === 404) {
-        _this.user_not_found = true;
+        _this2.transaction_not_found = true;
         return;
       }
 
@@ -265,10 +256,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/UserView.vue?vue&type=style&index=0&lang=scss&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/UserView.vue?vue&type=style&index=0&lang=scss& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=style&index=0&lang=scss&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=style&index=0&lang=scss& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -284,15 +275,15 @@ exports.push([module.i, "#avatar-col {\n  width: 10rem;\n}\n#page-user-view tabl
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/UserView.vue?vue&type=style&index=0&lang=scss&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/UserView.vue?vue&type=style&index=0&lang=scss& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=style&index=0&lang=scss&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=style&index=0&lang=scss& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserView.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/UserView.vue?vue&type=style&index=0&lang=scss&");
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionView.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=style&index=0&lang=scss&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -314,10 +305,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/UserView.vue?vue&type=template&id=3bf8e1be&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/UserView.vue?vue&type=template&id=3bf8e1be& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=template&id=edc86c82&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=template&id=edc86c82& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -350,7 +341,7 @@ var render = function() {
         [
           _c("span", [
             _vm._v(
-              "User record with id: " +
+              "Transaction record with id: " +
                 _vm._s(_vm.$route.params.userId) +
                 " not found. "
             )
@@ -374,7 +365,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _vm.user_data
+      _vm.transaction_data
         ? _c(
             "div",
             { attrs: { id: "user-data" } },
@@ -391,7 +382,7 @@ var render = function() {
                         _c("div", { staticClass: "img-container mb-4" }, [
                           _c("img", {
                             staticClass: "rounded w-full",
-                            attrs: { src: _vm.user_data.avatar }
+                            attrs: { src: _vm.transaction_data.avatar }
                           })
                         ])
                       ]
@@ -407,26 +398,22 @@ var render = function() {
                         _c("table", [
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Username")
+                              _vm._v("Sender Name")
                             ]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.username))])
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.transaction_data.sender_name))
+                            ])
                           ]),
                           _vm._v(" "),
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Name")
+                              _vm._v("Beneficiary")
                             ]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.name))])
-                          ]),
-                          _vm._v(" "),
-                          _c("tr", [
-                            _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Email")
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.email))])
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.transaction_data.beneficiary))
+                            ])
                           ])
                         ])
                       ]
@@ -445,23 +432,9 @@ var render = function() {
                               _vm._v("Status")
                             ]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.status))])
-                          ]),
-                          _vm._v(" "),
-                          _c("tr", [
-                            _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Role")
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.role))])
-                          ]),
-                          _vm._v(" "),
-                          _c("tr", [
-                            _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Company")
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.company))])
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.transaction_data.status))
+                            ])
                           ])
                         ])
                       ]
@@ -482,8 +455,10 @@ var render = function() {
                               "icon-pack": "feather",
                               icon: "icon-edit",
                               to: {
-                                name: "app-user-edit",
-                                params: { userId: _vm.$route.params.userId }
+                                name: "app-transaction-edit",
+                                params: {
+                                  transactionId: _vm.$route.params.transactionId
+                                }
                               }
                             }
                           },
@@ -499,7 +474,13 @@ var render = function() {
                               "icon-pack": "feather",
                               icon: "icon-trash"
                             },
-                            on: { click: _vm.confirmDeleteRecord }
+                            on: {
+                              click: function($event) {
+                                return _vm.confirmDeleteRecord(
+                                  _vm.transaction_data.id
+                                )
+                              }
+                            }
                           },
                           [_vm._v("Delete")]
                         )
@@ -510,10 +491,10 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "vx-row" }, [
+              _c("div", { staticClass: "vx-row mx-auto" }, [
                 _c(
                   "div",
-                  { staticClass: "vx-col lg:w-1/2 w-full" },
+                  { staticClass: "vx-col lg:w-1/2 w-full mx-auto" },
                   [
                     _c(
                       "vx-card",
@@ -525,139 +506,95 @@ var render = function() {
                         _c("table", [
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Birth Date")
+                              _vm._v("Sender Name")
                             ]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.dob))])
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.transaction_data.sender_name))
+                            ])
                           ]),
                           _vm._v(" "),
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Mobile")
+                              _vm._v("Beneficiary")
                             ]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.mobile))])
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.transaction_data.beneficiary))
+                            ])
                           ]),
                           _vm._v(" "),
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Website")
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.website))])
-                          ]),
-                          _vm._v(" "),
-                          _c("tr", [
-                            _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Languages")
+                              _vm._v("Transaction Type")
                             ]),
                             _vm._v(" "),
                             _c("td", [
                               _vm._v(
-                                _vm._s(_vm.user_data.languages_known.join(", "))
+                                _vm._s(_vm.transaction_data.transaction_type)
                               )
                             ])
                           ]),
                           _vm._v(" "),
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Gender")
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.user_data.gender))])
-                          ]),
-                          _vm._v(" "),
-                          _c("tr", [
-                            _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Contact")
+                              _vm._v("Payment Method")
                             ]),
                             _vm._v(" "),
                             _c("td", [
                               _vm._v(
-                                _vm._s(_vm.user_data.contact_options.join(", "))
-                              )
-                            ])
-                          ])
-                        ])
-                      ]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "vx-col lg:w-1/2 w-full" },
-                  [
-                    _c(
-                      "vx-card",
-                      {
-                        staticClass: "mb-base",
-                        attrs: { title: "Social Links" }
-                      },
-                      [
-                        _c("table", [
-                          _c("tr", [
-                            _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Twitter")
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(_vm._s(_vm.user_data.social_links.twitter))
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("tr", [
-                            _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Facebook")
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(_vm.user_data.social_links.facebook)
+                                _vm._s(_vm.transaction_data.payment_method)
                               )
                             ])
                           ]),
                           _vm._v(" "),
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Instagram")
+                              _vm._v("Currency")
                             ]),
                             _vm._v(" "),
                             _c("td", [
-                              _vm._v(
-                                _vm._s(_vm.user_data.social_links.instagram)
-                              )
+                              _vm._v(_vm._s(_vm.transaction_data.currency))
                             ])
                           ]),
                           _vm._v(" "),
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Github")
+                              _vm._v("Amount")
                             ]),
                             _vm._v(" "),
                             _c("td", [
-                              _vm._v(_vm._s(_vm.user_data.social_links.github))
+                              _vm._v(_vm._s(_vm.transaction_data.amount))
                             ])
                           ]),
                           _vm._v(" "),
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("CodePen")
+                              _vm._v("Ref Number")
                             ]),
                             _vm._v(" "),
                             _c("td", [
-                              _vm._v(_vm._s(_vm.user_data.social_links.codepen))
+                              _vm._v(_vm._s(_vm.transaction_data.ref_no))
                             ])
                           ]),
                           _vm._v(" "),
                           _c("tr", [
                             _c("td", { staticClass: "font-semibold" }, [
-                              _vm._v("Slack")
+                              _vm._v("Order Ref")
                             ]),
                             _vm._v(" "),
                             _c("td", [
-                              _vm._v(_vm._s(_vm.user_data.social_links.slack))
+                              _vm._v(_vm._s(_vm.transaction_data.order_ref))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", [
+                            _c("td", { staticClass: "font-semibold" }, [
+                              _vm._v("Status")
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.transaction_data.status))
                             ])
                           ])
                         ])
@@ -666,101 +603,6 @@ var render = function() {
                   ],
                   1
                 )
-              ]),
-              _vm._v(" "),
-              _c("vx-card", [
-                _c("div", { staticClass: "vx-row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "vx-col w-full" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "flex items-end px-3" },
-                        [
-                          _c("feather-icon", {
-                            staticClass: "mr-2",
-                            attrs: { svgClasses: "w-6 h-6", icon: "LockIcon" }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            { staticClass: "font-medium text-lg leading-none" },
-                            [_vm._v("Permissions")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("vs-divider")
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "block overflow-x-auto" }, [
-                  _c(
-                    "table",
-                    { staticClass: "w-full permissions-table" },
-                    [
-                      _c(
-                        "tr",
-                        _vm._l(
-                          ["Module", "Read", "Write", "Create", "Delete"],
-                          function(heading) {
-                            return _c(
-                              "th",
-                              {
-                                key: heading,
-                                staticClass:
-                                  "font-semibold text-base text-left px-3 py-2"
-                              },
-                              [_vm._v(_vm._s(heading))]
-                            )
-                          }
-                        ),
-                        0
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.user_data.permissions, function(val, name) {
-                        return _c(
-                          "tr",
-                          { key: name },
-                          [
-                            _c("td", { staticClass: "px-3 py-2" }, [
-                              _vm._v(_vm._s(name))
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(val, function(permission, name) {
-                              return _c(
-                                "td",
-                                {
-                                  key: name + permission,
-                                  staticClass: "px-3 py-2"
-                                },
-                                [
-                                  _c("vs-checkbox", {
-                                    staticClass: "pointer-events-none",
-                                    model: {
-                                      value: val[name],
-                                      callback: function($$v) {
-                                        _vm.$set(val, name, $$v)
-                                      },
-                                      expression: "val[name]"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ])
               ])
             ],
             1
@@ -777,19 +619,19 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/src/store/user-management/moduleUserManagement.js":
-/*!************************************************************************!*\
-  !*** ./resources/js/src/store/user-management/moduleUserManagement.js ***!
-  \************************************************************************/
+/***/ "./resources/js/src/store/transaction-management/moduleTransactionManagement.js":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/src/store/transaction-management/moduleTransactionManagement.js ***!
+  \**************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _moduleUserManagementState_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleUserManagementState.js */ "./resources/js/src/store/user-management/moduleUserManagementState.js");
-/* harmony import */ var _moduleUserManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleUserManagementMutations.js */ "./resources/js/src/store/user-management/moduleUserManagementMutations.js");
-/* harmony import */ var _moduleUserManagementActions_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleUserManagementActions.js */ "./resources/js/src/store/user-management/moduleUserManagementActions.js");
-/* harmony import */ var _moduleUserManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleUserManagementGetters.js */ "./resources/js/src/store/user-management/moduleUserManagementGetters.js");
+/* harmony import */ var _moduleTransactionManagementState_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleTransactionManagementState.js */ "./resources/js/src/store/transaction-management/moduleTransactionManagementState.js");
+/* harmony import */ var _moduleTransactionManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleTransactionManagementMutations.js */ "./resources/js/src/store/transaction-management/moduleTransactionManagementMutations.js");
+/* harmony import */ var _moduleTransactionManagementActions_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleTransactionManagementActions.js */ "./resources/js/src/store/transaction-management/moduleTransactionManagementActions.js");
+/* harmony import */ var _moduleTransactionManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleTransactionManagementGetters.js */ "./resources/js/src/store/transaction-management/moduleTransactionManagementGetters.js");
 /*=========================================================================================
   File Name: moduleUserManagement.js
   Description: Calendar Module
@@ -803,26 +645,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  isRegistered: false,
+  // isRegistered: false,
   namespaced: true,
-  state: _moduleUserManagementState_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-  mutations: _moduleUserManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  actions: _moduleUserManagementActions_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-  getters: _moduleUserManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+  state: _moduleTransactionManagementState_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleTransactionManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleTransactionManagementActions_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleTransactionManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 
 /***/ }),
 
-/***/ "./resources/js/src/store/user-management/moduleUserManagementActions.js":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/src/store/user-management/moduleUserManagementActions.js ***!
-  \*******************************************************************************/
+/***/ "./resources/js/src/store/transaction-management/moduleTransactionManagementActions.js":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/src/store/transaction-management/moduleTransactionManagementActions.js ***!
+  \*********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _axios_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/axios.js */ "./resources/js/src/axios.js");
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/axios */ "./resources/js/src/axios.js");
 function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 
 /*=========================================================================================
@@ -845,33 +687,45 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
   //       .catch((error) => { reject(error) })
   //   })
   // },
-  fetchUsers: function fetchUsers(_ref) {
+  // createCustomer({ commit }, customer) {
+  //   alert("clicked")
+  //   return new Promise((resolve, reject) => {
+  //     axios.post("/api/customers/", {customer: customer})
+  //       .then((response) => {
+  //         alert(response)
+  //         // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+  //         resolve(response)
+  //       })
+  //       .catch((error) => { reject(error) })
+  //   })
+  // },
+  fetchTransactions: function fetchTransactions(_ref) {
     var commit = _ref.commit;
     return new Promise(function (resolve, reject) {
-      _axios_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/user-management/users").then(function (response) {
-        commit('SET_USERS', response.data);
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/transactions").then(function (response) {
+        commit('SET_TRANSACTIONS', response.data);
         resolve(response);
       })["catch"](function (error) {
         reject(error);
       });
     });
   },
-  fetchUser: function fetchUser(_ref2, userId) {
+  fetchTransaction: function fetchTransaction(_ref2, transactionId) {
     _objectDestructuringEmpty(_ref2);
 
     return new Promise(function (resolve, reject) {
-      _axios_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/user-management/users/".concat(userId)).then(function (response) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/transactions/".concat(transactionId)).then(function (response) {
         resolve(response);
       })["catch"](function (error) {
         reject(error);
       });
     });
   },
-  removeRecord: function removeRecord(_ref3, userId) {
+  removeTransaction: function removeTransaction(_ref3, transactionId) {
     var commit = _ref3.commit;
     return new Promise(function (resolve, reject) {
-      _axios_js__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("/api/user-management/users/".concat(userId)).then(function (response) {
-        commit('REMOVE_RECORD', userId);
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("/api/transactions/".concat(transactionId)).then(function (response) {
+        commit('REMOVE_TRANSACTION', transactionId);
         resolve(response);
       })["catch"](function (error) {
         reject(error);
@@ -882,10 +736,10 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
 
 /***/ }),
 
-/***/ "./resources/js/src/store/user-management/moduleUserManagementGetters.js":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/src/store/user-management/moduleUserManagementGetters.js ***!
-  \*******************************************************************************/
+/***/ "./resources/js/src/store/transaction-management/moduleTransactionManagementGetters.js":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/src/store/transaction-management/moduleTransactionManagementGetters.js ***!
+  \*********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -903,10 +757,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/store/user-management/moduleUserManagementMutations.js":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/src/store/user-management/moduleUserManagementMutations.js ***!
-  \*********************************************************************************/
+/***/ "./resources/js/src/store/transaction-management/moduleTransactionManagementMutations.js":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/src/store/transaction-management/moduleTransactionManagementMutations.js ***!
+  \***********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -921,23 +775,26 @@ __webpack_require__.r(__webpack_exports__);
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 /* harmony default export */ __webpack_exports__["default"] = ({
-  SET_USERS: function SET_USERS(state, users) {
-    state.users = users;
+  SET_Transactions: function SET_Transactions(state, transactions) {
+    state.transactions = transactions;
   },
   REMOVE_RECORD: function REMOVE_RECORD(state, itemId) {
-    var userIndex = state.users.findIndex(function (u) {
+    var index = state.transactions.findIndex(function (u) {
       return u.id == itemId;
     });
-    state.users.splice(userIndex, 1);
+    state.transactions.splice(index, 1);
+  },
+  SET_TRANSACTIONS: function SET_TRANSACTIONS(state, transactions) {
+    state.transactions = transactions;
   }
 });
 
 /***/ }),
 
-/***/ "./resources/js/src/store/user-management/moduleUserManagementState.js":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/src/store/user-management/moduleUserManagementState.js ***!
-  \*****************************************************************************/
+/***/ "./resources/js/src/store/transaction-management/moduleTransactionManagementState.js":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/src/store/transaction-management/moduleTransactionManagementState.js ***!
+  \*******************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -952,23 +809,23 @@ __webpack_require__.r(__webpack_exports__);
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 /* harmony default export */ __webpack_exports__["default"] = ({
-  users: []
+  transactions: []
 });
 
 /***/ }),
 
-/***/ "./resources/js/src/views/apps/user/UserView.vue":
-/*!*******************************************************!*\
-  !*** ./resources/js/src/views/apps/user/UserView.vue ***!
-  \*******************************************************/
+/***/ "./resources/js/src/views/apps/transaction/TransactionView.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/src/views/apps/transaction/TransactionView.vue ***!
+  \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UserView_vue_vue_type_template_id_3bf8e1be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserView.vue?vue&type=template&id=3bf8e1be& */ "./resources/js/src/views/apps/user/UserView.vue?vue&type=template&id=3bf8e1be&");
-/* harmony import */ var _UserView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserView.vue?vue&type=script&lang=js& */ "./resources/js/src/views/apps/user/UserView.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _UserView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserView.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/src/views/apps/user/UserView.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _TransactionView_vue_vue_type_template_id_edc86c82___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TransactionView.vue?vue&type=template&id=edc86c82& */ "./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=template&id=edc86c82&");
+/* harmony import */ var _TransactionView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TransactionView.vue?vue&type=script&lang=js& */ "./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _TransactionView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TransactionView.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=style&index=0&lang=scss&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -979,9 +836,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _UserView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _UserView_vue_vue_type_template_id_3bf8e1be___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _UserView_vue_vue_type_template_id_3bf8e1be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _TransactionView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TransactionView_vue_vue_type_template_id_edc86c82___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TransactionView_vue_vue_type_template_id_edc86c82___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -991,54 +848,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/views/apps/user/UserView.vue"
+component.options.__file = "resources/js/src/views/apps/transaction/TransactionView.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/views/apps/user/UserView.vue?vue&type=script&lang=js&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/src/views/apps/user/UserView.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************/
+/***/ "./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserView.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/UserView.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionView.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/apps/user/UserView.vue?vue&type=style&index=0&lang=scss&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/src/views/apps/user/UserView.vue?vue&type=style&index=0&lang=scss& ***!
-  \*****************************************************************************************/
+/***/ "./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=style&index=0&lang=scss&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=style&index=0&lang=scss& ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserView.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/UserView.vue?vue&type=style&index=0&lang=scss&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionView.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/apps/user/UserView.vue?vue&type=template&id=3bf8e1be&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/src/views/apps/user/UserView.vue?vue&type=template&id=3bf8e1be& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=template&id=edc86c82&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=template&id=edc86c82& ***!
+  \****************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_template_id_3bf8e1be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserView.vue?vue&type=template&id=3bf8e1be& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/UserView.vue?vue&type=template&id=3bf8e1be&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_template_id_3bf8e1be___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_template_id_edc86c82___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionView.vue?vue&type=template&id=edc86c82& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/TransactionView.vue?vue&type=template&id=edc86c82&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_template_id_edc86c82___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserView_vue_vue_type_template_id_3bf8e1be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionView_vue_vue_type_template_id_edc86c82___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

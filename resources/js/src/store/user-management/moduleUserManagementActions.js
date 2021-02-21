@@ -7,7 +7,7 @@
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-import axios from "@/axios.js"
+import axios from "@/axios"
 
 export default {
   // addItem({ commit }, item) {
@@ -20,9 +20,22 @@ export default {
   //       .catch((error) => { reject(error) })
   //   })
   // },
+  createCustomer({ commit }, customer) {
+    alert("clicked")
+    return new Promise((resolve, reject) => {
+      axios.post("/api/customers/", {customer: customer})
+        .then((response) => {
+          alert(response)
+          // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+          resolve(response)
+        })
+        .catch((error) => { reject(error) })
+    })
+  },
+
   fetchUsers({ commit }) {
     return new Promise((resolve, reject) => {
-      axios.get("/api/user-management/users")
+      axios.get("/api/customers")
         .then((response) => {
           commit('SET_USERS', response.data)
           resolve(response)
@@ -32,7 +45,7 @@ export default {
   },
   fetchUser({}, userId) {
     return new Promise((resolve, reject) => {
-      axios.get(`/api/user-management/users/${userId}`)
+      axios.get(`/api/customers/${userId}`)
         .then((response) => {
           resolve(response)
         })
@@ -48,5 +61,15 @@ export default {
         })
         .catch((error) => { reject(error) })
     })
-  }
+  },
+  fetchTransactions({ commit }) {
+    return new Promise((resolve, reject) => {
+      axios.get("/api/transactions")
+        .then((response) => {
+          commit('SET_TRANSACTIONS', response.data)
+          resolve(response)
+        })
+        .catch((error) => { reject(error) })
+    })
+  },
 }

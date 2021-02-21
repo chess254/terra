@@ -31,15 +31,15 @@
     </div>
 
     <!-- Content Row -->
-    <div class="vx-row">
+    <!-- <div class="vx-row">
       <div class="vx-col md:w-1/2 w-full">
-        <vs-input class="w-full mt-4" label="Username" v-model="data_local.username" v-validate="'required|alpha_num'" name="username" />
+        <vs-input class="w-full mt-4" label="Username" v-model="data_local.name" v-validate="'required|alpha_num'" name="username" />
         <span class="text-danger text-sm"  v-show="errors.has('username')">{{ errors.first('username') }}</span>
 
         <vs-input class="w-full mt-4" label="Name" v-model="data_local.name" v-validate="'required|alpha_spaces'" name="name" />
         <span class="text-danger text-sm"  v-show="errors.has('name')">{{ errors.first('name') }}</span>
 
-        <vs-input class="w-full mt-4" label="Email" v-model="data_local.email" type="email" v-validate="'required|email'" name="email" />
+        <vs-input class="w-full mt-4" label="Email" v-model="data_local.phone" type="email" v-validate="'required|email'" name="email" />
         <span class="text-danger text-sm"  v-show="errors.has('email')">{{ errors.first('email') }}</span>
       </div>
 
@@ -57,46 +57,54 @@
           <span class="text-danger text-sm"  v-show="errors.has('role')">{{ errors.first('role') }}</span>
         </div>
 
-        <vs-input class="w-full mt-4" label="Company" v-model="data_local.company" v-validate="'alpha_spaces'" name="company" />
+        <vs-input class="w-full mt-4" label="Company" v-model="data_local.status" v-validate="'alpha_spaces'" name="company" />
         <span class="text-danger text-sm"  v-show="errors.has('company')">{{ errors.first('company') }}</span>
 
       </div>
-    </div>
-
-    <!-- Permissions -->
-    <vx-card class="mt-base" no-shadow card-border>
-
+    </div> -->
+    <div class="vx-row">
+        <div class="vx-col sm:w-1/2 w-full mb-2">
+          <vs-input class="w-full" label-placeholder="Name" v-model="data_local.name" />
+        </div>
+        <div class="vx-col sm:w-1/2 w-full mb-2">
+          <vs-input class="w-full" label-placeholder="Phone" v-model="data_local.phone" />
+        </div>
+      </div>
+      <div class="vx-row">
+        <div class="vx-col sm:w-1/2 w-full mb-2">
+          <vs-input class="w-full" label-placeholder="Amount Paid" v-model="data_local.amount_paid" />
+        </div>
+        <div class="vx-col sm:w-1/2 w-full mb-2">
+          <vs-input class="w-full" label-placeholder="Currency" v-model="data_local.currency" />
+        </div>
+      </div>
+      <div class="vx-row">
+        <div class="vx-col sm:w-1/2 w-full mb-2">
+          <label class="vs-input--label">Status</label>
+          <v-select v-model="data_local.status" :clearable="false" :options="statusOptions" v-validate="'required'" name="status" :dir="$vs.rtl ? 'rtl' : 'ltr'" />
+          <span class="text-danger text-sm"  v-show="errors.has('status')">{{ errors.first('status') }}</span>
+        </div>
+        <div class="vx-col sm:w-1/2 w-full mb-2">
+          <label class="vs-input--label">Group</label>
+          <v-select v-model="data_local.group" :clearable="false" :options="groupOptions" v-validate="'required'" name="group" :dir="$vs.rtl ? 'rtl' : 'ltr'" />
+          <span class="text-danger text-sm"  v-show="errors.has('group')">{{ errors.first('group') }}</span>
+        </div>
+      </div>
+      <div class="vx-row">
+        <div class="vx-col sm:w-1/2 w-full mb-6">
+        <label class="vs-input--label"></label>
+          <datepicker label-placeholder="join date" format="yyyy-MM-dd" placeholder="Join Date" v-model="data_local.join_date"></datepicker>
+        </div>
+      </div>
       <div class="vx-row">
         <div class="vx-col w-full">
-          <div class="flex items-end px-3">
-            <feather-icon svgClasses="w-6 h-6" icon="LockIcon" class="mr-2" />
-            <span class="font-medium text-lg leading-none">Permissions</span>
-          </div>
-          <vs-divider />
+          <vs-button class="mr-3 mb-2" @click="updateCustomer">Save Changes</vs-button>
+          <vs-button color="warning" type="border" class="mb-2" @click="data_local={}">Reset</vs-button>
         </div>
       </div>
 
-      <div class="block overflow-x-auto">
-        <table class="w-full">
-          <tr>
-            <!--
-              You can also use `Object.keys(Object.values(data_local.permissions)[0])` this logic if you consider,
-              our data structure. You just have to loop over above variable to get table headers.
-              Below we made it simple. So, everyone can understand.
-             -->
-            <th class="font-semibold text-base text-left px-3 py-2" v-for="heading in ['Module', 'Read', 'Write', 'Create', 'Delete']" :key="heading">{{ heading }}</th>
-          </tr>
-
-          <tr v-for="(val, name) in data_local.permissions" :key="name">
-            <td class="px-3 py-2">{{ name }}</td>
-            <td v-for="(permission, name) in val" class="px-3 py-2" :key="name+permission">
-              <vs-checkbox v-model="val[name]" />
-            </td>
-          </tr>
-        </table>
-      </div>
-
-    </vx-card>
+  
+    
 
     <!-- Save & Reset Button -->
     <div class="vx-row">
@@ -112,6 +120,7 @@
 
 <script>
 import vSelect from 'vue-select'
+import axios from 'axios'
 
 export default {
   components: {
@@ -129,14 +138,14 @@ export default {
       data_local: JSON.parse(JSON.stringify(this.data)),
 
       statusOptions: [
-        { label: "Active",  value: "active" },
-        { label: "Blocked",  value: "blocked" },
-        { label: "Deactivated",  value: "deactivated" },
+         "Active",  
+         "Blocked",  
+         "Deactivated",  
       ],
-      roleOptions: [
-        { label: "Admin",  value: "admin" },
-        { label: "User",  value: "user" },
-        { label: "Staff",  value: "staff" },
+      groupOptions: [
+         "Admin",  
+         "User",  
+         "Staff",  
       ],
     }
   },
@@ -151,10 +160,10 @@ export default {
     },
     role_local: {
       get() {
-        return { label: this.capitalize(this.data_local.role),  value: this.data_local.role  }
+        return { label: this.capitalize(this.data_local.group),  value: this.data_local.group  }
       },
       set(obj) {
-        this.data_local.role = obj.value
+        this.data_local.group = obj.value
       }
     },
     validateForm() {
@@ -162,6 +171,20 @@ export default {
     }
   },
   methods: {
+
+    updateCustomer({ commit }) {
+      let customer = this.data_local
+      // alert(customer.name)
+      return new Promise((resolve, reject) => {
+        axios.patch("/api/customers/"+customer.id, customer  )
+          .then((response) => {
+            // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+            resolve(response)
+            this.$router.push('/apps/user/user-view/'+customer.id).catch(() => {})
+          })
+          .catch((error) => { reject(error) })
+      })
+    },
     capitalize(str) {
       return str.slice(0,1).toUpperCase() + str.slice(1,str.length)
     },

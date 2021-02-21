@@ -16,4 +16,5 @@ export default {
       const userIndex = state.users.findIndex((u) => u.id == itemId)
       state.users.splice(userIndex, 1)
   },
+
 }

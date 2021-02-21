@@ -11,13 +11,13 @@
   <div id="page-user-view">
 
     <vs-alert color="danger" title="User Not Found" :active.sync="user_not_found">
-      <span>User record with id: {{ $route.params.userId }} not found. </span>
+      <span>Transaction record with id: {{ $route.params.userId }} not found. </span>
       <span>
         <span>Check </span><router-link :to="{name:'page-user-list'}" class="text-inherit underline">All Users</router-link>
       </span>
     </vs-alert>
 
-    <div id="user-data" v-if="user_data">
+    <div id="user-data" v-if="transaction_data">
 
       <vx-card title="Account" class="mb-base">
 
@@ -27,7 +27,7 @@
           <!-- Avatar Col -->
           <div class="vx-col" id="avatar-col">
             <div class="img-container mb-4">
-              <img :src="user_data.avatar" class="rounded w-full" />
+              <img :src="transaction_data.avatar" class="rounded w-full" />
             </div>
           </div>
 
@@ -35,16 +35,16 @@
           <div class="vx-col flex-1" id="account-info-col-1">
             <table>
               <tr>
-                <td class="font-semibold">Username</td>
-                <td>{{ user_data.username }}</td>
+                <td class="font-semibold">Sender Name</td>
+                <td>{{ transaction_data.sender_name }}</td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td class="font-semibold">Name</td>
-                <td>{{ user_data.name }}</td>
-              </tr>
+                <td>{{ transaction_data.name }}</td>
+              </tr> -->
               <tr>
-                <td class="font-semibold">Email</td>
-                <td>{{ user_data.email }}</td>
+                <td class="font-semibold">Beneficiary</td>
+                <td>{{ transaction_data.beneficiary }}</td>
               </tr>
             </table>
           </div>
@@ -55,94 +55,77 @@
             <table>
               <tr>
                 <td class="font-semibold">Status</td>
-                <td>{{ user_data.status }}</td>
+                <td>{{ transaction_data.status }}</td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td class="font-semibold">Role</td>
-                <td>{{ user_data.role }}</td>
+                <td>{{ transaction_data.role }}</td>
               </tr>
               <tr>
                 <td class="font-semibold">Company</td>
-                <td>{{ user_data.company }}</td>
-              </tr>
+                <td>{{ transaction_data.company }}</td>
+              </tr> -->
             </table>
           </div>
           <!-- /Information - Col 2 -->
           <div class="vx-col w-full flex" id="account-manage-buttons">
-            <vs-button icon-pack="feather" icon="icon-edit" class="mr-4" :to="{name: 'app-user-edit', params: { userId: $route.params.userId }}">Edit</vs-button>
-            <vs-button type="border" color="danger" icon-pack="feather" icon="icon-trash" @click="confirmDeleteRecord">Delete</vs-button>
+            <vs-button icon-pack="feather" icon="icon-edit" class="mr-4" :to="{name: 'app-transaction-edit', params: { transactionId: $route.params.transactionId }}">Edit</vs-button>
+            <vs-button type="border" color="danger" icon-pack="feather" icon="icon-trash" @click="confirmDeleteRecord(transaction_data.id)">Delete</vs-button>
           </div>
 
         </div>
 
       </vx-card>
 
-      <div class="vx-row">
-        <div class="vx-col lg:w-1/2 w-full">
+      <div class="vx-row mx-auto">
+        <div class="vx-col lg:w-1/2 w-full mx-auto">
           <vx-card title="Information" class="mb-base">
             <table>
               <tr>
-                <td class="font-semibold">Birth Date</td>
-                <td>{{ user_data.dob }}</td>
+                <td class="font-semibold">Sender Name</td>
+                <td>{{ transaction_data.sender_name }}</td>
               </tr>
               <tr>
-                <td class="font-semibold">Mobile</td>
-                <td>{{ user_data.mobile }}</td>
+                <td class="font-semibold">Beneficiary</td>
+                <td>{{ transaction_data.beneficiary }}</td>
               </tr>
               <tr>
-                <td class="font-semibold">Website</td>
-                <td>{{ user_data.website }}</td>
+                <td class="font-semibold">Transaction Type</td>
+                <td>{{ transaction_data.transaction_type }}</td>
               </tr>
               <tr>
-                <td class="font-semibold">Languages</td>
-                <td>{{ user_data.languages_known.join(", ") }}</td>
+                <td class="font-semibold">Payment Method</td>
+                <td>{{ transaction_data.payment_method }}</td>
+              </tr> 
+              <tr>
+                <td class="font-semibold">Currency</td>
+                <td>{{ transaction_data.currency }}</td>
               </tr>
               <tr>
-                <td class="font-semibold">Gender</td>
-                <td>{{ user_data.gender }}</td>
+                <td class="font-semibold">Amount</td>
+                <td>{{ transaction_data.amount }}</td>
               </tr>
               <tr>
-                <td class="font-semibold">Contact</td>
-                <td>{{ user_data.contact_options.join(", ") }}</td>
+                <td class="font-semibold">Ref Number</td>
+                <td>{{ transaction_data.ref_no }}</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Order Ref</td>
+                <td>{{ transaction_data.order_ref }}</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Status</td>
+                <td>{{ transaction_data.status }}</td>
               </tr>
             </table>
           </vx-card>
         </div>
 
-        <div class="vx-col lg:w-1/2 w-full">
-          <vx-card title="Social Links" class="mb-base">
-            <table>
-              <tr>
-                <td class="font-semibold">Twitter</td>
-                <td>{{ user_data.social_links.twitter }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Facebook</td>
-                <td>{{ user_data.social_links.facebook }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Instagram</td>
-                <td>{{ user_data.social_links.instagram }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Github</td>
-                <td>{{ user_data.social_links.github }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">CodePen</td>
-                <td>{{ user_data.social_links.codepen }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Slack</td>
-                <td>{{ user_data.social_links.slack }}</td>
-              </tr>
-            </table>
-          </vx-card>
-        </div>
+       
       </div>
 
       <!-- Permissions -->
-      <vx-card>
+      <!-- <vx-card>
 
         <div class="vx-row">
           <div class="vx-col w-full">
@@ -157,15 +140,10 @@
         <div class="block overflow-x-auto">
           <table class="w-full permissions-table">
             <tr>
-              <!--
-                You can also use `Object.keys(Object.values(data_local.permissions)[0])` this logic if you consider,
-                our data structure. You just have to loop over above variable to get table headers.
-                Below we made it simple. So, everyone can understand.
-               -->
               <th class="font-semibold text-base text-left px-3 py-2" v-for="heading in ['Module', 'Read', 'Write', 'Create', 'Delete']" :key="heading">{{ heading }}</th>
             </tr>
 
-            <tr v-for="(val, name) in user_data.permissions" :key="name">
+            <tr v-for="(val, name) in transaction_data.permissions" :key="name">
               <td class="px-3 py-2">{{ name }}</td>
               <td v-for="(permission, name) in val" class="px-3 py-2" :key="name+permission">
                 <vs-checkbox v-model="val[name]" class="pointer-events-none" />
@@ -174,48 +152,57 @@
           </table>
         </div>
 
-      </vx-card>
+      </vx-card> -->
     </div>
   </div>
 </template>
 
 <script>
-import moduleUserManagement from '@/store/user-management/moduleUserManagement.js'
+import moduleTransactionManagement from '@/store/transaction-management/moduleTransactionManagement.js'
+import axios from '@/axios'
 
 export default {
   data() {
     return {
-      user_data: null,
+      transaction_data: null,
       user_not_found: false,
     }
   },
   computed: {
     userAddress() {
       let str = ""
-      for(var field in this.user_data.location) {
+      for(var field in this.transaction_data.location) {
         str += field + " "
       }
       return str
     }
   },
   methods: {
-    confirmDeleteRecord() {
-      this.$vs.dialog({
-        type: 'confirm',
-        color: 'danger',
-        title: `Confirm Delete`,
-        text: `You are about to delete "${this.user_data.username}"`,
-        accept: this.deleteRecord,
-        acceptText: "Delete"
-      })
+    confirmDeleteRecord(id) {
+      // this.$vs.dialog({
+      //   type: 'confirm',
+      //   color: 'danger',
+      //   title: `Confirm Delete`,
+      //   text: `You are about to delete "${this.transaction_data.name}"`,
+      //   accept: this.deleteRecord(id),
+      //   acceptText: "Delete"
+      // })
+      this.deleteRecord(id)
     },
-    deleteRecord() {
+    deleteRecord(id) {
       /* Below two lines are just for demo purpose */
-      this.$router.push({name:'app-user-list'});
-      this.showDeleteSuccess()
-
+      // this.$router.push({name:'app-user-list'});
+      
+      axios.delete("/api/transactions/"+id)
+          .then((response) => {
+            // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+            this.showDeleteSuccess()
+            // resolve(response)
+            this.$router.push({name:'app-transaction-list'}).catch(() => {})
+          })
+          .catch((error) => { (error) })
       /* UnComment below lines for enabling true flow if deleting user */
-      // this.$store.dispatch("userManagement/removeRecord", this.user_data.id)
+      // this.$store.dispatch("userManagement/removeRecord", this.transaction_data.id)
       //   .then(()   => { this.$router.push({name:'app-user-list'}); this.showDeleteSuccess() })
       //   .catch(err => { console.error(err)       })
     },
@@ -229,17 +216,17 @@ export default {
   },
   created() {
     // Register Module UserManagement Module
-    if(!moduleUserManagement.isRegistered) {
-      this.$store.registerModule('userManagement', moduleUserManagement)
-      moduleUserManagement.isRegistered = true
+    if(!moduleTransactionManagement.isRegistered) {
+      this.$store.registerModule('transactionManagement', moduleTransactionManagement)
+      moduleTransactionManagement.isRegistered = true
     }
 
-    const userId = this.$route.params.userId
-    this.$store.dispatch("userManagement/fetchUser", userId)
-      .then(res => { this.user_data = res.data })
+    const transactionId = this.$route.params.transactionId
+    this.$store.dispatch("transactionManagement/fetchTransaction", transactionId)
+      .then(res => { this.transaction_data = res.data })
       .catch(err => {
         if(err.response.status === 404) {
-          this.user_not_found = true
+          this.transaction_not_found = true
           return
         }
         console.error(err) })

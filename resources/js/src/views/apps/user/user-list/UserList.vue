@@ -221,48 +221,48 @@ export default {
         },
         {
           headerName: 'Name',
-          field: 'username',
+          field: 'name',
           filter: true,
           width: 210,
           cellRendererFramework: 'CellRendererLink'
         },
         {
           headerName: 'Phone',
-          field: 'email',
+          field: 'phone',
           filter: true,
           width: 225,
         },
         {
           headerName: 'Join Date',
-          field: 'name',
+          field: 'join_date',
           filter: true,
           width: 200,
         },
         {
           headerName: 'Currency',
-          field: 'country',
+          field: 'currency',
           filter: true,
           width: 150,
         },
         {
           headerName: 'Amount Paid',
-          field: 'role',
+          field: 'amount_paid',
           filter: true,
           width: 150,
         },
         {
           headerName: 'Group',
-          field: 'status',
+          field: 'group',
           filter: true,
           width: 150,
           cellRendererFramework: 'CellRendererStatus'
         },
         {
           headerName: 'Status',
-          field: 'is_verified',
+          field: 'status',
           filter: true,
           width: 125,
-          cellRendererFramework: 'CellRendererVerified',
+          // cellRendererFramework: 'CellRendererVerified',
           cellClass: "text-center"
         },
         {

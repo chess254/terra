@@ -144,7 +144,7 @@ import '@sass/vuexy/extraComponents/agGridStyleOverride.scss'
 import vSelect from 'vue-select'
 
 // Store Module
-import moduleUserManagement from '@/store/user-management/moduleUserManagement.js'
+import moduleTransactionManagement from '@/store/transaction-management/moduleTransactionManagement.js'
 
 // Cell Renderer
 import CellRendererLink from "./cell-renderer/CellRendererLink.vue"
@@ -220,49 +220,57 @@ export default {
           headerCheckboxSelection: true,
         },
         {
-          headerName: 'Name',
-          field: 'username',
+          headerName: 'Sender Name',
+          field: 'sender_name',
           filter: true,
           width: 210,
           cellRendererFramework: 'CellRendererLink'
         },
         {
-          headerName: 'Phone',
-          field: 'email',
+          headerName: 'Beneficiary',
+          field: 'beneficiary',
           filter: true,
           width: 225,
         },
         {
-          headerName: 'Join Date',
-          field: 'name',
+          headerName: 'Transaction Type',
+          field: 'transaction_type',
           filter: true,
           width: 200,
         },
         {
           headerName: 'Currency',
-          field: 'country',
+          field: 'currency',
           filter: true,
           width: 150,
         },
         {
-          headerName: 'Amount Paid',
-          field: 'role',
+          headerName: 'Payment Method',
+          field: 'payment_method',
           filter: true,
           width: 150,
         },
         {
-          headerName: 'Group',
-          field: 'status',
+          headerName: 'Amount',
+          field: 'amount',
           filter: true,
           width: 150,
           cellRendererFramework: 'CellRendererStatus'
         },
         {
-          headerName: 'Status',
-          field: 'is_verified',
+          headerName: 'Ref No.',
+          field: 'ref_no',
           filter: true,
           width: 125,
-          cellRendererFramework: 'CellRendererVerified',
+          // cellRendererFramework: 'CellRendererVerified',
+          cellClass: "text-center"
+        },
+        {
+          headerName: 'Order Ref.',
+          field: 'order_ref',
+          filter: true,
+          width: 125,
+          // cellRendererFramework: 'CellRendererVerified',
           cellClass: "text-center"
         },
         {
@@ -305,7 +313,7 @@ export default {
   },
   computed: {
     usersData() {
-      return this.$store.state.userManagement.users
+      return this.$store.state.transactionManagement.transactions
     },
     paginationPageSize() {
       if(this.gridApi) return this.gridApi.paginationGetPageSize()
@@ -365,11 +373,11 @@ export default {
     }
   },
   created() {
-    if(!moduleUserManagement.isRegistered) {
-      this.$store.registerModule('userManagement', moduleUserManagement)
-      moduleUserManagement.isRegistered = true
+    if(!moduleTransactionManagement.isRegistered) {
+      this.$store.registerModule('transactionManagement', moduleTransactionManagement)
+      moduleTransactionManagement.isRegistered = true
     }
-    this.$store.dispatch("userManagement/fetchUsers").catch(err => { console.error(err) })
+    this.$store.dispatch("transactionManagement/fetchTransactions").catch(err => { console.error(err) })
   }
 }
 
