@@ -8,7 +8,7 @@
 ==========================================================================================*/
 
 import jwt from "../../http/requests/auth/jwt/index.js"
-import axios from "axios"
+import axios from "@/axios"
 
 // import firebase from 'firebase/app'
 // import 'firebase/auth'
@@ -369,7 +369,7 @@ export default {
           reject({message: "Password doesn't match. Please try again."})
         }
 
-        jwt.registerUser(displayName, email, password)
+        axios.post('/api/auth/register',{name:displayName, email:email, password:password, c_password:confirmPassword})
           .then(response => {
             // Redirect User
             router.push(router.currentRoute.query.to || '/')
