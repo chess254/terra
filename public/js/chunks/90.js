@@ -1,14 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[90],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/Faq.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/pages/Faq.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/store/user-management/moduleUserManagement.js */ "./resources/js/src/store/user-management/moduleUserManagement.js");
 //
 //
 //
@@ -63,202 +64,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
+// import UserCreateTabAccount     from "./UserCreateTabAccount.vue"
+// import UserCreateTabInformation from "./UserCreateTabInformation.vue"
+// import UserCreateTabSocial      from "./UserCreateTabSocial.vue"
+// Store Module
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {// UserCreateTabAccount,
+    // UserCreateTabInformation,
+    // UserCreateTabSocial,
+  },
   data: function data() {
     return {
-      faqSearchQuery: '',
-      faqFilter: 1,
-      categories: [{
-        id: 1,
-        name: 'All',
-        color: 'grey'
-      }, {
-        id: 2,
-        name: 'General',
-        color: 'primary'
-      }, {
-        id: 3,
-        name: 'Licenses',
-        color: 'success'
-      }, {
-        id: 4,
-        name: 'Company usage',
-        color: 'warning'
-      }, {
-        id: 5,
-        name: 'Trademark use',
-        color: 'danger'
-      }],
-      faqs: [{
-        id: 1,
-        categoryId: 2,
-        question: 'What does royalty free mean?',
-        ans: 'Royalty free means you just need to pay for rights to use the item once per end product. You don\'t need to pay additional or ongoing fees for each person who sees or uses it. Please note that there may be some limits placed on uses under the different license types available on the marketplaces, such as our Photo and Music Licenses.'
-      }, {
-        id: 2,
-        categoryId: 2,
-        question: 'What do you mean by item and end product?',
-        ans: 'The item is what you purchase from Envato Market. The end product is what you build with that item. Example: The item is a business card template; the end product is the finalized business card. The item is a button graphic; the end product is an app using the button graphic in the app\'s interface.'
-      }, {
-        id: 3,
-        categoryId: 2,
-        question: 'Am I allowed to modify the item that I purchased?',
-        ans: 'Yes. You can customize our items to fit the needs of your end product. Example: You could change the colors, text, and layout of a flyer template or convert an HTML template into a WordPress theme for a single client.'
-      }, {
-        id: 4,
-        categoryId: 2,
-        question: 'What does non-exclusive mean?',
-        ans: 'Non-exclusive means that you are not the only person with access to the item. Others will also be licensing and using the same item.'
-      }, {
-        id: 5,
-        categoryId: 3,
-        question: 'Is the Regular License the same thing as an editorial license?',
-        ans: 'No, our Regular License is for a free end product (whether or not the item is used in the end product in an editorial way). And our Extended License is for an end product that\'s sold (whether or not the item is used in the end product in an editorial way). If you want to use an item in an editorial way in your end product, choose the Regular License if your end product is distributed for free, and choose the Extended License if your end product is sold to the end customer.'
-      }, {
-        id: 6,
-        categoryId: 3,
-        question: 'Which license do I need for an end product that is only accessible to paying users?',
-        ans: 'If the end users need to pay to see the end product, you need an Extended License. There can be more than one end user as long as there is only one end product. Example: A website that requires money before you can access the content.'
-      }, {
-        id: 7,
-        categoryId: 3,
-        question: 'Which license do I need to use an item in a commercial?',
-        ans: 'You only need a Regular License where the end product is an advertisement, as the audience does not have to pay to view it. It doesn\'t matter if the advertisement is for things that are being sold. Example: An After Effects template used to produce a TV commercial would only need the Regular License'
-      }, {
-        id: 8,
-        categoryId: 3,
-        question: 'Can I re-distribute an item? What about under an Extended License?',
-        ans: 'No. You can\'t license items and then make them available to others "as-is" (that is, as a stand-alone item or as stock), regardless of which license you purchase. Example: You can\'t buy a business card template and distribute it as a template, source files and all.'
-      }, {
-        id: 9,
-        categoryId: 4,
-        question: 'Can multiple people within my company have access to the item?',
-        ans: 'Yes. If you purchased a single-use license, access should only be given to people working on the single end product incorporating that item.'
-      }, {
-        id: 10,
-        categoryId: 4,
-        question: 'Can I store the item on an intranet so everyone has access?',
-        ans: 'No, items must be stored in a location where only those who need them have access. If you purchased a single-use license, once the item has been used in a single end product, the only place you should store it is in the archive files for that end product.'
-      }, {
-        id: 11,
-        categoryId: 5,
-        question: 'Does this apply to all items from Envato Market?',
-        ans: 'No. This only applies to items with real-world products and trademarks in the actual item. This is most likely in product mock-ups (graphics items), product promos (motion graphics project files) and 3D items. This does not apply to PhotoDune items, which are available for commercial use. This also does not apply to images of products and trademarks used illustratively in item previews, as they\'re not included in the item you download.'
-      }, {
-        id: 12,
-        categoryId: 5,
-        question: 'What does \'editorial use\' mean?',
-        ans: 'Editorial use means using an item only for news or journalistic purposes like in blogs, magazine and newspaper editorial applications.'
-      }, {
-        id: 13,
-        categoryId: 5,
-        question: 'Is this item still \'royalty free\'?',
-        ans: 'Yes. Royalty free means you pay for the item once for each end product, and you don\'t need to pay any additional or ongoing fees for each person who sees or uses it. This is separate to whether you need a clearance from the owner of rights in the real world product or trademark within an item.'
-      }],
-      supporters: [{
-        id: 1,
-        img: __webpack_require__(/*! @assets/images/portrait/small/avatar-s-1.jpg */ "./resources/assets/images/portrait/small/avatar-s-1.jpg"),
-        name: 'Boyce Shene',
-        profession: 'Web Developer'
-      }, {
-        id: 2,
-        img: __webpack_require__(/*! @assets/images/portrait/small/avatar-s-2.jpg */ "./resources/assets/images/portrait/small/avatar-s-2.jpg"),
-        name: 'Margie Sevy',
-        profession: 'Web Designer'
-      }, {
-        id: 3,
-        img: __webpack_require__(/*! @assets/images/portrait/small/avatar-s-3.jpg */ "./resources/assets/images/portrait/small/avatar-s-3.jpg"),
-        name: 'Cyndi Navas',
-        profession: 'Web Developer'
-      }, {
-        id: 4,
-        img: __webpack_require__(/*! @assets/images/portrait/small/avatar-s-4.jpg */ "./resources/assets/images/portrait/small/avatar-s-4.jpg"),
-        name: 'Chi Petrusky',
-        profession: 'Web Developer'
-      }, {
-        id: 5,
-        img: __webpack_require__(/*! @assets/images/portrait/small/avatar-s-5.jpg */ "./resources/assets/images/portrait/small/avatar-s-5.jpg"),
-        name: 'Shanel Dumag',
-        profession: 'Web Designer'
-      }]
+      user_data: {
+        name: null,
+        phone: null,
+        join_date: null,
+        currency: null,
+        amount_paid: null,
+        status: null
+      },
+      test: 123
     };
   },
-  computed: {
-    filteredFaq: function filteredFaq() {
-      var _this = this;
-
-      return this.faqs.filter(function (faq) {
-        if (_this.faqFilter == 1) return faq.question.toLowerCase().includes(_this.faqSearchQuery.toLowerCase()) || faq.ans.toLowerCase().includes(_this.faqSearchQuery.toLowerCase());else if (_this.faqFilter == 2) return faq.categoryId == 2 && (faq.question.toLowerCase().includes(_this.faqSearchQuery.toLowerCase()) || faq.ans.toLowerCase().includes(_this.faqSearchQuery.toLowerCase()));else if (_this.faqFilter == 3) return faq.categoryId == 3 && (faq.question.toLowerCase().includes(_this.faqSearchQuery.toLowerCase()) || faq.ans.toLowerCase().includes(_this.faqSearchQuery.toLowerCase()));else if (_this.faqFilter == 4) return faq.categoryId == 4 && (faq.question.toLowerCase().includes(_this.faqSearchQuery.toLowerCase()) || faq.ans.toLowerCase().includes(_this.faqSearchQuery.toLowerCase()));else if (_this.faqFilter == 5) return faq.categoryId == 5 && (faq.question.toLowerCase().includes(_this.faqSearchQuery.toLowerCase()) || faq.ans.toLowerCase().includes(_this.faqSearchQuery.toLowerCase()));
-      });
-    }
+  watch: {},
+  methods: {// fetch_user_data(userId) {
+    //   this.$store.dispatch("userManagement/fetchUser", userId)
+    //     .then(res => { this.user_data = res.data })
+    //     .catch(err => {
+    //       if(err.response.status === 404) {
+    //         this.user_not_found = true
+    //         return
+    //       }
+    //       console.error(err) })
+    // }
   },
-  methods: {},
-  components: {}
+  created: function created() {// Register Module UserManagement Module
+    // if(!moduleUserManagement.isRegistered) {
+    //   this.$store.registerModule('userManagement', moduleUserManagement)
+    //   moduleUserManagement.isRegistered = true
+    // }
+    // this.fetch_user_data(this.$route.params.userId)
+  }
 });
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/Faq.vue?vue&type=style&index=0&lang=scss&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/pages/Faq.vue?vue&type=style&index=0&lang=scss& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var escape = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
-exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "[dir] #faq-page .faq-jumbotron-content {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../assets/images/pages/faq.jpg */ "./resources/assets/images/pages/faq.jpg")) + ");\n  background-size: cover;\n}\n[dir] #faq-page .faq-bg {\n  background-color: #fff;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/Faq.vue?vue&type=style&index=0&lang=scss&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/pages/Faq.vue?vue&type=style&index=0&lang=scss& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Faq.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/Faq.vue?vue&type=style&index=0&lang=scss&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/Faq.vue?vue&type=template&id=2cab95de&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/pages/Faq.vue?vue&type=template&id=2cab95de& ***!
-  \***********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=template&id=4c15ab0a&":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=template&id=4c15ab0a& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -270,153 +125,180 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "faq-page" } }, [
-    _c("div", { staticClass: "faq-jumbotron" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "faq-jumbotron-content lg:p-32 md:p-24 sm:p-16 p-8 rounded-lg mb-base"
-        },
-        [
-          _c("h1", { staticClass: "mb-1 text-white" }, [
-            _vm._v("Have Any Questions?")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-white" }, [
-            _vm._v(
-              "Bonbon sesame snaps lemon drops marshmallow ice cream carrot cake croissant wafer."
-            )
-          ]),
-          _vm._v(" "),
-          _c("vs-input", {
-            staticClass: "w-full mt-6",
-            attrs: {
-              placeholder: "Search",
-              "icon-pack": "feather",
-              icon: "icon-search",
-              size: "large",
-              "icon-no-border": ""
-            },
-            model: {
-              value: _vm.faqSearchQuery,
-              callback: function($$v) {
-                _vm.faqSearchQuery = $$v
-              },
-              expression: "faqSearchQuery"
-            }
-          })
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "vx-row" }, [
-      _c(
-        "div",
-        { staticClass: "vx-col w-full md:w-2/5 lg:w-1/4 rounded-lg" },
-        [
-          _c("vx-card", [
-            _c("h4", [_vm._v("Table of Content")]),
-            _vm._v(" "),
-            _c(
-              "ul",
-              { staticClass: "faq-topics mt-4" },
-              _vm._l(_vm.categories, function(category) {
-                return _c(
-                  "li",
-                  {
-                    key: category.id,
-                    staticClass: "p-2 font-medium flex items-center",
-                    on: {
-                      click: function($event) {
-                        _vm.faqFilter = category.id
-                      }
-                    }
-                  },
-                  [
-                    _c("div", {
-                      staticClass: "h-3 w-3 rounded-full mr-2",
-                      class: "bg-" + category.color
-                    }),
-                    _c("span", { staticClass: "cursor-pointer" }, [
-                      _vm._v(_vm._s(category.name))
-                    ])
-                  ]
-                )
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("br"),
-            _c("br"),
-            _vm._v(" "),
-            _c("h4", [_vm._v("Supporters")]),
-            _vm._v(" "),
-            _c(
-              "ul",
-              { staticClass: "faq-supporters mt-4" },
-              _vm._l(_vm.supporters, function(supporter) {
-                return _c("li", { key: supporter.id, staticClass: "mt-4" }, [
-                  _c(
-                    "div",
-                    { staticClass: "flex items-center" },
-                    [
-                      _c("vs-avatar", {
-                        staticClass: "mr-3",
-                        attrs: { src: supporter.img, size: "35px" }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "leading-tight" }, [
-                        _c("p", { staticClass: "font-semibold" }, [
-                          _vm._v(_vm._s(supporter.name))
-                        ]),
-                        _vm._v(" "),
-                        _c("small", [_vm._v(_vm._s(supporter.profession))])
-                      ])
-                    ],
-                    1
-                  )
-                ])
-              }),
-              0
-            )
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "vx-col w-full md:w-3/5 lg:w-3/4 mt-12 md:mt-0" },
-        [
+  return _c(
+    "div",
+    { attrs: { id: "page-user-create" } },
+    [
+      _c("vx-card", [
+        _c("div", { staticClass: "vx-row" }, [
           _c(
-            "vs-collapse",
-            { staticClass: "p-0", attrs: { accordion: "", type: "margin" } },
-            _vm._l(_vm.filteredFaq, function(que, index) {
-              return _c(
-                "vs-collapse-item",
-                {
-                  key: que.id,
-                  staticClass: "faq-bg rounded-lg",
-                  class: { "mt-0": !index }
-                },
-                [
-                  _c("div", { attrs: { slot: "header" }, slot: "header" }, [
-                    _c("h5", [_vm._v(_vm._s(que.question))])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(que.ans))])
-                ]
-              )
-            }),
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+            [
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Name" },
+                model: {
+                  value: _vm.user_data.name,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "name", $$v)
+                  },
+                  expression: "user_data.name"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+            [
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Phone" },
+                model: {
+                  value: _vm.user_data.phone,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "phone", $$v)
+                  },
+                  expression: "user_data.phone"
+                }
+              })
+            ],
             1
           )
-        ],
-        1
-      )
-    ])
-  ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vx-row" }, [
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+            [
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Join Date" },
+                model: {
+                  value: _vm.user_data.join_date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "join_date", $$v)
+                  },
+                  expression: "user_data.join_date"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+            [
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Currency" },
+                model: {
+                  value: _vm.user_data.currency,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "currency", $$v)
+                  },
+                  expression: "user_data.currency"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vx-row" }, [
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+            [
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Amount Paid" },
+                model: {
+                  value: _vm.user_data.amount_paid,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "amount_paid", $$v)
+                  },
+                  expression: "user_data.amount_paid"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+            [
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { type: "email", "label-placeholder": "Group" },
+                model: {
+                  value: _vm.user_data.group,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "group", $$v)
+                  },
+                  expression: "user_data.group"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vx-row" }, [
+          _c(
+            "div",
+            { staticClass: "vx-col sm:w-1/2 w-full mb-6" },
+            [
+              _c("vs-input", {
+                staticClass: "w-full",
+                attrs: { "label-placeholder": "Status" },
+                model: {
+                  value: _vm.user_data.status,
+                  callback: function($$v) {
+                    _vm.$set(_vm.user_data, "status", $$v)
+                  },
+                  expression: "user_data.status"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vx-row" }, [
+          _c(
+            "div",
+            { staticClass: "vx-col w-full" },
+            [
+              _c("vs-button", { staticClass: "mr-3 mb-2" }, [_vm._v("Submit")]),
+              _vm._v(" "),
+              _c(
+                "vs-button",
+                {
+                  staticClass: "mb-2",
+                  attrs: { color: "warning", type: "border" },
+                  on: {
+                    click: function($event) {
+                      _vm.user_data = {}
+                    }
+                  }
+                },
+                [_vm._v("Reset")]
+              )
+            ],
+            1
+          )
+        ])
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -425,31 +307,198 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/assets/images/pages/faq.jpg":
-/*!***********************************************!*\
-  !*** ./resources/assets/images/pages/faq.jpg ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/faq.jpg?8e0b3142b57a84b707601af3410dff91";
-
-/***/ }),
-
-/***/ "./resources/js/src/views/pages/Faq.vue":
-/*!**********************************************!*\
-  !*** ./resources/js/src/views/pages/Faq.vue ***!
-  \**********************************************/
+/***/ "./resources/js/src/store/user-management/moduleUserManagement.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagement.js ***!
+  \************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Faq_vue_vue_type_template_id_2cab95de___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Faq.vue?vue&type=template&id=2cab95de& */ "./resources/js/src/views/pages/Faq.vue?vue&type=template&id=2cab95de&");
-/* harmony import */ var _Faq_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Faq.vue?vue&type=script&lang=js& */ "./resources/js/src/views/pages/Faq.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Faq_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Faq.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/src/views/pages/Faq.vue?vue&type=style&index=0&lang=scss&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _moduleUserManagementState_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleUserManagementState.js */ "./resources/js/src/store/user-management/moduleUserManagementState.js");
+/* harmony import */ var _moduleUserManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleUserManagementMutations.js */ "./resources/js/src/store/user-management/moduleUserManagementMutations.js");
+/* harmony import */ var _moduleUserManagementActions_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleUserManagementActions.js */ "./resources/js/src/store/user-management/moduleUserManagementActions.js");
+/* harmony import */ var _moduleUserManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleUserManagementGetters.js */ "./resources/js/src/store/user-management/moduleUserManagementGetters.js");
+/*=========================================================================================
+  File Name: moduleUserManagement.js
+  Description: Calendar Module
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
 
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  isRegistered: false,
+  namespaced: true,
+  state: _moduleUserManagementState_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleUserManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleUserManagementActions_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleUserManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-management/moduleUserManagementActions.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementActions.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/axios.js */ "./resources/js/src/axios.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+/*=========================================================================================
+  File Name: moduleCalendarActions.js
+  Description: Calendar Module Actions
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // addItem({ commit }, item) {
+  //   return new Promise((resolve, reject) => {
+  //     axios.post("/api/data-list/products/", {item: item})
+  //       .then((response) => {
+  //         commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+  //         resolve(response)
+  //       })
+  //       .catch((error) => { reject(error) })
+  //   })
+  // },
+  fetchUsers: function fetchUsers(_ref) {
+    var commit = _ref.commit;
+    return new Promise(function (resolve, reject) {
+      _axios_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/user-management/users").then(function (response) {
+        commit('SET_USERS', response.data);
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  fetchUser: function fetchUser(_ref2, userId) {
+    _objectDestructuringEmpty(_ref2);
+
+    return new Promise(function (resolve, reject) {
+      _axios_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/user-management/users/".concat(userId)).then(function (response) {
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  removeRecord: function removeRecord(_ref3, userId) {
+    var commit = _ref3.commit;
+    return new Promise(function (resolve, reject) {
+      _axios_js__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("/api/user-management/users/".concat(userId)).then(function (response) {
+        commit('REMOVE_RECORD', userId);
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-management/moduleUserManagementGetters.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementGetters.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/*=========================================================================================
+  File Name: moduleCalendarGetters.js
+  Description: Calendar Module Getters
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-management/moduleUserManagementMutations.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementMutations.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/*=========================================================================================
+  File Name: moduleCalendarMutations.js
+  Description: Calendar Module Mutations
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+/* harmony default export */ __webpack_exports__["default"] = ({
+  SET_USERS: function SET_USERS(state, users) {
+    state.users = users;
+  },
+  REMOVE_RECORD: function REMOVE_RECORD(state, itemId) {
+    var userIndex = state.users.findIndex(function (u) {
+      return u.id == itemId;
+    });
+    state.users.splice(userIndex, 1);
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-management/moduleUserManagementState.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementState.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/*=========================================================================================
+  File Name: moduleCalendarState.js
+  Description: Calendar Module State
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+/* harmony default export */ __webpack_exports__["default"] = ({
+  users: []
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TransactionCreate_vue_vue_type_template_id_4c15ab0a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TransactionCreate.vue?vue&type=template&id=4c15ab0a& */ "./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=template&id=4c15ab0a&");
+/* harmony import */ var _TransactionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TransactionCreate.vue?vue&type=script&lang=js& */ "./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -457,10 +506,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Faq_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Faq_vue_vue_type_template_id_2cab95de___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Faq_vue_vue_type_template_id_2cab95de___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TransactionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TransactionCreate_vue_vue_type_template_id_4c15ab0a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TransactionCreate_vue_vue_type_template_id_4c15ab0a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -470,54 +519,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/views/pages/Faq.vue"
+component.options.__file = "resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/views/pages/Faq.vue?vue&type=script&lang=js&":
-/*!***********************************************************************!*\
-  !*** ./resources/js/src/views/pages/Faq.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************/
+/***/ "./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Faq.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/Faq.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/pages/Faq.vue?vue&type=style&index=0&lang=scss&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/src/views/pages/Faq.vue?vue&type=style&index=0&lang=scss& ***!
-  \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Faq.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/Faq.vue?vue&type=style&index=0&lang=scss&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/js/src/views/pages/Faq.vue?vue&type=template&id=2cab95de&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/src/views/pages/Faq.vue?vue&type=template&id=2cab95de& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=template&id=4c15ab0a&":
+/*!*************************************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=template&id=4c15ab0a& ***!
+  \*************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_template_id_2cab95de___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Faq.vue?vue&type=template&id=2cab95de& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/Faq.vue?vue&type=template&id=2cab95de&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_template_id_2cab95de___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionCreate_vue_vue_type_template_id_4c15ab0a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionCreate.vue?vue&type=template&id=4c15ab0a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/transaction/transaction-create/TransactionCreate.vue?vue&type=template&id=4c15ab0a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionCreate_vue_vue_type_template_id_4c15ab0a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Faq_vue_vue_type_template_id_2cab95de___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionCreate_vue_vue_type_template_id_4c15ab0a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
