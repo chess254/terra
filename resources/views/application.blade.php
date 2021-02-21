@@ -9,15 +9,15 @@
 
     <title>Swipay</title>
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset(mix('css/main.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/iconfont.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/material-icons/material-icons.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/vuesax.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/prism-tomorrow.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
+    <link rel="stylesheet" href="{{ secure_asset(mix('css/main.css')) }}">
+    <link rel="stylesheet" href="{{ secure_asset(mix('css/iconfont.css')) }}">
+    <link rel="stylesheet" href="{{ secure_asset(mix('css/material-icons/material-icons.css')) }}">
+    <link rel="stylesheet" href="{{ secure_asset(mix('css/vuesax.css')) }}">
+    <link rel="stylesheet" href="{{ secure_asset(mix('css/prism-tomorrow.css')) }}">
+    <link rel="stylesheet" href="{{ secure_asset(mix('css/app.css')) }}">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ secure_asset('images/logo/favicon.png') }}">
   </head>
   <body>
     <noscript>
@@ -27,7 +27,7 @@
     </div>
 
     <!-- <script src="js/app.js"></script> -->
-    <script src="{{ asset(mix('js/app.js')) }}"></script>
+    <script src="{{ secure_asset(mix('js/app.js')) }}"></script>
 
   </body>
 </html>
