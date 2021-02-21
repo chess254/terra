@@ -65,7 +65,7 @@
 // Store Module
 import moduleUserManagement from '@/store/user-management/moduleUserManagement.js'
 import Datepicker from 'vuejs-datepicker';
-import axios from 'axios'
+import axios from '@/axios'
 import vSelect from 'vue-select'
 
 export default {

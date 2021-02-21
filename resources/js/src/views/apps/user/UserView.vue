@@ -180,7 +180,7 @@
 
 <script>
 import moduleUserManagement from '@/store/user-management/moduleUserManagement.js'
-import axios from 'axios'
+import axios from '@/axios'
 
 export default {
   data() {

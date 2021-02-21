@@ -120,7 +120,7 @@
 
 <script>
 import vSelect from 'vue-select'
-import axios from 'axios'
+import axios from '@/axios'
 
 export default {
   components: {

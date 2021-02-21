@@ -10,8 +10,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/store/user-management/moduleUserManagement.js */ "./resources/js/src/store/user-management/moduleUserManagement.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/axios */ "./resources/js/src/axios.js");
 //
 //
 //
@@ -229,7 +228,7 @@ __webpack_require__.r(__webpack_exports__);
 
       /* Below two lines are just for demo purpose */
       // this.$router.push({name:'app-user-list'});
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]("/api/customers/" + id).then(function (response) {
+      _axios__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"]("/api/customers/" + id).then(function (response) {
         // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
         _this.showDeleteSuccess(); // resolve(response)
 
