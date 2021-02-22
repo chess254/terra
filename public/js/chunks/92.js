@@ -125,7 +125,7 @@ __webpack_require__.r(__webpack_exports__);
       var customer = this.user_data; // alert(customer.name)
 
       return new Promise(function (resolve, reject) {
-        _axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/customers/", customer).then(function (response) {
+        _axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/customers", customer).then(function (response) {
           // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
           resolve(response);
 

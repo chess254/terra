@@ -119,7 +119,7 @@ export default {
       let customer = this.user_data
       // alert(customer.name)
       return new Promise((resolve, reject) => {
-        axios.post("/api/customers/", customer  )
+        axios.post("/api/customers", customer  )
           .then((response) => {
             // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
             resolve(response)

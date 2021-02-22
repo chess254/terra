@@ -151,7 +151,7 @@ export default {
           .catch((error) => {       this.$vs.notify({
                 color: 'danger',
                 title: 'Error',
-                text: 'Unauthenticated'
+                text: ''
               })})
       })
     }

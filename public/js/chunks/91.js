@@ -155,7 +155,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.$vs.notify({
             color: 'danger',
             title: 'Error',
-            text: 'Unauthenticated'
+            text: ''
           });
         });
       });
