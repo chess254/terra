@@ -370,7 +370,7 @@ export default {
           reject({message: "Password doesn't match. Please try again."})
         }
 
-        jwt.registerUser({name:displayName, email:email, password:password, c_password:confirmPassword})
+        jwt.registerUser(displayName, email, password)
           .then(response => {
             // Redirect User
             router.push(router.currentRoute.query.to || '/')
