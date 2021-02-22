@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "@/axios"
 import store from "../../../../store/store.js"
 
 // Token Refresh
@@ -48,7 +48,7 @@ export default {
     return axios.post("/api/auth/login", {email: email, password: pwd})
   },
   registerUser(name, email, pwd) {
-    return axios.post("/api/auth/register", {displayName: name, email: email, password: pwd})
+    return axios.post("/api/auth/register", {name: name, email: email, password: pwd, c_password: pwd})
   },
   refreshToken() {
     return axios.post("/api/auth/refresh-token", {accessToken: localStorage.getItem("accessToKen")})
