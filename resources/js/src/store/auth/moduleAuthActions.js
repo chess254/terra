@@ -304,7 +304,7 @@ export default {
 
       return new Promise((resolve,reject) => {
         const { email, password } = payload.userDetails
-        jwt.login({email:email, password:password})
+        jwt.login(email, password)
           .then(response => {
 
             // If there's user data in response
