@@ -133,18 +133,18 @@ export default [
             slug: "app-user-list",
             i18n: "List",
           },
-          {
-            url: '/apps/user/user-view/268',
-            name: "View",
-            slug: "app-user-view",
-            i18n: "View",
-          },
-          {
-            url: '/apps/user/user-edit/268',
-            name: "Edit",
-            slug: "app-user-edit",
-            i18n: "Edit",
-          },
+          // {
+          //   url: '/apps/user/user-view/268',
+          //   name: "View",
+          //   slug: "app-user-view",
+          //   i18n: "View",
+          // },
+          // {
+          //   url: '/apps/user/user-edit/268',
+          //   name: "Edit",
+          //   slug: "app-user-edit",
+          //   i18n: "Edit",
+          // },
         ]
       },
       {
@@ -165,18 +165,18 @@ export default [
             slug: "app-transaction-list",
             i18n: "List",
           },
-          {
-            url: '/apps/transaction/transaction-view/268',
-            name: "View",
-            slug: "app-transaction-view",
-            i18n: "View",
-          },
-          {
-            url: '/apps/transaction/transaction-edit/268',
-            name: "Edit",
-            slug: "app-transaction-edit",
-            i18n: "Edit",
-          },
+          // {
+          //   url: '/apps/transaction/transaction-view/268',
+          //   name: "View",
+          //   slug: "app-transaction-view",
+          //   i18n: "View",
+          // },
+          // {
+          //   url: '/apps/transaction/transaction-edit/268',
+          //   name: "Edit",
+          //   slug: "app-transaction-edit",
+          //   i18n: "Edit",
+          // },
         ]
       },
     ]
