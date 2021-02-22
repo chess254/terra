@@ -303,56 +303,56 @@ export default {
     loginJWT({ commit }, payload) {
 
       return new Promise((resolve,reject) => {
-        // jwt.login(payload.userDetails.email, payload.userDetails.password)
-        //   .then(response => {
+        jwt.login({email:payload.userDetails.email, password:payload.userDetails.password})
+          .then(response => {
 
-        //     // If there's user data in response
-        //     if(response.data.userData) {
-        //       // Navigate User to homepage
-        //       router.push(router.currentRoute.query.to || '/')
-
-        //       // Set accessToken
-        //       localStorage.setItem("accessToken", response.data.accessToken)
-
-        //       // Update user details
-        //       commit('UPDATE_USER_INFO', response.data.userData, {root: true})
-
-        //       // Set bearer token in axios
-        //       commit("SET_BEARER", response.data.accessToken)
-
-        //       resolve(response)
-        //     }else {
-        //       reject({message: "Wrong Email or Password"})
-        //     }
-
-        //   })
-        //   .catch(error => { reject(error) })
-        let pl = {
-            email: payload.userDetails.email,
-            password: payload.userDetails.password
-        }
-        axios.post('/api/auth/login', pl).then((response, status, request)=> {  
-            console.log(response);
-                 // If there's user data in response
-            if(response.data.userData.name) {
+            // If there's user data in response
+            if(response.data.userData) {
               // Navigate User to homepage
               router.push(router.currentRoute.query.to || '/')
 
               // Set accessToken
-              localStorage.setItem("accessToken", response.data.access_token)
+              localStorage.setItem("accessToken", response.data.accessToken)
 
               // Update user details
               commit('UPDATE_USER_INFO', response.data.userData, {root: true})
 
               // Set bearer token in axios
-              commit("SET_BEARER", response.data.access_token)
+              commit("SET_BEARER", response.data.accessToken)
 
               resolve(response)
             }else {
               reject({message: "Wrong Email or Password"})
             }
 
-          }).catch(error => { reject(error) })
+          })
+          .catch(error => { reject(error) })
+        // let pl = {
+        //     email: payload.userDetails.email,
+        //     password: payload.userDetails.password
+        // }
+        // axios.post('/api/auth/login', pl).then((response, status, request)=> {  
+        //     console.log(response);
+        //          // If there's user data in response
+        //     if(response.data.userData.name) {
+        //       // Navigate User to homepage
+        //       router.push(router.currentRoute.query.to || '/')
+
+        //       // Set accessToken
+        //       localStorage.setItem("accessToken", response.data.access_token)
+
+        //       // Update user details
+        //       commit('UPDATE_USER_INFO', response.data.userData, {root: true})
+
+        //       // Set bearer token in axios
+        //       commit("SET_BEARER", response.data.access_token)
+
+        //       resolve(response)
+        //     }else {
+        //       reject({message: "Wrong Email or Password"})
+        //     }
+
+        //   }).catch(error => { reject(error) })
                 
                 
             
