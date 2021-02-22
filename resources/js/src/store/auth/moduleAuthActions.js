@@ -303,11 +303,12 @@ export default {
     loginJWT({ commit }, payload) {
 
       return new Promise((resolve,reject) => {
-        jwt.login({email:payload.userDetails.email, password:payload.userDetails.password})
+        const { email, password } = payload.userDetails
+        jwt.login({email:email, password:password})
           .then(response => {
 
             // If there's user data in response
-            if(response.data.userData) {
+            if(response) {
               // Navigate User to homepage
               router.push(router.currentRoute.query.to || '/')
 
