@@ -40,36 +40,36 @@ mix.js('resources/js/app.js', 'public/js')
 
 
 // Change below options according to your requirem
-// if (mix.inProduction()) {
-//     mix.version();
-//     mix.webpackConfig({
-//         output: {
-//             publicPath: '/',
-//             chunkFilename: 'js/chunks/[name].[chunkhash].js',
-//         }
-//     });
-//     mix.setResourceRoot("/");
-// }
-// else{
-//     mix.webpackConfig({
-//         output: {
-//             chunkFilename: 'js/chunks/[name].js',
-//         }
-//     });
-// }
-
-if (mix.config.hmr) {
-    mix.webpackConfig({
-        output: {
-            chunkFilename: '[name].js',
-        }
-    });
-} else {
+if (mix.inProduction()) {
+    mix.version();
     mix.webpackConfig({
         output: {
             publicPath: '/',
-            chunkFilename: '[name].[chunkhash].js',
+            chunkFilename: 'js/chunks/[name].[chunkhash].js',
+        }
+    });
+    mix.setResourceRoot("/");
+}
+else{
+    mix.webpackConfig({
+        output: {
+            chunkFilename: 'js/chunks/[name].js',
         }
     });
 }
+
+// if (mix.config.hmr) {
+//     mix.webpackConfig({
+//         output: {
+//             chunkFilename: '[name].js',
+//         }
+//     });
+// } else {
+//     mix.webpackConfig({
+//         output: {
+//             publicPath: '/',
+//             chunkFilename: '[name].[chunkhash].js',
+//         }
+//     });
+// }
 
