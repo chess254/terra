@@ -17,7 +17,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::group(['prefix' => 'auth','scheme' => 'https'], function () {
+// Route::group(['prefix' => 'auth','scheme' => 'https'], function () {
     Route::post('login', 'AuthController@login');
     Route::post('register', 'AuthController@register');
 
@@ -26,7 +26,7 @@ Route::group(['prefix' => 'auth','scheme' => 'https'], function () {
       Route::get('user', 'AuthController@user');
 
     });
-  });
+  // });
 
 
 // Route::group(['middleware' => 'auth:api','scheme' => 'https'], function() {

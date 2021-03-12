@@ -99,7 +99,7 @@ export default {
       //     })
       //   })
       let self = this
-       axios.post("/api/auth/login", {email: this.email, password: this.password})
+       axios.post("/api/login", {email: this.email, password: this.password})
                .then(function (response){
                  console.log(response)
                  if(response.data.error){
