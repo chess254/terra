@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import axios from '@/axios'
+import axios from '../../../axios'
 export default {
   data() {
     return {
@@ -99,7 +99,7 @@ export default {
       //     })
       //   })
       let self = this
-       axios.post('/api/auth/login/', {email: this.email, password: this.password})
+       axios.post("/api/auth/login/", {email: this.email, password: this.password})
                .then(function (response){
                  console.log(response.data.userData)
                 //  this.$vs.loading.close()
