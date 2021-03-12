@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Str;
-$DATABASE_URL=parse_url('postgres://cofevmtbzreaom:5fc003d31232c7eb8ae8c3156749c51b4b7e292cd0b5185345b9a4ad5b91d6dc@ec2-18-204-101-137.compute-1.amazonaws.com:5432/df17tpq4boubag');
+// $DATABASE_URL=parse_url('postgres://cofevmtbzreaom:5fc003d31232c7eb8ae8c3156749c51b4b7e292cd0b5185345b9a4ad5b91d6dc@ec2-18-204-101-137.compute-1.amazonaws.com:5432/df17tpq4boubag');
+$DATABASE_URL=parse_url('postgres://kzelwrucswtfpi:c76688c0140c8ea5cdc95ba6b365a63ebf569c207e0cb4aa8bc1aa24cb7010c2@ec2-54-162-119-125.compute-1.amazonaws.com:5432/ddpkeubm21al0f');
+ 
 return [
 
     /*
@@ -78,6 +80,21 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
+
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'url' => env('DATABASE_URL'),
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '5432'),
+        //     'database' => env('DB_DATABASE', 'laravel_8_auth'),
+        //     'username' => env('DB_USERNAME', 'root'),
+        //     'password' => env('DB_PASSWORD', ''),
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'prefix_indexes' => true,
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
