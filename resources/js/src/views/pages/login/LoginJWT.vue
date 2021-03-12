@@ -105,12 +105,12 @@ export default {
                  if(response.status == "failed"){
                    console.log(response.status)
                    self.$vs.notify({
-            title: 'Error',
-            text: response.status,
-            iconPack: 'feather',
-            icon: 'icon-alert-circle',
-            color: 'danger'
-          })
+                    title: 'Error',
+                    text: response.status,
+                    iconPack: 'feather',
+                    icon: 'icon-alert-circle',
+                    color: 'danger'
+                  })
                  }
                 //  this.$vs.loading.close()
                  else if(response.data.userData.name) {

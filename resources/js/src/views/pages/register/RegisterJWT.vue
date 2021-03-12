@@ -125,7 +125,34 @@ export default {
               })
             .then(function(response){
               console.log(response)
+              // self.$router.push(self.$router.currentRoute.query.to || '/')
+              if(response.status == "failed"){
+                   console.log(response.status)
+                   self.$vs.notify({
+                    title: 'Error',
+                    text: response.status,
+                    iconPack: 'feather',
+                    icon: 'icon-alert-circle',
+                    color: 'danger'
+                  })
+                 }
+                //  this.$vs.loading.close()
+                 else if(response.data.userData.name) {
+                  //  response.data.userRole ="admin"
+              // Navigate User to homepage
               self.$router.push(self.$router.currentRoute.query.to || '/')
+
+              // Set accessToken
+              localStorage.setItem("accessToken", response.data.access_token)
+
+              // Update user details
+              self.$store.commit('UPDATE_USER_INFO', response.data.userData, {root: true})
+
+              // Set bearer token in axios
+              self.$store.commit("SET_BEARER", response.data.access_token)
+
+              // resolve(response)
+              }
               })
               .catch(error=>{
                 console.log(error)
