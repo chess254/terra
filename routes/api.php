@@ -17,7 +17,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::group(['prefix' => 'auth'], function () {
+Route::group(['prefix' => 'auth','scheme' => 'https'], function () {
     Route::post('login', 'AuthController@login');
     Route::post('register', 'AuthController@register');
 
@@ -29,7 +29,7 @@ Route::group(['prefix' => 'auth'], function () {
   });
 
 
-Route::group(['middleware' => 'auth:api'], function() {
+Route::group(['middleware' => 'auth:api','scheme' => 'https'], function() {
   Route::resource('customers', CustomerController::class);
   Route::resource('transactions', TransactionController::class);
 });
