@@ -119,7 +119,7 @@ export default {
             // this.$store.dispatch('auth/registerUserJWT', payload)
             axios({
                 method: "post",
-                url: "/auth/register",
+                url: "/api/register",
                 data: bodyFormData,
                 headers: { "Content-Type": "multipart/form-data" },
               })
