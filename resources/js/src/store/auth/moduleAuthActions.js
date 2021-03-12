@@ -333,7 +333,7 @@ export default {
             email: payload.userDetails.email,
             password: payload.userDetails.password
         }
-        axios.post('https://terra-tech-test.herokuapp.com/api/auth/login', pl).then((response, status, request)=> {  
+        axios.post("/api/auth/login", pl).then((response, status, request)=> {  
             console.log(response);
                  // If there's user data in response
             if(response.userData.name) {
@@ -358,6 +358,19 @@ export default {
                 
                 
             
+      })
+    },
+    createCustomer({ commit }) {
+      let customer = this.user_data
+      // alert(customer.name)
+      return new Promise((resolve, reject) => {
+        axios.post("/api/customers", customer  )
+          .then((response) => {
+            // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+            resolve(response)
+            this.$router.push('/apps/user/user-list').catch(() => {})
+          })
+          .catch((error) => { reject(error) })
       })
     },
     registerUserJWT({ commit }, payload) {

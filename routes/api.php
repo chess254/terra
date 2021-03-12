@@ -29,7 +29,7 @@ Route::group(['prefix' => 'auth','scheme' => 'https'], function () {
   });
 
 
-Route::group(['middleware' => 'auth:api','scheme' => 'https'], function() {
+// Route::group(['middleware' => 'auth:api','scheme' => 'https'], function() {
   Route::resource('customers', CustomerController::class);
   Route::resource('transactions', TransactionController::class);
-});
+// });
