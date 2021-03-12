@@ -110,7 +110,13 @@ export default {
               },
               notify: this.$vs.notify
             }
-            this.$store.dispatch('auth/registerUserJWT', payload)
+            // this.$store.dispatch('auth/registerUserJWT', payload)
+            axios.post("/api/auth/register", userDetails)
+            .then(response=>console.log(response))
+              .catch(error=>{
+                console.log(error)
+              })
+            }
         }
     }
 }
