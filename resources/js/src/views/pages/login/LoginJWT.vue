@@ -104,7 +104,7 @@ export default {
                  console.log(response)
                  if(response.status == "failed"){
                    console.log(response.status)
-                   this.$vs.notify({
+                   self.$vs.notify({
             title: 'Error',
             text: response.status,
             iconPack: 'feather',
@@ -132,7 +132,7 @@ export default {
                }).catch(error => {
           // this.$vs.loading.close()
           console.log(error)
-          this.$vs.notify({
+          self.$vs.notify({
             title: 'Error',
             text: error.message,
             iconPack: 'feather',
