@@ -62,6 +62,7 @@ Author URL: http://www.themeforest.net/user/pixinvent
 </template>
 
 <script>
+import axios from'@/axios'
 export default {
     data() {
         return {
