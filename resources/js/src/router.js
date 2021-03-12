@@ -1477,12 +1477,12 @@ router.beforeEach((to, from, next) => {
         // }
 
         // If auth required, check login. If login fails redirect to login page
-        if(to.meta.authRequired) {
-          if (!(auth.isAuthenticated())) {
-            router.push({ path: '/pages/login', query: { to: to.path } })
-          }
-        }
-        return next()
+        // if(to.meta.authRequired) {
+        //   if (!(auth.isAuthenticated())) {
+        //     router.push({ path: '/pages/login', query: { to: to.path } })
+        //   }
+        // }
+        // return next()
             const token = localStorage.getItem('accessToken')
               // If logged in, or going to the Login page.
               if (token || to.name === 'Login') {
