@@ -62,7 +62,7 @@ Author URL: http://www.themeforest.net/user/pixinvent
 </template>
 
 <script>
-import axios from'@/axios'
+import axios from'../../../axios'
 export default {
     data() {
         return {
@@ -111,9 +111,13 @@ export default {
               },
               notify: this.$vs.notify
             }
+            let self=this
             // this.$store.dispatch('auth/registerUserJWT', payload)
             axios.post("/api/auth/register", payload.userDetails)
-            .then(response=>console.log(response))
+            .then(function(response){
+              console.log(response)
+              self.$router.push(self.$router.currentRoute.query.to || '/')
+              })
               .catch(error=>{
                 console.log(error)
               })
