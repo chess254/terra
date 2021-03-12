@@ -104,15 +104,15 @@ export default {
 
             const payload = {
               userDetails: {
-                displayName: this.displayName,
+                name: this.displayName,
                 email: this.email,
                 password: this.password,
-                confirmPassword: this.confirm_password
+                c_password: this.confirm_password
               },
               notify: this.$vs.notify
             }
             // this.$store.dispatch('auth/registerUserJWT', payload)
-            axios.post("/api/auth/register", userDetails)
+            axios.post("/api/auth/register", payload.userDetails)
             .then(response=>console.log(response))
               .catch(error=>{
                 console.log(error)
