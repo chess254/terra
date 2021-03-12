@@ -101,7 +101,7 @@ export default {
       let self = this
        axios.post("/api/auth/login", {email: this.email, password: this.password})
                .then(function (response){
-                 console.log(response.data.userData)
+                 console.log(response)
                 //  this.$vs.loading.close()
                   if(response.data.userData.name) {
               // Navigate User to homepage
