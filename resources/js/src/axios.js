@@ -11,7 +11,7 @@ import axios from 'axios'
 
 const ajax = axios.create({
   // baseURL: (process.env.VUE_APP_BASE_URL !== undefined) ? process.env.VUE_APP_BASE_URL : 'http://localhost'
-  baseURL: "https://terra-tech-test.herokuapp.com"
+  baseURL: "https://terra-tech-test.herokuapp.com/"
   
 
 })

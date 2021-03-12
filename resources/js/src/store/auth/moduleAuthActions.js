@@ -333,7 +333,7 @@ export default {
             email: payload.userDetails.email,
             password: payload.userDetails.password
         }
-        axios.post('/api/auth/login', pl).then((response, status, request)=> {  
+        axios.post('https://terra-tech-test.herokuapp.com/api/auth/login', pl).then((response, status, request)=> {  
             console.log(response);
                  // If there's user data in response
             if(response.userData.name) {
