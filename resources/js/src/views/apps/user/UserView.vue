@@ -249,8 +249,14 @@ export default {
         if(err.response.status === 404) {
           this.user_not_found = true
           return
+        
         }
-        console.error(err) })
+        if (error.response.status === 401) {
+                        this.$router.replace({name: 'page-login'})
+                    }
+        console.error(err) 
+        
+        })
   }
 }
 
