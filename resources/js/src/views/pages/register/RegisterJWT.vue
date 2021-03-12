@@ -101,7 +101,11 @@ export default {
         registerUserJWt() {
             // If form is not validated or user is already login return
             if (!this.validateForm || !this.checkLogin()) return
-
+            var bodyFormData = new FormData();
+            bodyFormData.append('name', this.displayName)
+          bodyFormData.append('email', this.email)
+          bodyFormData.append('password', this.password)
+          bodyFormData.append('c_password', this.password)
             const payload = {
               userDetails: {
                 name: this.displayName,
@@ -113,7 +117,12 @@ export default {
             }
             let self=this
             // this.$store.dispatch('auth/registerUserJWT', payload)
-            axios.post("/api/auth/register", payload.userDetails)
+            axios({
+                method: "post",
+                url: "/api/auth/register",
+                data: bodyFormData,
+                headers: { "Content-Type": "multipart/form-data" },
+              })
             .then(function(response){
               console.log(response)
               self.$router.push(self.$router.currentRoute.query.to || '/')
