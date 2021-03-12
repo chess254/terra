@@ -1482,8 +1482,19 @@ router.beforeEach((to, from, next) => {
             router.push({ path: '/pages/login', query: { to: to.path } })
           }
         }
-
         return next()
+            const token = localStorage.getItem('accessToken')
+              // If logged in, or going to the Login page.
+              if (token || to.name === 'Login') {
+                // Continue to page.
+                next()
+              } else {
+                // Not logged in, redirect to login.
+                next({name: 'page-login'})
+              }
+           
+
+        
         // Specify the current path as the customState parameter, meaning it
         // will be returned to the application after auth
         // auth.login({ target: to.path });
