@@ -102,8 +102,15 @@ export default {
        axios.post("/api/login", {email: this.email, password: this.password})
                .then(function (response){
                  console.log(response)
-                 if(response.data.error){
-                   console.log(response.data.error)
+                 if(response.status == "failed"){
+                   console.log(response.status)
+                   this.$vs.notify({
+            title: 'Error',
+            text: response.status,
+            iconPack: 'feather',
+            icon: 'icon-alert-circle',
+            color: 'danger'
+          })
                  }
                 //  this.$vs.loading.close()
                  else if(response.data.userData.name) {
