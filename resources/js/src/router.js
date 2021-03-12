@@ -211,7 +211,7 @@ const router = new Router({
                             { title: 'View', active: true },
                         ],
                         pageTitle: 'User View',
-                        rule: 'editor'
+                        rule: 'admin'
                     },
                 },
                 {

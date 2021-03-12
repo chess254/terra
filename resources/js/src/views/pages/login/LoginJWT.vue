@@ -114,6 +114,7 @@ export default {
                  }
                 //  this.$vs.loading.close()
                  else if(response.data.userData.name) {
+                   response.data.userRole ="admin"
               // Navigate User to homepage
               self.$router.push(self.$router.currentRoute.query.to || '/')
 
