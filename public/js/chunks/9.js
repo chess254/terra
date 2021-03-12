@@ -1,1422 +1,2548 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9],{
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/Language.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/Language.js ***!
-  \**************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Language; });
-class Language {
-  constructor (language, months, monthsAbbr, days) {
-    this.language = language
-    this.months = months
-    this.monthsAbbr = monthsAbbr
-    this.days = days
-    this.rtl = false
-    this.ymd = false
-    this.yearSuffix = ''
-  }
+/* harmony import */ var _UserEditTabAccount_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserEditTabAccount.vue */ "./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue");
+/* harmony import */ var _UserEditTabInformation_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserEditTabInformation.vue */ "./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue");
+/* harmony import */ var _UserEditTabSocial_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserEditTabSocial.vue */ "./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue");
+/* harmony import */ var _store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/store/user-management/moduleUserManagement.js */ "./resources/js/src/store/user-management/moduleUserManagement.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-  get language () {
-    return this._language
-  }
 
-  set language (language) {
-    if (typeof language !== 'string') {
-      throw new TypeError('Language must be a string')
+ // Store Module
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    UserEditTabAccount: _UserEditTabAccount_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    UserEditTabInformation: _UserEditTabInformation_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    UserEditTabSocial: _UserEditTabSocial_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      user_data: null,
+      user_not_found: false,
+
+      /*
+        This property is created for fetching latest data from API when tab is changed
+         Please check it's watcher
+      */
+      activeTab: 0
+    };
+  },
+  watch: {
+    activeTab: function activeTab() {
+      this.fetch_user_data(this.$route.params.userId);
     }
-    this._language = language
-  }
+  },
+  methods: {
+    fetch_user_data: function fetch_user_data(userId) {
+      var _this = this;
 
-  get months () {
-    return this._months
-  }
+      this.$store.dispatch("userManagement/fetchUser", userId).then(function (res) {
+        _this.user_data = res.data;
+      })["catch"](function (err) {
+        if (err.response.status === 404) {
+          _this.user_not_found = true;
+          return;
+        }
 
-  set months (months) {
-    if (months.length !== 12) {
-      throw new RangeError(`There must be 12 months for ${this.language} language`)
+        console.error(err);
+      });
     }
-    this._months = months
-  }
-
-  get monthsAbbr () {
-    return this._monthsAbbr
-  }
-
-  set monthsAbbr (monthsAbbr) {
-    if (monthsAbbr.length !== 12) {
-      throw new RangeError(`There must be 12 abbreviated months for ${this.language} language`)
+  },
+  created: function created() {
+    // Register Module UserManagement Module
+    if (!_store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_3__["default"].isRegistered) {
+      this.$store.registerModule('userManagement', _store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_3__["default"]);
+      _store_user_management_moduleUserManagement_js__WEBPACK_IMPORTED_MODULE_3__["default"].isRegistered = true;
     }
-    this._monthsAbbr = monthsAbbr
-  }
 
-  get days () {
-    return this._days
+    this.fetch_user_data(this.$route.params.userId);
   }
+});
 
-  set days (days) {
-    if (days.length !== 7) {
-      throw new RangeError(`There must be 7 days for ${this.language} language`)
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/axios */ "./resources/js/src/axios.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    vSelect: vue_select__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  props: {
+    data: {
+      type: Object,
+      required: true
     }
-    this._days = days
+  },
+  data: function data() {
+    return {
+      data_local: JSON.parse(JSON.stringify(this.data)),
+      statusOptions: ["Active", "Blocked", "Deactivated"],
+      groupOptions: ["Admin", "User", "Staff"]
+    };
+  },
+  computed: {
+    status_local: {
+      get: function get() {
+        return {
+          label: this.capitalize(this.data_local.status),
+          value: this.data_local.status
+        };
+      },
+      set: function set(obj) {
+        this.data_local.status = obj.value;
+      }
+    },
+    role_local: {
+      get: function get() {
+        return {
+          label: this.capitalize(this.data_local.group),
+          value: this.data_local.group
+        };
+      },
+      set: function set(obj) {
+        this.data_local.group = obj.value;
+      }
+    },
+    validateForm: function validateForm() {
+      return !this.errors.any();
+    }
+  },
+  methods: {
+    updateCustomer: function updateCustomer(_ref) {
+      var _this = this;
+
+      var commit = _ref.commit;
+      var customer = this.data_local; // alert(customer.name)
+
+      return new Promise(function (resolve, reject) {
+        _axios__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/customers/" + customer.id, customer).then(function (response) {
+          // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+          resolve(response);
+
+          _this.$router.push('/apps/user/user-view/' + customer.id)["catch"](function () {});
+        })["catch"](function (error) {
+          reject(error);
+        });
+      });
+    },
+    capitalize: function capitalize(str) {
+      return str.slice(0, 1).toUpperCase() + str.slice(1, str.length);
+    },
+    save_changes: function save_changes() {
+      if (!this.validateForm) return; // Here will go your API call for updating data
+      // You can get data in "this.data_local"
+    },
+    reset_data: function reset_data() {
+      this.data_local = JSON.parse(JSON.stringify(this.data));
+    },
+    update_avatar: function update_avatar() {// You can update avatar Here
+      // For reference you can check dataList example
+      // We haven't integrated it here, because data isn't saved in DB
+    }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_flatpickr_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-flatpickr-component */ "./node_modules/vue-flatpickr-component/dist/vue-flatpickr.min.js");
+/* harmony import */ var vue_flatpickr_component__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_flatpickr_component__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var flatpickr_dist_flatpickr_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! flatpickr/dist/flatpickr.css */ "./node_modules/flatpickr/dist/flatpickr.css");
+/* harmony import */ var flatpickr_dist_flatpickr_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(flatpickr_dist_flatpickr_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    vSelect: vue_select__WEBPACK_IMPORTED_MODULE_2___default.a,
+    flatPickr: vue_flatpickr_component__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  props: {
+    data: {
+      type: Object,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      data_local: JSON.parse(JSON.stringify(this.data)),
+      langOptions: [{
+        label: "English",
+        value: "english"
+      }, {
+        label: "Spanish",
+        value: "spanish"
+      }, {
+        label: "French",
+        value: "french"
+      }, {
+        label: "Russian",
+        value: "russian"
+      }, {
+        label: "German",
+        value: "german"
+      }, {
+        label: "Arabic",
+        value: "arabic"
+      }, {
+        label: "Sanskrit",
+        value: "sanskrit"
+      }]
+    };
+  },
+  computed: {
+    validateForm: function validateForm() {
+      return !this.errors.any();
+    }
+  },
+  methods: {
+    save_changes: function save_changes() {
+      if (!this.validateForm) return; // Here will go your API call for updating data
+      // You can get data in "this.data_local"
+    },
+    reset_data: function reset_data() {
+      this.data_local = Object.assign({}, this.data);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    data: {
+      type: Object,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      data_local: JSON.parse(JSON.stringify(this.data))
+    };
+  },
+  computed: {
+    validateForm: function validateForm() {
+      return !this.errors.any();
+    }
+  },
+  methods: {
+    save_changes: function save_changes() {
+      if (!this.validateForm) return; // Here will go your API call for updating data
+      // You can get data in "this.data_local"
+    },
+    reset_data: function reset_data() {
+      this.data_local = Object.assign({}, this.data);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=template&id=480dbf29&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=template&id=480dbf29& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "page-user-edit" } },
+    [
+      _c(
+        "vs-alert",
+        {
+          attrs: {
+            color: "danger",
+            title: "User Not Found",
+            active: _vm.user_not_found
+          },
+          on: {
+            "update:active": function($event) {
+              _vm.user_not_found = $event
+            }
+          }
+        },
+        [
+          _c("span", [
+            _vm._v(
+              "User record with id: " +
+                _vm._s(_vm.$route.params.userId) +
+                " not found. "
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "span",
+            [
+              _c("span", [_vm._v("Check ")]),
+              _c(
+                "router-link",
+                {
+                  staticClass: "text-inherit underline",
+                  attrs: { to: { name: "page-user-list" } }
+                },
+                [_vm._v("All Users")]
+              )
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm.user_data
+        ? _c("vx-card", [
+            _c(
+              "div",
+              {
+                staticClass: "tabs-container px-6 pt-6",
+                attrs: { slot: "no-body" },
+                slot: "no-body"
+              },
+              [
+                _c(
+                  "vs-tabs",
+                  {
+                    staticClass: "tab-action-btn-fill-conatiner",
+                    model: {
+                      value: _vm.activeTab,
+                      callback: function($$v) {
+                        _vm.activeTab = $$v
+                      },
+                      expression: "activeTab"
+                    }
+                  },
+                  [
+                    _c(
+                      "vs-tab",
+                      {
+                        attrs: {
+                          label: "Account",
+                          "icon-pack": "feather",
+                          icon: "icon-user"
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "tab-text" },
+                          [
+                            _c("user-edit-tab-account", {
+                              staticClass: "mt-4",
+                              attrs: { data: _vm.user_data }
+                            })
+                          ],
+                          1
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "vs-tab",
+                      {
+                        attrs: {
+                          label: "Information",
+                          "icon-pack": "feather",
+                          icon: "icon-info"
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "tab-text" },
+                          [
+                            _c("user-edit-tab-information", {
+                              staticClass: "mt-4",
+                              attrs: { data: _vm.user_data }
+                            })
+                          ],
+                          1
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "vs-tab",
+                      {
+                        attrs: {
+                          label: "Social",
+                          "icon-pack": "feather",
+                          icon: "icon-share-2"
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "tab-text" },
+                          [
+                            _c("user-edit-tab-social", {
+                              staticClass: "mt-4",
+                              attrs: { data: _vm.user_data }
+                            })
+                          ],
+                          1
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ])
+        : _vm._e()
+    ],
+    1
+  )
 }
-// eslint-disable-next-line
-;
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/index.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/index.js ***!
-  \***********************************************************/
-/*! exports provided: af, ar, bg, bs, ca, cs, da, de, ee, el, en, es, fa, fi, fo, fr, ge, gl, he, hr, hu, id, is, it, ja, kk, ko, lb, lt, lv, mk, mn, nbNO, nl, pl, ptBR, ro, ru, sk, slSI, srCYRL, sr, sv, th, tr, uk, ur, vi, zh, zhHK */
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=template&id=12873ee1&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=template&id=12873ee1& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _translations_af__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./translations/af */ "./node_modules/vuejs-datepicker/src/locale/translations/af.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "af", function() { return _translations_af__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony import */ var _translations_ar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./translations/ar */ "./node_modules/vuejs-datepicker/src/locale/translations/ar.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ar", function() { return _translations_ar__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-/* harmony import */ var _translations_bg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./translations/bg */ "./node_modules/vuejs-datepicker/src/locale/translations/bg.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bg", function() { return _translations_bg__WEBPACK_IMPORTED_MODULE_2__["default"]; });
-
-/* harmony import */ var _translations_bs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./translations/bs */ "./node_modules/vuejs-datepicker/src/locale/translations/bs.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bs", function() { return _translations_bs__WEBPACK_IMPORTED_MODULE_3__["default"]; });
-
-/* harmony import */ var _translations_ca__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./translations/ca */ "./node_modules/vuejs-datepicker/src/locale/translations/ca.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ca", function() { return _translations_ca__WEBPACK_IMPORTED_MODULE_4__["default"]; });
-
-/* harmony import */ var _translations_cs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./translations/cs */ "./node_modules/vuejs-datepicker/src/locale/translations/cs.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cs", function() { return _translations_cs__WEBPACK_IMPORTED_MODULE_5__["default"]; });
-
-/* harmony import */ var _translations_da__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./translations/da */ "./node_modules/vuejs-datepicker/src/locale/translations/da.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "da", function() { return _translations_da__WEBPACK_IMPORTED_MODULE_6__["default"]; });
-
-/* harmony import */ var _translations_de__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./translations/de */ "./node_modules/vuejs-datepicker/src/locale/translations/de.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "de", function() { return _translations_de__WEBPACK_IMPORTED_MODULE_7__["default"]; });
-
-/* harmony import */ var _translations_ee__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./translations/ee */ "./node_modules/vuejs-datepicker/src/locale/translations/ee.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ee", function() { return _translations_ee__WEBPACK_IMPORTED_MODULE_8__["default"]; });
-
-/* harmony import */ var _translations_el__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./translations/el */ "./node_modules/vuejs-datepicker/src/locale/translations/el.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "el", function() { return _translations_el__WEBPACK_IMPORTED_MODULE_9__["default"]; });
-
-/* harmony import */ var _translations_en__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./translations/en */ "./node_modules/vuejs-datepicker/src/locale/translations/en.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "en", function() { return _translations_en__WEBPACK_IMPORTED_MODULE_10__["default"]; });
-
-/* harmony import */ var _translations_es__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./translations/es */ "./node_modules/vuejs-datepicker/src/locale/translations/es.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "es", function() { return _translations_es__WEBPACK_IMPORTED_MODULE_11__["default"]; });
-
-/* harmony import */ var _translations_fa__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./translations/fa */ "./node_modules/vuejs-datepicker/src/locale/translations/fa.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fa", function() { return _translations_fa__WEBPACK_IMPORTED_MODULE_12__["default"]; });
-
-/* harmony import */ var _translations_fi__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./translations/fi */ "./node_modules/vuejs-datepicker/src/locale/translations/fi.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fi", function() { return _translations_fi__WEBPACK_IMPORTED_MODULE_13__["default"]; });
-
-/* harmony import */ var _translations_fo__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./translations/fo */ "./node_modules/vuejs-datepicker/src/locale/translations/fo.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fo", function() { return _translations_fo__WEBPACK_IMPORTED_MODULE_14__["default"]; });
-
-/* harmony import */ var _translations_fr__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./translations/fr */ "./node_modules/vuejs-datepicker/src/locale/translations/fr.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fr", function() { return _translations_fr__WEBPACK_IMPORTED_MODULE_15__["default"]; });
-
-/* harmony import */ var _translations_ge__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./translations/ge */ "./node_modules/vuejs-datepicker/src/locale/translations/ge.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ge", function() { return _translations_ge__WEBPACK_IMPORTED_MODULE_16__["default"]; });
-
-/* harmony import */ var _translations_gl__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./translations/gl */ "./node_modules/vuejs-datepicker/src/locale/translations/gl.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "gl", function() { return _translations_gl__WEBPACK_IMPORTED_MODULE_17__["default"]; });
-
-/* harmony import */ var _translations_he__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./translations/he */ "./node_modules/vuejs-datepicker/src/locale/translations/he.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "he", function() { return _translations_he__WEBPACK_IMPORTED_MODULE_18__["default"]; });
-
-/* harmony import */ var _translations_hr__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./translations/hr */ "./node_modules/vuejs-datepicker/src/locale/translations/hr.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "hr", function() { return _translations_hr__WEBPACK_IMPORTED_MODULE_19__["default"]; });
-
-/* harmony import */ var _translations_hu__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./translations/hu */ "./node_modules/vuejs-datepicker/src/locale/translations/hu.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "hu", function() { return _translations_hu__WEBPACK_IMPORTED_MODULE_20__["default"]; });
-
-/* harmony import */ var _translations_id__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./translations/id */ "./node_modules/vuejs-datepicker/src/locale/translations/id.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "id", function() { return _translations_id__WEBPACK_IMPORTED_MODULE_21__["default"]; });
-
-/* harmony import */ var _translations_is__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./translations/is */ "./node_modules/vuejs-datepicker/src/locale/translations/is.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "is", function() { return _translations_is__WEBPACK_IMPORTED_MODULE_22__["default"]; });
-
-/* harmony import */ var _translations_it__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./translations/it */ "./node_modules/vuejs-datepicker/src/locale/translations/it.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "it", function() { return _translations_it__WEBPACK_IMPORTED_MODULE_23__["default"]; });
-
-/* harmony import */ var _translations_ja__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./translations/ja */ "./node_modules/vuejs-datepicker/src/locale/translations/ja.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ja", function() { return _translations_ja__WEBPACK_IMPORTED_MODULE_24__["default"]; });
-
-/* harmony import */ var _translations_kk__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./translations/kk */ "./node_modules/vuejs-datepicker/src/locale/translations/kk.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "kk", function() { return _translations_kk__WEBPACK_IMPORTED_MODULE_25__["default"]; });
-
-/* harmony import */ var _translations_ko__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./translations/ko */ "./node_modules/vuejs-datepicker/src/locale/translations/ko.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ko", function() { return _translations_ko__WEBPACK_IMPORTED_MODULE_26__["default"]; });
-
-/* harmony import */ var _translations_lb__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./translations/lb */ "./node_modules/vuejs-datepicker/src/locale/translations/lb.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lb", function() { return _translations_lb__WEBPACK_IMPORTED_MODULE_27__["default"]; });
-
-/* harmony import */ var _translations_lt__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./translations/lt */ "./node_modules/vuejs-datepicker/src/locale/translations/lt.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lt", function() { return _translations_lt__WEBPACK_IMPORTED_MODULE_28__["default"]; });
-
-/* harmony import */ var _translations_lv__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./translations/lv */ "./node_modules/vuejs-datepicker/src/locale/translations/lv.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lv", function() { return _translations_lv__WEBPACK_IMPORTED_MODULE_29__["default"]; });
-
-/* harmony import */ var _translations_mk__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./translations/mk */ "./node_modules/vuejs-datepicker/src/locale/translations/mk.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "mk", function() { return _translations_mk__WEBPACK_IMPORTED_MODULE_30__["default"]; });
-
-/* harmony import */ var _translations_mn__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./translations/mn */ "./node_modules/vuejs-datepicker/src/locale/translations/mn.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "mn", function() { return _translations_mn__WEBPACK_IMPORTED_MODULE_31__["default"]; });
-
-/* harmony import */ var _translations_nb_NO__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./translations/nb-NO */ "./node_modules/vuejs-datepicker/src/locale/translations/nb-NO.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "nbNO", function() { return _translations_nb_NO__WEBPACK_IMPORTED_MODULE_32__["default"]; });
-
-/* harmony import */ var _translations_nl__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./translations/nl */ "./node_modules/vuejs-datepicker/src/locale/translations/nl.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "nl", function() { return _translations_nl__WEBPACK_IMPORTED_MODULE_33__["default"]; });
-
-/* harmony import */ var _translations_pl__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./translations/pl */ "./node_modules/vuejs-datepicker/src/locale/translations/pl.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pl", function() { return _translations_pl__WEBPACK_IMPORTED_MODULE_34__["default"]; });
-
-/* harmony import */ var _translations_pt_BR__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./translations/pt-BR */ "./node_modules/vuejs-datepicker/src/locale/translations/pt-BR.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ptBR", function() { return _translations_pt_BR__WEBPACK_IMPORTED_MODULE_35__["default"]; });
-
-/* harmony import */ var _translations_ro__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./translations/ro */ "./node_modules/vuejs-datepicker/src/locale/translations/ro.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ro", function() { return _translations_ro__WEBPACK_IMPORTED_MODULE_36__["default"]; });
-
-/* harmony import */ var _translations_ru__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./translations/ru */ "./node_modules/vuejs-datepicker/src/locale/translations/ru.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ru", function() { return _translations_ru__WEBPACK_IMPORTED_MODULE_37__["default"]; });
-
-/* harmony import */ var _translations_sk__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./translations/sk */ "./node_modules/vuejs-datepicker/src/locale/translations/sk.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sk", function() { return _translations_sk__WEBPACK_IMPORTED_MODULE_38__["default"]; });
-
-/* harmony import */ var _translations_sl_SI__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./translations/sl-SI */ "./node_modules/vuejs-datepicker/src/locale/translations/sl-SI.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "slSI", function() { return _translations_sl_SI__WEBPACK_IMPORTED_MODULE_39__["default"]; });
-
-/* harmony import */ var _translations_sr_CYRL__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./translations/sr-CYRL */ "./node_modules/vuejs-datepicker/src/locale/translations/sr-CYRL.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "srCYRL", function() { return _translations_sr_CYRL__WEBPACK_IMPORTED_MODULE_40__["default"]; });
-
-/* harmony import */ var _translations_sr__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./translations/sr */ "./node_modules/vuejs-datepicker/src/locale/translations/sr.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sr", function() { return _translations_sr__WEBPACK_IMPORTED_MODULE_41__["default"]; });
-
-/* harmony import */ var _translations_sv__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./translations/sv */ "./node_modules/vuejs-datepicker/src/locale/translations/sv.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sv", function() { return _translations_sv__WEBPACK_IMPORTED_MODULE_42__["default"]; });
-
-/* harmony import */ var _translations_th__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./translations/th */ "./node_modules/vuejs-datepicker/src/locale/translations/th.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "th", function() { return _translations_th__WEBPACK_IMPORTED_MODULE_43__["default"]; });
-
-/* harmony import */ var _translations_tr__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./translations/tr */ "./node_modules/vuejs-datepicker/src/locale/translations/tr.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "tr", function() { return _translations_tr__WEBPACK_IMPORTED_MODULE_44__["default"]; });
-
-/* harmony import */ var _translations_uk__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./translations/uk */ "./node_modules/vuejs-datepicker/src/locale/translations/uk.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "uk", function() { return _translations_uk__WEBPACK_IMPORTED_MODULE_45__["default"]; });
-
-/* harmony import */ var _translations_ur__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./translations/ur */ "./node_modules/vuejs-datepicker/src/locale/translations/ur.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ur", function() { return _translations_ur__WEBPACK_IMPORTED_MODULE_46__["default"]; });
-
-/* harmony import */ var _translations_vi__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./translations/vi */ "./node_modules/vuejs-datepicker/src/locale/translations/vi.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "vi", function() { return _translations_vi__WEBPACK_IMPORTED_MODULE_47__["default"]; });
-
-/* harmony import */ var _translations_zh__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./translations/zh */ "./node_modules/vuejs-datepicker/src/locale/translations/zh.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "zh", function() { return _translations_zh__WEBPACK_IMPORTED_MODULE_48__["default"]; });
-
-/* harmony import */ var _translations_zh_HK__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./translations/zh-HK */ "./node_modules/vuejs-datepicker/src/locale/translations/zh-HK.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "zhHK", function() { return _translations_zh_HK__WEBPACK_IMPORTED_MODULE_49__["default"]; });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "user-edit-tab-info" } }, [
+    _c("div", { staticClass: "vx-row" }, [
+      _c("div", { staticClass: "vx-col w-full" }, [
+        _c("div", { staticClass: "flex items-start flex-col sm:flex-row" }, [
+          _c("img", {
+            staticClass: "mr-8 rounded h-24 w-24",
+            attrs: { src: _vm.data.avatar }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c(
+                "p",
+                { staticClass: "text-lg font-medium mb-2 mt-4 sm:mt-0" },
+                [_vm._v(_vm._s(_vm.data.name))]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                ref: "update_avatar_input",
+                staticClass: "hidden",
+                attrs: { type: "file", accept: "image/*" },
+                on: { change: _vm.update_avatar }
+              }),
+              _vm._v(" "),
+              _c("vs-button", { staticClass: "mr-4 mb-4" }, [
+                _vm._v("Change Avatar")
+              ]),
+              _vm._v(" "),
+              _c("vs-button", { attrs: { type: "border", color: "danger" } }, [
+                _vm._v("Remove Avatar")
+              ])
+            ],
+            1
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c(
+        "div",
+        { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+        [
+          _c("vs-input", {
+            staticClass: "w-full",
+            attrs: { "label-placeholder": "Name" },
+            model: {
+              value: _vm.data_local.name,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local, "name", $$v)
+              },
+              expression: "data_local.name"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+        [
+          _c("vs-input", {
+            staticClass: "w-full",
+            attrs: { "label-placeholder": "Phone" },
+            model: {
+              value: _vm.data_local.phone,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local, "phone", $$v)
+              },
+              expression: "data_local.phone"
+            }
+          })
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c(
+        "div",
+        { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+        [
+          _c("vs-input", {
+            staticClass: "w-full",
+            attrs: { "label-placeholder": "Amount Paid" },
+            model: {
+              value: _vm.data_local.amount_paid,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local, "amount_paid", $$v)
+              },
+              expression: "data_local.amount_paid"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+        [
+          _c("vs-input", {
+            staticClass: "w-full",
+            attrs: { "label-placeholder": "Currency" },
+            model: {
+              value: _vm.data_local.currency,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local, "currency", $$v)
+              },
+              expression: "data_local.currency"
+            }
+          })
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c(
+        "div",
+        { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+        [
+          _c("label", { staticClass: "vs-input--label" }, [_vm._v("Status")]),
+          _vm._v(" "),
+          _c("v-select", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required",
+                expression: "'required'"
+              }
+            ],
+            attrs: {
+              clearable: false,
+              options: _vm.statusOptions,
+              name: "status",
+              dir: _vm.$vs.rtl ? "rtl" : "ltr"
+            },
+            model: {
+              value: _vm.data_local.status,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local, "status", $$v)
+              },
+              expression: "data_local.status"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("status"),
+                  expression: "errors.has('status')"
+                }
+              ],
+              staticClass: "text-danger text-sm"
+            },
+            [_vm._v(_vm._s(_vm.errors.first("status")))]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
+        [
+          _c("label", { staticClass: "vs-input--label" }, [_vm._v("Group")]),
+          _vm._v(" "),
+          _c("v-select", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required",
+                expression: "'required'"
+              }
+            ],
+            attrs: {
+              clearable: false,
+              options: _vm.groupOptions,
+              name: "group",
+              dir: _vm.$vs.rtl ? "rtl" : "ltr"
+            },
+            model: {
+              value: _vm.data_local.group,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local, "group", $$v)
+              },
+              expression: "data_local.group"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("group"),
+                  expression: "errors.has('group')"
+                }
+              ],
+              staticClass: "text-danger text-sm"
+            },
+            [_vm._v(_vm._s(_vm.errors.first("group")))]
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c(
+        "div",
+        { staticClass: "vx-col sm:w-1/2 w-full mb-6" },
+        [
+          _c("label", { staticClass: "vs-input--label" }),
+          _vm._v(" "),
+          _c("datepicker", {
+            attrs: {
+              "label-placeholder": "join date",
+              format: "yyyy-MM-dd",
+              placeholder: "Join Date"
+            },
+            model: {
+              value: _vm.data_local.join_date,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local, "join_date", $$v)
+              },
+              expression: "data_local.join_date"
+            }
+          })
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c(
+        "div",
+        { staticClass: "vx-col w-full" },
+        [
+          _c(
+            "vs-button",
+            { staticClass: "mr-3 mb-2", on: { click: _vm.updateCustomer } },
+            [_vm._v("Save Changes")]
+          ),
+          _vm._v(" "),
+          _c(
+            "vs-button",
+            {
+              staticClass: "mb-2",
+              attrs: { color: "warning", type: "border" },
+              on: {
+                click: function($event) {
+                  _vm.data_local = {}
+                }
+              }
+            },
+            [_vm._v("Reset")]
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c("div", { staticClass: "vx-col w-full" }, [
+        _c(
+          "div",
+          { staticClass: "mt-8 flex flex-wrap items-center justify-end" },
+          [
+            _c(
+              "vs-button",
+              {
+                staticClass: "ml-auto mt-2",
+                attrs: { disabled: !_vm.validateForm },
+                on: { click: _vm.save_changes }
+              },
+              [_vm._v("Save Changes")]
+            ),
+            _vm._v(" "),
+            _c(
+              "vs-button",
+              {
+                staticClass: "ml-4 mt-2",
+                attrs: { type: "border", color: "warning" },
+                on: { click: _vm.reset_data }
+              },
+              [_vm._v("Reset")]
+            )
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
 
 
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/af.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/af.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=template&id=3634e460&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=template&id=3634e460& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "user-edit-tab-info" } }, [
+    _c("div", { staticClass: "vx-row" }, [
+      _c("div", { staticClass: "vx-col w-full md:w-1/2" }, [
+        _c(
+          "div",
+          { staticClass: "flex items-end" },
+          [
+            _c("feather-icon", {
+              staticClass: "mr-2",
+              attrs: { icon: "UserIcon", svgClasses: "w-5 h-5" }
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "leading-none font-medium" }, [
+              _vm._v("Personal Information")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c(
+              "div",
+              { staticClass: "mt-4" },
+              [
+                _c("label", { staticClass: "text-sm" }, [_vm._v("Birth Date")]),
+                _vm._v(" "),
+                _c("flat-pickr", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "w-full",
+                  attrs: {
+                    config: { dateFormat: "d F Y", maxDate: new Date() },
+                    name: "dob"
+                  },
+                  model: {
+                    value: _vm.data_local.dob,
+                    callback: function($$v) {
+                      _vm.$set(_vm.data_local, "dob", $$v)
+                    },
+                    expression: "data_local.dob"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("dob"),
+                        expression: "errors.has('dob')"
+                      }
+                    ],
+                    staticClass: "text-danger text-sm"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("dob")))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("vs-input", {
+              directives: [
+                {
+                  name: "validate",
+                  rawName: "v-validate",
+                  value: { regex: "^\\+?([0-9]+)$" },
+                  expression: "{regex: '^\\\\+?([0-9]+)$' }"
+                }
+              ],
+              staticClass: "w-full mt-4",
+              attrs: { label: "Mobile", name: "mobile" },
+              model: {
+                value: _vm.data_local.mobile,
+                callback: function($$v) {
+                  _vm.$set(_vm.data_local, "mobile", $$v)
+                },
+                expression: "data_local.mobile"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errors.has("mobile"),
+                    expression: "errors.has('mobile')"
+                  }
+                ],
+                staticClass: "text-danger text-sm"
+              },
+              [_vm._v(_vm._s(_vm.errors.first("mobile")))]
+            ),
+            _vm._v(" "),
+            _c("vs-input", {
+              directives: [
+                {
+                  name: "validate",
+                  rawName: "v-validate",
+                  value: "url:require_protocol",
+                  expression: "'url:require_protocol'"
+                }
+              ],
+              staticClass: "w-full mt-4",
+              attrs: {
+                label: "Website",
+                name: "website",
+                "data-vv-as": "field"
+              },
+              model: {
+                value: _vm.data_local.website,
+                callback: function($$v) {
+                  _vm.$set(_vm.data_local, "website", $$v)
+                },
+                expression: "data_local.website"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errors.has("website"),
+                    expression: "errors.has('website')"
+                  }
+                ],
+                staticClass: "text-danger text-sm"
+              },
+              [_vm._v(_vm._s(_vm.errors.first("website")))]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "mt-4" },
+              [
+                _c("label", { staticClass: "text-sm" }, [_vm._v("Languages")]),
+                _vm._v(" "),
+                _c("v-select", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  attrs: {
+                    multiple: "",
+                    closeOnSelect: false,
+                    options: _vm.langOptions,
+                    name: "lang_known",
+                    dir: _vm.$vs.rtl ? "rtl" : "ltr"
+                  },
+                  model: {
+                    value: _vm.data_local.languages_known,
+                    callback: function($$v) {
+                      _vm.$set(_vm.data_local, "languages_known", $$v)
+                    },
+                    expression: "data_local.languages_known"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("lang_known"),
+                        expression: "errors.has('lang_known')"
+                      }
+                    ],
+                    staticClass: "text-danger text-sm"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("lang_known")))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-4" }, [
+              _c("label", { staticClass: "text-sm" }, [_vm._v("Gender")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mt-2" },
+                [
+                  _c(
+                    "vs-radio",
+                    {
+                      staticClass: "mr-4",
+                      attrs: { "vs-value": "male" },
+                      model: {
+                        value: _vm.data_local.gender,
+                        callback: function($$v) {
+                          _vm.$set(_vm.data_local, "gender", $$v)
+                        },
+                        expression: "data_local.gender"
+                      }
+                    },
+                    [_vm._v("Male")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-radio",
+                    {
+                      staticClass: "mr-4",
+                      attrs: { "vs-value": "female" },
+                      model: {
+                        value: _vm.data_local.gender,
+                        callback: function($$v) {
+                          _vm.$set(_vm.data_local, "gender", $$v)
+                        },
+                        expression: "data_local.gender"
+                      }
+                    },
+                    [_vm._v("Female")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-radio",
+                    {
+                      attrs: { "vs-value": "other" },
+                      model: {
+                        value: _vm.data_local.gender,
+                        callback: function($$v) {
+                          _vm.$set(_vm.data_local, "gender", $$v)
+                        },
+                        expression: "data_local.gender"
+                      }
+                    },
+                    [_vm._v("Other")]
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-6" }, [
+              _c("label", [_vm._v("Contact Options")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex flex-wrap mt-1" },
+                [
+                  _c(
+                    "vs-checkbox",
+                    {
+                      staticClass: "mr-4 mb-2",
+                      attrs: { "vs-value": "email" },
+                      model: {
+                        value: _vm.data_local.contact_options,
+                        callback: function($$v) {
+                          _vm.$set(_vm.data_local, "contact_options", $$v)
+                        },
+                        expression: "data_local.contact_options"
+                      }
+                    },
+                    [_vm._v("Email")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-checkbox",
+                    {
+                      staticClass: "mr-4 mb-2",
+                      attrs: { "vs-value": "message" },
+                      model: {
+                        value: _vm.data_local.contact_options,
+                        callback: function($$v) {
+                          _vm.$set(_vm.data_local, "contact_options", $$v)
+                        },
+                        expression: "data_local.contact_options"
+                      }
+                    },
+                    [_vm._v("Message")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-checkbox",
+                    {
+                      staticClass: " mb-2",
+                      attrs: { "vs-value": "Phone" },
+                      model: {
+                        value: _vm.data_local.contact_options,
+                        callback: function($$v) {
+                          _vm.$set(_vm.data_local, "contact_options", $$v)
+                        },
+                        expression: "data_local.contact_options"
+                      }
+                    },
+                    [_vm._v("Phone")]
+                  )
+                ],
+                1
+              )
+            ])
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "vx-col w-full md:w-1/2" }, [
+        _c(
+          "div",
+          { staticClass: "flex items-end md:mt-0 mt-base" },
+          [
+            _c("feather-icon", {
+              staticClass: "mr-2",
+              attrs: { icon: "MapPinIcon", svgClasses: "w-5 h-5" }
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "leading-none font-medium" }, [
+              _vm._v("Address")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("vs-input", {
+              directives: [
+                {
+                  name: "validate",
+                  rawName: "v-validate",
+                  value: "required",
+                  expression: "'required'"
+                }
+              ],
+              staticClass: "w-full mt-4",
+              attrs: { label: "Address Line 1", name: "addd_line_1" },
+              model: {
+                value: _vm.data_local.location.add_line_1,
+                callback: function($$v) {
+                  _vm.$set(_vm.data_local.location, "add_line_1", $$v)
+                },
+                expression: "data_local.location.add_line_1"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errors.has("addd_line_1"),
+                    expression: "errors.has('addd_line_1')"
+                  }
+                ],
+                staticClass: "text-danger text-sm"
+              },
+              [_vm._v(_vm._s(_vm.errors.first("addd_line_1")))]
+            ),
+            _vm._v(" "),
+            _c("vs-input", {
+              staticClass: "w-full mt-4",
+              attrs: { label: "Address Line 2" },
+              model: {
+                value: _vm.data_local.location.add_line_2,
+                callback: function($$v) {
+                  _vm.$set(_vm.data_local.location, "add_line_2", $$v)
+                },
+                expression: "data_local.location.add_line_2"
+              }
+            }),
+            _vm._v(" "),
+            _c("vs-input", {
+              directives: [
+                {
+                  name: "validate",
+                  rawName: "v-validate",
+                  value: "required|numeric",
+                  expression: "'required|numeric'"
+                }
+              ],
+              staticClass: "w-full mt-4",
+              attrs: { label: "Post Code", name: "post_code" },
+              model: {
+                value: _vm.data_local.location.post_code,
+                callback: function($$v) {
+                  _vm.$set(_vm.data_local.location, "post_code", $$v)
+                },
+                expression: "data_local.location.post_code"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errors.has("post_code"),
+                    expression: "errors.has('post_code')"
+                  }
+                ],
+                staticClass: "text-danger text-sm"
+              },
+              [_vm._v(_vm._s(_vm.errors.first("post_code")))]
+            ),
+            _vm._v(" "),
+            _c("vs-input", {
+              directives: [
+                {
+                  name: "validate",
+                  rawName: "v-validate",
+                  value: "required|alpha",
+                  expression: "'required|alpha'"
+                }
+              ],
+              staticClass: "w-full mt-4",
+              attrs: { label: "City", name: "city" },
+              model: {
+                value: _vm.data_local.location.city,
+                callback: function($$v) {
+                  _vm.$set(_vm.data_local.location, "city", $$v)
+                },
+                expression: "data_local.location.city"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errors.has("city"),
+                    expression: "errors.has('city')"
+                  }
+                ],
+                staticClass: "text-danger text-sm"
+              },
+              [_vm._v(_vm._s(_vm.errors.first("city")))]
+            ),
+            _vm._v(" "),
+            _c("vs-input", {
+              directives: [
+                {
+                  name: "validate",
+                  rawName: "v-validate",
+                  value: "required|alpha",
+                  expression: "'required|alpha'"
+                }
+              ],
+              staticClass: "w-full mt-4",
+              attrs: { label: "State", name: "state" },
+              model: {
+                value: _vm.data_local.location.state,
+                callback: function($$v) {
+                  _vm.$set(_vm.data_local.location, "state", $$v)
+                },
+                expression: "data_local.location.state"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errors.has("state"),
+                    expression: "errors.has('state')"
+                  }
+                ],
+                staticClass: "text-danger text-sm"
+              },
+              [_vm._v(_vm._s(_vm.errors.first("state")))]
+            ),
+            _vm._v(" "),
+            _c("vs-input", {
+              directives: [
+                {
+                  name: "validate",
+                  rawName: "v-validate",
+                  value: "required|alpha",
+                  expression: "'required|alpha'"
+                }
+              ],
+              staticClass: "w-full mt-4",
+              attrs: { label: "Country", name: "country" },
+              model: {
+                value: _vm.data_local.location.country,
+                callback: function($$v) {
+                  _vm.$set(_vm.data_local.location, "country", $$v)
+                },
+                expression: "data_local.location.country"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errors.has("country"),
+                    expression: "errors.has('country')"
+                  }
+                ],
+                staticClass: "text-danger text-sm"
+              },
+              [_vm._v(_vm._s(_vm.errors.first("country")))]
+            )
+          ],
+          1
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c("div", { staticClass: "vx-col w-full" }, [
+        _c(
+          "div",
+          { staticClass: "mt-8 flex flex-wrap items-center justify-end" },
+          [
+            _c(
+              "vs-button",
+              {
+                staticClass: "ml-auto mt-2",
+                attrs: { disabled: !_vm.validateForm },
+                on: { click: _vm.save_changes }
+              },
+              [_vm._v("Save Changes")]
+            ),
+            _vm._v(" "),
+            _c(
+              "vs-button",
+              {
+                staticClass: "ml-4 mt-2",
+                attrs: { type: "border", color: "warning" },
+                on: { click: _vm.reset_data }
+              },
+              [_vm._v("Reset")]
+            )
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
 
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Afrikaans',
-  ['Januarie', 'Februarie', 'Maart', 'April', 'Mei', 'Junie', 'Julie', 'Augustus', 'September', 'Oktober', 'November', 'Desember'],
-  ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
-  ['So.', 'Ma.', 'Di.', 'Wo.', 'Do.', 'Vr.', 'Sa.']
-));
 
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/ar.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/ar.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=template&id=7d92312e&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=template&id=7d92312e& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "user-edit-tab-info" } }, [
+    _c("div", { staticClass: "vx-row" }, [
+      _c(
+        "div",
+        { staticClass: "vx-col w-full md:w-1/2" },
+        [
+          _c("vs-input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "url:require_protocol",
+                expression: "'url:require_protocol'"
+              }
+            ],
+            staticClass: "w-full",
+            attrs: {
+              "icon-pack": "feather",
+              icon: "icon-twitter",
+              label: "Twitter",
+              "icon-no-border": "",
+              name: "twitter"
+            },
+            model: {
+              value: _vm.data_local.social_links.twitter,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local.social_links, "twitter", $$v)
+              },
+              expression: "data_local.social_links.twitter"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("twitter"),
+                  expression: "errors.has('twitter')"
+                }
+              ],
+              staticClass: "text-danger text-sm"
+            },
+            [_vm._v(_vm._s(_vm.errors.first("twitter")))]
+          ),
+          _vm._v(" "),
+          _c("vs-input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "url:require_protocol",
+                expression: "'url:require_protocol'"
+              }
+            ],
+            staticClass: "w-full mt-4",
+            attrs: {
+              "icon-pack": "feather",
+              icon: "icon-facebook",
+              label: "Facebook",
+              "icon-no-border": "",
+              name: "facebook"
+            },
+            model: {
+              value: _vm.data_local.social_links.facebook,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local.social_links, "facebook", $$v)
+              },
+              expression: "data_local.social_links.facebook"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("facebook"),
+                  expression: "errors.has('facebook')"
+                }
+              ],
+              staticClass: "text-danger text-sm"
+            },
+            [_vm._v(_vm._s(_vm.errors.first("facebook")))]
+          ),
+          _vm._v(" "),
+          _c("vs-input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "url:require_protocol",
+                expression: "'url:require_protocol'"
+              }
+            ],
+            staticClass: "w-full mt-4",
+            attrs: {
+              "icon-pack": "feather",
+              icon: "icon-instagram",
+              label: "Instagram",
+              "icon-no-border": "",
+              name: "instagram"
+            },
+            model: {
+              value: _vm.data_local.social_links.instagram,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local.social_links, "instagram", $$v)
+              },
+              expression: "data_local.social_links.instagram"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("instagram"),
+                  expression: "errors.has('instagram')"
+                }
+              ],
+              staticClass: "text-danger text-sm"
+            },
+            [_vm._v(_vm._s(_vm.errors.first("instagram")))]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "vx-col w-full md:w-1/2" },
+        [
+          _c("vs-input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "url:require_protocol",
+                expression: "'url:require_protocol'"
+              }
+            ],
+            staticClass: "w-full mt-4 md:mt-0",
+            attrs: {
+              "icon-pack": "feather",
+              icon: "icon-github",
+              label: "GitHub",
+              "icon-no-border": "",
+              name: "github"
+            },
+            model: {
+              value: _vm.data_local.social_links.github,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local.social_links, "github", $$v)
+              },
+              expression: "data_local.social_links.github"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("github"),
+                  expression: "errors.has('github')"
+                }
+              ],
+              staticClass: "text-danger text-sm"
+            },
+            [_vm._v(_vm._s(_vm.errors.first("github")))]
+          ),
+          _vm._v(" "),
+          _c("vs-input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "url:require_protocol",
+                expression: "'url:require_protocol'"
+              }
+            ],
+            staticClass: "w-full mt-4",
+            attrs: {
+              "icon-pack": "feather",
+              icon: "icon-codepen",
+              label: "CodePen",
+              "icon-no-border": "",
+              name: "codepen"
+            },
+            model: {
+              value: _vm.data_local.social_links.codepen,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local.social_links, "codepen", $$v)
+              },
+              expression: "data_local.social_links.codepen"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("codepen"),
+                  expression: "errors.has('codepen')"
+                }
+              ],
+              staticClass: "text-danger text-sm"
+            },
+            [_vm._v(_vm._s(_vm.errors.first("codepen")))]
+          ),
+          _vm._v(" "),
+          _c("vs-input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "url:require_protocol",
+                expression: "'url:require_protocol'"
+              }
+            ],
+            staticClass: "w-full mt-4",
+            attrs: {
+              "icon-pack": "feather",
+              icon: "icon-slack",
+              label: "Slack",
+              "icon-no-border": "",
+              name: "slack"
+            },
+            model: {
+              value: _vm.data_local.social_links.slack,
+              callback: function($$v) {
+                _vm.$set(_vm.data_local.social_links, "slack", $$v)
+              },
+              expression: "data_local.social_links.slack"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("slack"),
+                  expression: "errors.has('slack')"
+                }
+              ],
+              staticClass: "text-danger text-sm"
+            },
+            [_vm._v(_vm._s(_vm.errors.first("slack")))]
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c("div", { staticClass: "vx-col w-full" }, [
+        _c(
+          "div",
+          { staticClass: "mt-8 flex flex-wrap items-center justify-end" },
+          [
+            _c(
+              "vs-button",
+              {
+                staticClass: "ml-auto mt-2",
+                attrs: { disabled: !_vm.validateForm },
+                on: { click: _vm.save_changes }
+              },
+              [_vm._v("Save Changes")]
+            ),
+            _vm._v(" "),
+            _c(
+              "vs-button",
+              {
+                staticClass: "ml-4 mt-2",
+                attrs: { type: "border", color: "warning" },
+                on: { click: _vm.reset_data }
+              },
+              [_vm._v("Reset")]
+            )
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
 
-
-const language = new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Arabic',
-  ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوڤمبر', 'ديسمبر'],
-  ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوڤمبر', 'ديسمبر'],
-  ['أحد', 'إثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت']
-)
-
-language.rtl = true
-
-/* harmony default export */ __webpack_exports__["default"] = (language);
 
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/bg.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/bg.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Bulgarian',
-  ['Януари', 'Февруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември'],
-  ['Ян', 'Фев', 'Мар', 'Апр', 'Май', 'Юни', 'Юли', 'Авг', 'Сеп', 'Окт', 'Ное', 'Дек'],
-  ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/bs.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/bs.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Bosnian',
-  ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'Avgust', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec'],
-  ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/ca.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/ca.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Catalan',
-  ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'],
-  ['Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Des'],
-  ['Diu', 'Dil', 'Dmr', 'Dmc', 'Dij', 'Div', 'Dis']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/cs.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/cs.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Czech',
-  ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
-  ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čec', 'srp', 'zář', 'říj', 'lis', 'pro'],
-  ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/da.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/da.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Danish',
-  ['Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'December'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
-  ['Sø', 'Ma', 'Ti', 'On', 'To', 'Fr', 'Lø']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/de.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/de.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'German',
-  ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-  ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-  ['So.', 'Mo.', 'Di.', 'Mi.', 'Do.', 'Fr.', 'Sa.']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/ee.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/ee.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Estonian',
-  ['Jaanuar', 'Veebruar', 'Märts', 'Aprill', 'Mai', 'Juuni', 'Juuli', 'August', 'September', 'Oktoober', 'November', 'Detsember'],
-  ['Jaan', 'Veebr', 'Märts', 'Apr', 'Mai', 'Juuni', 'Juuli', 'Aug', 'Sept', 'Okt', 'Nov', 'Dets'],
-  ['P', 'E', 'T', 'K', 'N', 'R', 'L']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/el.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/el.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Greek',
-  ['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάϊος', 'Ιούνιος', 'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώβριος', 'Νοέμβριος', 'Δεκέμβριος'],
-  ['Ιαν', 'Φεβ', 'Μαρ', 'Απρ', 'Μαι', 'Ιουν', 'Ιουλ', 'Αυγ', 'Σεπ', 'Οκτ', 'Νοε', 'Δεκ'],
-  ['Κυρ', 'Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/en.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/en.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'English',
-  ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/es.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/es.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Spanish',
-  ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-  ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-  ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/fa.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/fa.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Persian',
-  ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'],
-  ['فرو', 'ارد', 'خرد', 'تیر', 'مرد', 'شهر', 'مهر', 'آبا', 'آذر', 'دی', 'بهم', 'اسف'],
-  ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/fi.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/fi.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Finnish',
-  ['tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu'],
-  ['tammi', 'helmi', 'maalis', 'huhti', 'touko', 'kesä', 'heinä', 'elo', 'syys', 'loka', 'marras', 'joulu'],
-  ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/fo.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/fo.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Faroese',
-  ['Januar', 'Februar', 'Mars', 'Apríl', 'Mai', 'Juni', 'Juli', 'August', 'Septembur', 'Oktobur', 'Novembur', 'Desembur'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
-  ['Sun', 'Mán', 'Týs', 'Mik', 'Hós', 'Frí', 'Ley']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/fr.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/fr.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'French',
-  ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-  ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
-  ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/ge.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/ge.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Georgia',
-  ['იანვარი', 'თებერვალი', 'მარტი', 'აპრილი', 'მაისი', 'ივნისი', 'ივლისი', 'აგვისტო', 'სექტემბერი', 'ოქტომბერი', 'ნოემბერი', 'დეკემბერი'],
-  ['იან', 'თებ', 'მარ', 'აპრ', 'მაი', 'ივნ', 'ივლ', 'აგვ', 'სექ', 'ოქტ', 'ნოე', 'დეკ'],
-  ['კვი', 'ორშ', 'სამ', 'ოთხ', 'ხუთ', 'პარ', 'შაბ']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/gl.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/gl.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Galician',
-  ['Xaneiro', 'Febreiro', 'Marzo', 'Abril', 'Maio', 'Xuño', 'Xullo', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Decembro'],
-  ['Xan', 'Feb', 'Mar', 'Abr', 'Mai', 'Xuñ', 'Xul', 'Ago', 'Set', 'Out', 'Nov', 'Dec'],
-  ['Dom', 'Lun', 'Mar', 'Mér', 'Xov', 'Ven', 'Sáb']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/he.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/he.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-const language = new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Hebrew',
-  ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
-  ['ינו', 'פבר', 'מרץ', 'אפר', 'מאי', 'יונ', 'יול', 'אוג', 'ספט', 'אוק', 'נוב', 'דצמ'],
-  ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']
-)
-
-language.rtl = true
-
-/* harmony default export */ __webpack_exports__["default"] = (language);
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/hr.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/hr.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Croatian',
-  ['Siječanj', 'Veljača', 'Ožujak', 'Travanj', 'Svibanj', 'Lipanj', 'Srpanj', 'Kolovoz', 'Rujan', 'Listopad', 'Studeni', 'Prosinac'],
-  ['Sij', 'Velj', 'Ožu', 'Tra', 'Svi', 'Lip', 'Srp', 'Kol', 'Ruj', 'Lis', 'Stu', 'Pro'],
-  ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/hu.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/hu.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Hungarian',
-  ['Január', 'Február', 'Március', 'Április', 'Május', 'Június', 'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
-  ['Jan', 'Febr', 'Márc', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Szept', 'Okt', 'Nov', 'Dec'],
-  ['Vas', 'Hét', 'Ke', 'Sze', 'Csü', 'Pén', 'Szo']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/id.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/id.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Indonesian',
-  ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
-  ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/is.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/is.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Icelandic',
-  ['Janúar', 'Febrúar', 'Mars', 'Apríl', 'Maí', 'Júní', 'Júlí', 'Ágúst', 'September', 'Október', 'Nóvember', 'Desember'],
-  ['Jan', 'Feb', 'Mars', 'Apr', 'Maí', 'Jún', 'Júl', 'Ágú', 'Sep', 'Okt', 'Nóv', 'Des'],
-  ['Sun', 'Mán', 'Þri', 'Mið', 'Fim', 'Fös', 'Lau']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/it.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/it.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Italian',
-  ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-  ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
-  ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/ja.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/ja.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-const language = new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Japanese',
-  ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-  ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-  ['日', '月', '火', '水', '木', '金', '土']
-)
-
-language.yearSuffix = '年'
-language.ymd = true
-
-/* harmony default export */ __webpack_exports__["default"] = (language);
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/kk.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/kk.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Kazakh',
-  ['Қаңтар', 'Ақпан', 'Наурыз', 'Сәуір', 'Мамыр', 'Маусым', 'Шілде', 'Тамыз', 'Қыркүйек', 'Қазан', 'Қараша', 'Желтоқсан'],
-  ['Қаң', 'Ақп', 'Нау', 'Сәу', 'Мам', 'Мау', 'Шіл', 'Там', 'Қыр', 'Қаз', 'Қар', 'Жел'],
-  ['Жк', 'Дй', 'Сй', 'Ср', 'Бй', 'Жм', 'Сн']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/ko.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/ko.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-const language = new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Korean',
-  ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-  ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-  ['일', '월', '화', '수', '목', '금', '토']
-)
-language.yearSuffix = '년'
-language.ymd = true
-
-/* harmony default export */ __webpack_exports__["default"] = (language);
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/lb.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/lb.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Luxembourgish',
-  ['Januar', 'Februar', 'Mäerz', 'Abrëll', 'Mee', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-  ['Jan', 'Feb', 'Mäe', 'Abr', 'Mee', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-  ['So.', 'Mé.', 'Dë.', 'Më.', 'Do.', 'Fr.', 'Sa.']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/lt.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/lt.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-const language = new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Lithuanian',
-  ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'],
-  ['Sau', 'Vas', 'Kov', 'Bal', 'Geg', 'Bir', 'Lie', 'Rugp', 'Rugs', 'Spa', 'Lap', 'Gru'],
-  ['Sek', 'Pir', 'Ant', 'Tre', 'Ket', 'Pen', 'Šeš']
-)
-
-language.ymd = true
-
-/* harmony default export */ __webpack_exports__["default"] = (language);
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/lv.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/lv.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Latvian',
-  ['Janvāris', 'Februāris', 'Marts', 'Aprīlis', 'Maijs', 'Jūnijs', 'Jūlijs', 'Augusts', 'Septembris', 'Oktobris', 'Novembris', 'Decembris'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jūn', 'Jūl', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
-  ['Sv', 'Pr', 'Ot', 'Tr', 'Ce', 'Pk', 'Se']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/mk.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/mk.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Macedonian',
-  ['Јануари', 'Февруари', 'Март', 'Април', 'Мај', 'Јуни', 'Јули', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември'],
-  ['Јан', 'Фев', 'Мар', 'Апр', 'Мај', 'Јун', 'Јул', 'Авг', 'Сеп', 'Окт', 'Ное', 'Дек'],
-  ['Нед', 'Пон', 'Вто', 'Сре', 'Чет', 'Пет', 'Саб']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/mn.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/mn.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-const language = new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Mongolia',
-  ['1 дүгээр сар', '2 дугаар сар', '3 дугаар сар', '4 дүгээр сар', '5 дугаар сар', '6 дугаар сар', '7 дугаар сар', '8 дугаар сар', '9 дүгээр сар', '10 дугаар сар', '11 дүгээр сар', '12 дугаар сар'],
-  ['1-р сар', '2-р сар', '3-р сар', '4-р сар', '5-р сар', '6-р сар', '7-р сар', '8-р сар', '9-р сар', '10-р сар', '11-р сар', '12-р сар'],
-  ['Ня', 'Да', 'Мя', 'Лх', 'Пү', 'Ба', 'Бя']
-)
-
-language.ymd = true
-
-/* harmony default export */ __webpack_exports__["default"] = (language);
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/nb-NO.js":
+/***/ "./resources/js/src/store/user-management/moduleUserManagement.js":
 /*!************************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/nb-NO.js ***!
+  !*** ./resources/js/src/store/user-management/moduleUserManagement.js ***!
   \************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
+/* harmony import */ var _moduleUserManagementState_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleUserManagementState.js */ "./resources/js/src/store/user-management/moduleUserManagementState.js");
+/* harmony import */ var _moduleUserManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleUserManagementMutations.js */ "./resources/js/src/store/user-management/moduleUserManagementMutations.js");
+/* harmony import */ var _moduleUserManagementActions_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleUserManagementActions.js */ "./resources/js/src/store/user-management/moduleUserManagementActions.js");
+/* harmony import */ var _moduleUserManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleUserManagementGetters.js */ "./resources/js/src/store/user-management/moduleUserManagementGetters.js");
+/*=========================================================================================
+  File Name: moduleUserManagement.js
+  Description: Calendar Module
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
 
 
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Norwegian Bokmål',
-  ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
-  ['Sø', 'Ma', 'Ti', 'On', 'To', 'Fr', 'Lø']
-));
 
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  isRegistered: false,
+  namespaced: true,
+  state: _moduleUserManagementState_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleUserManagementMutations_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleUserManagementActions_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleUserManagementGetters_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/nl.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/nl.js ***!
-  \*********************************************************************/
+/***/ "./resources/js/src/store/user-management/moduleUserManagementActions.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementActions.js ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/axios */ "./resources/js/src/axios.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 
+/*=========================================================================================
+  File Name: moduleCalendarActions.js
+  Description: Calendar Module Actions
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
 
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Dutch',
-  ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'],
-  ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
-  ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za']
-));
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // addItem({ commit }, item) {
+  //   return new Promise((resolve, reject) => {
+  //     axios.post("/api/data-list/products/", {item: item})
+  //       .then((response) => {
+  //         commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+  //         resolve(response)
+  //       })
+  //       .catch((error) => { reject(error) })
+  //   })
+  // },
+  createCustomer: function createCustomer(_ref, customer) {
+    var commit = _ref.commit;
+    alert("clicked");
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("/api/customers/", {
+        customer: customer
+      }).then(function (response) {
+        alert(response); // commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
 
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  fetchUsers: function fetchUsers(_ref2) {
+    var commit = _ref2.commit;
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/customers").then(function (response) {
+        commit('SET_USERS', response.data);
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  fetchUser: function fetchUser(_ref3, userId) {
+    _objectDestructuringEmpty(_ref3);
+
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/customers/".concat(userId)).then(function (response) {
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  removeRecord: function removeRecord(_ref4, userId) {
+    var commit = _ref4.commit;
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("/api/user-management/users/".concat(userId)).then(function (response) {
+        commit('REMOVE_RECORD', userId);
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  },
+  fetchTransactions: function fetchTransactions(_ref5) {
+    var commit = _ref5.commit;
+    return new Promise(function (resolve, reject) {
+      _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/transactions").then(function (response) {
+        commit('SET_TRANSACTIONS', response.data);
+        resolve(response);
+      })["catch"](function (error) {
+        reject(error);
+      });
+    });
+  }
+});
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/pl.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/pl.js ***!
-  \*********************************************************************/
+/***/ "./resources/js/src/store/user-management/moduleUserManagementGetters.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementGetters.js ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Polish',
-  ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'],
-  ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'],
-  ['Nd', 'Pn', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob']
-));
-
+/*=========================================================================================
+  File Name: moduleCalendarGetters.js
+  Description: Calendar Module Getters
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/pt-BR.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/pt-BR.js ***!
-  \************************************************************************/
+/***/ "./resources/js/src/store/user-management/moduleUserManagementMutations.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementMutations.js ***!
+  \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Brazilian',
-  ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-  ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-  ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
-));
-
+/*=========================================================================================
+  File Name: moduleCalendarMutations.js
+  Description: Calendar Module Mutations
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+/* harmony default export */ __webpack_exports__["default"] = ({
+  SET_USERS: function SET_USERS(state, users) {
+    state.users = users;
+  },
+  REMOVE_RECORD: function REMOVE_RECORD(state, itemId) {
+    var userIndex = state.users.findIndex(function (u) {
+      return u.id == itemId;
+    });
+    state.users.splice(userIndex, 1);
+  }
+});
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/ro.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/ro.js ***!
-  \*********************************************************************/
+/***/ "./resources/js/src/store/user-management/moduleUserManagementState.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/store/user-management/moduleUserManagementState.js ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Romanian',
-  ['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie'],
-  ['Ian', 'Feb', 'Mar', 'Apr', 'Mai', 'Iun', 'Iul', 'Aug', 'Sep', 'Oct', 'Noi', 'Dec'],
-  ['D', 'L', 'Ma', 'Mi', 'J', 'V', 'S']
-));
-
+/*=========================================================================================
+  File Name: moduleCalendarState.js
+  Description: Calendar Module State
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+/* harmony default export */ __webpack_exports__["default"] = ({
+  users: []
+});
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/ru.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/ru.js ***!
-  \*********************************************************************/
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEdit.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEdit.vue ***!
+  \*****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
+/* harmony import */ var _UserEdit_vue_vue_type_template_id_480dbf29___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserEdit.vue?vue&type=template&id=480dbf29& */ "./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=template&id=480dbf29&");
+/* harmony import */ var _UserEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserEdit.vue?vue&type=script&lang=js& */ "./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Russian',
-  ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-  ['Янв', 'Февр', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
-  ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
-));
 
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserEdit_vue_vue_type_template_id_480dbf29___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserEdit_vue_vue_type_template_id_480dbf29___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/views/apps/user/user-edit/UserEdit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/sk.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/sk.js ***!
-  \*********************************************************************/
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEdit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
+/***/ }),
 
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Slovakian',
-  ['január', 'február', 'marec', 'apríl', 'máj', 'jún', 'júl', 'august', 'september', 'október', 'november', 'december'],
-  ['jan', 'feb', 'mar', 'apr', 'máj', 'jún', 'júl', 'aug', 'sep', 'okt', 'nov', 'dec'],
-  ['ne', 'po', 'ut', 'st', 'št', 'pi', 'so']
-));
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=template&id=480dbf29&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=template&id=480dbf29& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEdit_vue_vue_type_template_id_480dbf29___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEdit.vue?vue&type=template&id=480dbf29& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEdit.vue?vue&type=template&id=480dbf29&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEdit_vue_vue_type_template_id_480dbf29___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEdit_vue_vue_type_template_id_480dbf29___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/sl-SI.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/sl-SI.js ***!
-  \************************************************************************/
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
+/* harmony import */ var _UserEditTabAccount_vue_vue_type_template_id_12873ee1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserEditTabAccount.vue?vue&type=template&id=12873ee1& */ "./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=template&id=12873ee1&");
+/* harmony import */ var _UserEditTabAccount_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserEditTabAccount.vue?vue&type=script&lang=js& */ "./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Sloveian',
-  ['Januar', 'Februar', 'Marec', 'April', 'Maj', 'Junij', 'Julij', 'Avgust', 'September', 'Oktober', 'November', 'December'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec'],
-  ['Ned', 'Pon', 'Tor', 'Sre', 'Čet', 'Pet', 'Sob']
-));
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserEditTabAccount_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserEditTabAccount_vue_vue_type_template_id_12873ee1___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserEditTabAccount_vue_vue_type_template_id_12873ee1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabAccount_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditTabAccount.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabAccount_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=template&id=12873ee1&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=template&id=12873ee1& ***!
+  \**********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabAccount_vue_vue_type_template_id_12873ee1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditTabAccount.vue?vue&type=template&id=12873ee1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabAccount.vue?vue&type=template&id=12873ee1&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabAccount_vue_vue_type_template_id_12873ee1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabAccount_vue_vue_type_template_id_12873ee1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/sr-CYRL.js":
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserEditTabInformation_vue_vue_type_template_id_3634e460___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserEditTabInformation.vue?vue&type=template&id=3634e460& */ "./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=template&id=3634e460&");
+/* harmony import */ var _UserEditTabInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserEditTabInformation.vue?vue&type=script&lang=js& */ "./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserEditTabInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserEditTabInformation_vue_vue_type_template_id_3634e460___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserEditTabInformation_vue_vue_type_template_id_3634e460___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditTabInformation.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=template&id=3634e460&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=template&id=3634e460& ***!
+  \**************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabInformation_vue_vue_type_template_id_3634e460___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditTabInformation.vue?vue&type=template&id=3634e460& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabInformation.vue?vue&type=template&id=3634e460&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabInformation_vue_vue_type_template_id_3634e460___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabInformation_vue_vue_type_template_id_3634e460___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue":
 /*!**************************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/sr-CYRL.js ***!
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue ***!
   \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
+/* harmony import */ var _UserEditTabSocial_vue_vue_type_template_id_7d92312e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserEditTabSocial.vue?vue&type=template&id=7d92312e& */ "./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=template&id=7d92312e&");
+/* harmony import */ var _UserEditTabSocial_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserEditTabSocial.vue?vue&type=script&lang=js& */ "./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Serbian in Cyrillic script',
-  ['Јануар', 'Фебруар', 'Март', 'Април', 'Мај', 'Јун', 'Јул', 'Август', 'Септембар', 'Октобар', 'Новембар', 'Децембар'],
-  ['Јан', 'Феб', 'Мар', 'Апр', 'Мај', 'Јун', 'Јул', 'Авг', 'Сеп', 'Окт', 'Нов', 'Дец'],
-  ['Нед', 'Пон', 'Уто', 'Сре', 'Чет', 'Пет', 'Суб']
-));
 
 
-/***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/sr.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/sr.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* normalize component */
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Serbian',
-  ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Jun', 'Jul', 'Avgust', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec'],
-  ['Ned', 'Pon', 'Uto', 'Sre', 'Čet', 'Pet', 'Sub']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/sv.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/sv.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Swedish',
-  ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
-  ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/th.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/th.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Thai',
-  ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
-  ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
-  ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/tr.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/tr.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Turkish',
-  ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
-  ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
-  ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/uk.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/uk.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Ukraine',
-  ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
-  ['Січ', 'Лют', 'Бер', 'Квіт', 'Трав', 'Чер', 'Лип', 'Серп', 'Вер', 'Жовт', 'Лист', 'Груд'],
-  ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
-));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/ur.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/ur.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-const language = new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Urdu',
-  ['جنوری', 'فروری', 'مارچ', 'اپریل', 'مئی', 'جون', 'جولائی', 'اگست', 'سپتمبر', 'اکتوبر', 'نومبر', 'دسمبر'],
-  ['جنوری', 'فروری', 'مارچ', 'اپریل', 'مئی', 'جون', 'جولائی', 'اگست', 'سپتمبر', 'اکتوبر', 'نومبر', 'دسمبر'],
-  ['اتوار', 'پیر', 'منگل', 'بدھ', 'جمعرات', 'جمعہ', 'ہفتہ']
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserEditTabSocial_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserEditTabSocial_vue_vue_type_template_id_7d92312e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserEditTabSocial_vue_vue_type_template_id_7d92312e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
 )
 
-language.rtl = true
-
-/* harmony default export */ __webpack_exports__["default"] = (language);
-
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/vi.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/vi.js ***!
-  \*********************************************************************/
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Vietnamese',
-  ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
-  ['T 01', 'T 02', 'T 03', 'T 04', 'T 05', 'T 06', 'T 07', 'T 08', 'T 09', 'T 10', 'T 11', 'T 12'],
-  ['CN', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7']
-));
-
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabSocial_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditTabSocial.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabSocial_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/zh-HK.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/zh-HK.js ***!
-  \************************************************************************/
-/*! exports provided: default */
+/***/ "./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=template&id=7d92312e&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=template&id=7d92312e& ***!
+  \*********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabSocial_vue_vue_type_template_id_7d92312e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditTabSocial.vue?vue&type=template&id=7d92312e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/apps/user/user-edit/UserEditTabSocial.vue?vue&type=template&id=7d92312e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabSocial_vue_vue_type_template_id_7d92312e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditTabSocial_vue_vue_type_template_id_7d92312e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
-const language = new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Chinese_HK',
-  ['壹月', '贰月', '叁月', '肆月', '伍月', '陆月', '柒月', '捌月', '玖月', '拾月', '拾壹月', '拾贰月'],
-  ['壹月', '贰月', '叁月', '肆月', '伍月', '陆月', '柒月', '捌月', '玖月', '拾月', '拾壹月', '拾贰月'],
-  ['日', '壹', '贰', '叁', '肆', '伍', '陆']
-)
-language.yearSuffix = '年'
-
-/* harmony default export */ __webpack_exports__["default"] = (language);
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datepicker/src/locale/translations/zh.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/vuejs-datepicker/src/locale/translations/zh.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Language */ "./node_modules/vuejs-datepicker/src/locale/Language.js");
-
-
-const language = new _Language__WEBPACK_IMPORTED_MODULE_0__["default"](
-  'Chinese',
-  ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-  ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-  ['日', '一', '二', '三', '四', '五', '六']
-)
-language.yearSuffix = '年'
-
-/* harmony default export */ __webpack_exports__["default"] = (language);
 
 
 /***/ })

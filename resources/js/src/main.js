@@ -92,6 +92,7 @@ import 'prismjs'
 
 // Feather font icon
 require('@assets/css/iconfont.css')
+// window.axios.defaults.baseURL = 'http://127.0.0.1';
 
 Vue.config.productionTip = false
 

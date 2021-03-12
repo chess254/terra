@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import axios from '@/axios'
 export default {
   data() {
     return {
@@ -72,10 +73,10 @@ export default {
     },
     loginJWT() {
 
-      if (!this.checkLogin()) return
+      // if (!this.checkLogin()) return
 
       // Loading
-      this.$vs.loading()
+      // this.$vs.loading()
 
       const payload = {
         checkbox_remember_me: this.checkbox_remember_me,
@@ -85,10 +86,42 @@ export default {
         }
       }
 
-      this.$store.dispatch('auth/loginJWT', payload)
-        .then(() => { this.$vs.loading.close() })
-        .catch(error => {
-          this.$vs.loading.close()
+      // this.$store.dispatch('auth/loginJWT', payload)
+      //   .then(() => { this.$vs.loading.close() })
+      //   .catch(error => {
+      //     this.$vs.loading.close()
+      //     this.$vs.notify({
+      //       title: 'Error',
+      //       text: error.message,
+      //       iconPack: 'feather',
+      //       icon: 'icon-alert-circle',
+      //       color: 'danger'
+      //     })
+      //   })
+      let self = this
+       axios.post('/api/auth/login/', {email: this.email, password: this.password})
+               .then(function (response){
+                 console.log(response.data.userData)
+                //  this.$vs.loading.close()
+                  if(response.data.userData.name) {
+              // Navigate User to homepage
+              self.$router.push(self.$router.currentRoute.query.to || '/')
+
+              // Set accessToken
+              localStorage.setItem("accessToken", response.data.access_token)
+
+              // Update user details
+              self.$store.commit('UPDATE_USER_INFO', response.data.userData, {root: true})
+
+              // Set bearer token in axios
+              self.$store.commit("SET_BEARER", response.data.access_token)
+
+              // resolve(response)
+              }
+                  // {{$course->completed}} = response.course.completed;
+               }).catch(error => {
+          // this.$vs.loading.close()
+          console.log(error)
           this.$vs.notify({
             title: 'Error',
             text: error.message,
