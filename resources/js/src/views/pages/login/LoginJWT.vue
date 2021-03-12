@@ -102,8 +102,11 @@ export default {
        axios.post("/api/auth/login", {email: this.email, password: this.password})
                .then(function (response){
                  console.log(response)
+                 if(response.data.error){
+                   console.log(response.data.error)
+                 }
                 //  this.$vs.loading.close()
-                  if(response.data.userData.name) {
+                 else if(response.data.userData.name) {
               // Navigate User to homepage
               self.$router.push(self.$router.currentRoute.query.to || '/')
 
